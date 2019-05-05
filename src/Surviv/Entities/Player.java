@@ -14,7 +14,7 @@ public class Player extends GameEntity
 	{
 		super(scene, SPRITE_PATH);
 		transform.scale = new Vec2f(0.1f, 0.1f);
-		//addBehavior(new TestRandomMove(this));
+		addBehavior(new TestRandomMove(this));
 	}
 
 

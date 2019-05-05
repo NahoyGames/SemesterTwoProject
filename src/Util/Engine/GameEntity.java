@@ -2,7 +2,6 @@ package Util.Engine;
 
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
@@ -12,18 +11,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class GameEntity implements IDrawable, IGameBehavior
+public abstract class GameEntity implements IDrawable, IEngineEventListener
 {
 	protected Transform2D transform;
 	protected Scene scene;
 
-	private List<GameBehavior> behaviors;
+	private List<EngineEventListener> behaviors;
 
 	private BufferedImage sprite;
 
 
 	// Instantiates the entity in the given scene
-	protected GameEntity(Scene scene, String spritePath, GameBehavior... behaviors)
+	protected GameEntity(Scene scene, String spritePath, EngineEventListener... behaviors)
 	{
 		this.scene = scene;
 		this.transform = new Transform2D();
@@ -35,7 +34,7 @@ public abstract class GameEntity implements IDrawable, IGameBehavior
 	}
 
 
-	public void addBehavior(GameBehavior behavior)
+	public void addBehavior(EngineEventListener behavior)
 	{
 		this.behaviors.add(behavior);
 		behavior.awake();
@@ -43,7 +42,7 @@ public abstract class GameEntity implements IDrawable, IGameBehavior
 	}
 
 
-	public void removeBehavior(GameBehavior behavior)
+	public void removeBehavior(EngineEventListener behavior)
 	{
 		this.behaviors.remove(behavior);
 		behavior.onDisable();
@@ -101,7 +100,7 @@ public abstract class GameEntity implements IDrawable, IGameBehavior
 	@Override
 	public void onSceneLoad()
 	{
-		for (GameBehavior b : behaviors)
+		for (EngineEventListener b : behaviors)
 		{
 			b.onSceneLoad();
 		}
@@ -111,7 +110,7 @@ public abstract class GameEntity implements IDrawable, IGameBehavior
 	@Override
 	public void awake()
 	{
-		for (GameBehavior b : behaviors)
+		for (EngineEventListener b : behaviors)
 		{
 			b.awake();
 		}
@@ -121,7 +120,7 @@ public abstract class GameEntity implements IDrawable, IGameBehavior
 	@Override
 	public void start()
 	{
-		for (GameBehavior b : behaviors)
+		for (EngineEventListener b : behaviors)
 		{
 			b.start();
 		}
@@ -131,7 +130,7 @@ public abstract class GameEntity implements IDrawable, IGameBehavior
 	@Override
 	public void update()
 	{
-		for (GameBehavior b : behaviors)
+		for (EngineEventListener b : behaviors)
 		{
 			b.update();
 		}
@@ -141,7 +140,7 @@ public abstract class GameEntity implements IDrawable, IGameBehavior
 	@Override
 	public void onDisable()
 	{
-		for (GameBehavior b : behaviors)
+		for (EngineEventListener b : behaviors)
 		{
 			b.update();
 		}
@@ -151,7 +150,7 @@ public abstract class GameEntity implements IDrawable, IGameBehavior
 	@Override
 	public void onSceneUnload()
 	{
-		for (GameBehavior b : behaviors)
+		for (EngineEventListener b : behaviors)
 		{
 			b.onSceneUnload();
 		}
@@ -161,7 +160,7 @@ public abstract class GameEntity implements IDrawable, IGameBehavior
 	@Override
 	public void onApplicationQuit()
 	{
-		for (GameBehavior b : behaviors)
+		for (EngineEventListener b : behaviors)
 		{
 			b.onApplicationQuit();
 		}

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class Scene implements IGameBehavior, IDrawable
+public class Scene implements IEngineEventListener, IDrawable
 {
 	private String name;
 
@@ -22,7 +22,7 @@ public class Scene implements IGameBehavior, IDrawable
 
 		// Camera ~ Only MUST have entity
 		// Also adds to array directly instead of using addEntity() to avoid double-callbacks
-		entities.add(activeCamera = new Camera(this));
+		entities.add(activeCamera = new Camera(this, Color.GREEN));
 	}
 
 

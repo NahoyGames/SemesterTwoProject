@@ -1,11 +1,11 @@
 package Util.Engine;
 
-public abstract class GameBehavior implements IGameBehavior
+public abstract class EngineEventListener implements IEngineEventListener
 {
 	private GameEntity entity;
 
 
-	public GameBehavior(GameEntity entity) { this.entity = entity; }
+	public EngineEventListener(GameEntity entity) { this.entity = entity; }
 
 	public GameEntity entity() { return entity; }
 

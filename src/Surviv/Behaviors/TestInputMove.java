@@ -3,7 +3,7 @@ package Surviv.Behaviors;
 import Util.Engine.*;
 import Util.Math.Vec2f;
 
-public class TestInputMove extends GameBehavior
+public class TestInputMove extends EngineEventListener
 {
 	public TestInputMove(GameEntity entity)
 	{
@@ -18,7 +18,8 @@ public class TestInputMove extends GameBehavior
 		float vertical = Engine.input().getAxis("Vertical");
 		float mouseY = Engine.input().getAxis("MouseX");
 
-		entity().transform().translate(new Vec2f(horizontal, vertical).scale(500 * Time.deltaTime()));
+		//System.out.println(horizontal);
+		entity().transform().translate(new Vec2f(horizontal, vertical).scale(50));
 		//entity().transform().rotation = mouseY;
 	}
 }

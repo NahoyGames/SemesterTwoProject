@@ -1,6 +1,6 @@
 package Util.Engine;
 
-public interface IGameBehavior
+public interface IEngineEventListener
 {
 	void onSceneLoad();
 

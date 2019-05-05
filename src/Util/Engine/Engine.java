@@ -2,15 +2,19 @@ package Util.Engine;
 
 import Surviv.SurvivGameScene;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
+import java.util.TimerTask;
 
 public class Engine
 {
 	/** CONFIGURATIONS **/
 	public static final String WINDOW_NAME = "My Game";
-	public static final int FRAMES_PER_SECOND = 60;
-	public static final int WINDOW_WIDTH = 600;
-	public static final int WINDOW_HEIGHT = 400;
+	public static final int FRAMES_PER_SECOND = 1200;
+	public static final int WINDOW_WIDTH = 900;
+	public static final int WINDOW_HEIGHT = 500;
 
 
 	// Scenes
@@ -42,7 +46,22 @@ public class Engine
 
 
 		// Game Loop
-		isPlaying = true;
+		Timer timer = new Timer(1000 / FRAMES_PER_SECOND, (ActionEvent e) ->
+		{
+			System.out.println("Game loop");
+			loadedScene.update();
+			loadedScene.draw(canvas.getRenderBuffer(), null); // TODO, takes too long
+			canvas.repaint();
+
+			Time.step();
+		});
+		timer.setRepeats(true);
+		timer.start();
+
+
+
+		/*isPlaying = true;
+		long nextTick = System.currentTimeMillis();
 		while (isPlaying)
 		{
 			loadedScene.update();
@@ -51,15 +70,26 @@ public class Engine
 
 			Time.step();
 
-			try
+			nextTick += 1000 / (long) FRAMES_PER_SECOND;
+			long sleepTime = nextTick - System.currentTimeMillis();
+			if (sleepTime >= 0)
 			{
-				Thread.sleep(1000 / (long) FRAMES_PER_SECOND);
+				try
+				{
+					Thread.sleep(sleepTime);
+				} catch (InterruptedException e)
+				{
+					continue;
+				}
 			}
-			catch (InterruptedException e ) { continue; }
+			else
+			{
+				continue; // Running behind!!
+			}
 		}
 
 		loadedScene.onApplicationQuit();
-		System.exit(0);
+		System.exit(0);*/
 	}
 
 
