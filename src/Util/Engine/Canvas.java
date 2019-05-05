@@ -2,7 +2,6 @@ package Util.Engine;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
 
@@ -41,9 +40,9 @@ public class Canvas
 	}
 
 
-	public BufferedImage getRenderBuffer()
+	public Graphics2D getRenderBuffer()
 	{
-		return panel.bufferedImage;
+		return (Graphics2D) panel.bufferedImage.getGraphics();
 	}
 
 

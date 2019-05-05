@@ -12,9 +12,19 @@ public class Time
 	}
 
 
+	/**
+	 * Delta time between last frame and current frame
+	 * @return Milliseconds elapsed
+	 */
 	public static float deltaTime()
 	{
-		return (System.currentTimeMillis() - lastTime) / 1000f;
+		return (System.currentTimeMillis() - lastTime);
+	}
+
+
+	public static float deltaTime(boolean inMilliseconds)
+	{
+		return inMilliseconds ? deltaTime() / 1000f : deltaTime();
 	}
 
 }

@@ -5,5 +5,7 @@ public enum InputAxes
 	Vertical, // W ~ S
 	Horizontal, // D ~ A
 	MouseX,
-	MouseY
+	MouseY,
+	DeltaMouseX,
+	DeltaMouseY
 }

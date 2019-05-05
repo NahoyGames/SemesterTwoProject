@@ -1,13 +1,11 @@
 package Util.Engine;
 
 import java.awt.*;
-import java.awt.geom.AffineTransform;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class Scene implements IEngineEventListener, IDrawable
+public class Scene implements IEngineEventListener
 {
 	private String name;
 
@@ -39,6 +37,13 @@ public class Scene implements IEngineEventListener, IDrawable
 	{
 		entity.onDisable();
 		entities.remove(entity);
+	}
+
+
+	public void drawFrame(Canvas destinationCanvas)
+	{
+		activeCamera.renderFrame((List<IDrawable>)(List<? extends IDrawable>) entities, destinationCanvas);
+		destinationCanvas.repaint();
 	}
 
 
@@ -98,15 +103,4 @@ public class Scene implements IEngineEventListener, IDrawable
 			entity.onApplicationQuit();
 		}
 	}
-
-
-	@Override
-	public void draw(BufferedImage renderBuffer, AffineTransform cameraMatrix)
-	{
-		activeCamera.renderFrame((List<IDrawable>)(List<? extends IDrawable>) entities, renderBuffer);
-	}
-
-
-	@Override
-	public int getLayer() { return 0; }
 }

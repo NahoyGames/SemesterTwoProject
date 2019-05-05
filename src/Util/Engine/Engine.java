@@ -46,12 +46,19 @@ public class Engine
 
 
 		// Game Loop
+		isPlaying = true;
+		Time.step();
 		Timer timer = new Timer(1000 / FRAMES_PER_SECOND, (ActionEvent e) ->
 		{
-			System.out.println("Game loop");
+			if (!isPlaying)
+			{
+				loadedScene.onApplicationQuit();
+				System.exit(0);
+				return;
+			}
+
 			loadedScene.update();
-			loadedScene.draw(canvas.getRenderBuffer(), null); // TODO, takes too long
-			canvas.repaint();
+			loadedScene.drawFrame(canvas);
 
 			Time.step();
 		});

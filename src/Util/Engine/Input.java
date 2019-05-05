@@ -1,5 +1,7 @@
 package Util.Engine;
 
+import Util.Math.Vec2f;
+
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -12,6 +14,8 @@ public class Input implements KeyListener, MouseMotionListener
 {
 	private EnumMap<InputAxes, Float> inputs;
 
+	private Vec2f oldMouse;
+
 
 	public Input(JFrame frame)
 	{
@@ -19,6 +23,7 @@ public class Input implements KeyListener, MouseMotionListener
 		frame.addMouseMotionListener(this);
 
 		inputs = new EnumMap<>(InputAxes.class);
+		oldMouse = new Vec2f();
 
 		// Init inputs
 		for (InputAxes i : InputAxes.values())
@@ -49,6 +54,12 @@ public class Input implements KeyListener, MouseMotionListener
 	{
 		inputs.put(InputAxes.MouseX, (float)e.getX());
 		inputs.put(InputAxes.MouseY, (float)e.getY());
+
+		inputs.put(InputAxes.DeltaMouseX, (float)e.getX() - oldMouse.x);
+		inputs.put(InputAxes.DeltaMouseY, (float)e.getY() - oldMouse.y);
+
+		oldMouse.x = (float)e.getX();
+		oldMouse.y = (float)e.getY();
 	}
 
 

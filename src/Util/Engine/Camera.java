@@ -1,58 +1,54 @@
 package Util.Engine;
 
-import Surviv.Behaviors.TestInputMove;
-import Surviv.Behaviors.TestRandomMove;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;
-import java.awt.image.BufferedImage;
 import java.util.List;
 
 public class Camera extends GameEntity
 {
-	private int background;
+	private Color background;
 
 
 	public Camera(Scene scene, Color background)
 	{
 		super(scene, null);
-		this.background = background.getRGB();
-
-		addBehavior(new TestInputMove(this));
+		this.background = background;
 	}
 
 
-	public void renderFrame(List<IDrawable> entities, BufferedImage renderBuffer)
+	public void renderFrame(List<IDrawable> drawables, Canvas destCanvas)
 	{
-		// Background
-		/*for (int x = 0; x < renderBuffer.getWidth(); x++)
-		{
-			for (int y = 0; y < renderBuffer.getHeight(); y++)
-			{
-				renderBuffer.setRGB(x, y, background);
-			}
-		}*/
+		// Retrieves the render buffer
+		Graphics2D renderBuffer = destCanvas.getRenderBuffer();
+		int width = destCanvas.getFrame().getWidth(), height = destCanvas.getFrame().getHeight();
 
-		// GameEntities
-		for (IDrawable e : entities)
+		// Background
+		renderBuffer.setColor(background);
+		renderBuffer.fillRect(0, 0, width, height);
+
+		// Applies the World --> Camera space transformation
+		renderBuffer.translate(width / 2, height / 2);
+		renderBuffer.rotate(-transform.rotation);
+		renderBuffer.translate(-transform.position.x , transform.position.y);
+
+		// Draws the entities in order
+		for (IDrawable d : drawables)
 		{
-			e.draw(renderBuffer, getCameraMatrix(renderBuffer.getWidth(), renderBuffer.getHeight()));
+			d.draw(renderBuffer);
 		}
 	}
 
 
-	public AffineTransform getCameraMatrix(int width, int height)
+	@Override
+	public void update()
 	{
-		return new AffineTransform()
-		{
-			{
-				translate(width/2, height/2);
-				rotate(Math.toRadians(-transform.rotation));
-				translate(-transform.position.x, transform.position.y);
-			}
-		};
-	}
+		float x = Engine.input().getAxis("Horizontal");
+		float y = Engine.input().getAxis("Vertical");
 
+		//transform.position.x += x;
+		//transform.position.y += y;
+	}
 
 	@Override
 	public int getLayer()

@@ -1,32 +1,32 @@
 package Util.Engine;
 
 
+import Util.Math.Vec2f;
+
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.geom.AffineTransform;
-import java.awt.geom.Point2D;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 
 public abstract class GameEntity implements IDrawable, IEngineEventListener
 {
-	protected Transform2D transform;
+	// The scene in which this entity was instantiated
 	protected Scene scene;
 
-	private List<EngineEventListener> behaviors;
+	// Transform of this entity. Every entity must have one, even it's not being used.
+	protected Transform2D transform;
 
-	private BufferedImage sprite;
+	// The image of this sprite
+	private Image sprite;
 
 
 	// Instantiates the entity in the given scene
-	protected GameEntity(Scene scene, String spritePath, EngineEventListener... behaviors)
+	protected GameEntity(Scene scene, String spritePath)
 	{
 		this.scene = scene;
 		this.transform = new Transform2D();
-		this.behaviors = new ArrayList<>(Arrays.asList(behaviors));
 
 		try { this.sprite = ImageIO.read(new File(spritePath)); }
 		catch (IOException e) { System.out.println("The sprite image was not found! Error: " + e); }
@@ -34,26 +34,9 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 	}
 
 
-	public void addBehavior(EngineEventListener behavior)
-	{
-		this.behaviors.add(behavior);
-		behavior.awake();
-		behavior.start();
-	}
-
-
-	public void removeBehavior(EngineEventListener behavior)
-	{
-		this.behaviors.remove(behavior);
-		behavior.onDisable();
-	}
-
-
-	public Transform2D transform() { return transform; }
-
-
+	// region This is now deprecated because it was wayyy to slow
 	// Draws the sprite onto the screen, from the camera's perspective with a little bit of linear algebra :)
-	@Override
+	/*@Override
 	public final void draw(BufferedImage renderBuffer, AffineTransform cameraMatrix)
 	{
 		if (this.sprite == null)
@@ -94,75 +77,54 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 				}
 			}
 		}
-	}
+	}*/
+	// endregion
 
 
 	@Override
-	public void onSceneLoad()
+	public final void draw(Graphics2D renderBuffer)
 	{
-		for (EngineEventListener b : behaviors)
-		{
-			b.onSceneLoad();
-		}
+		if (sprite == null) { return; }
+
+		// Stores the --> Camera matrix
+		AffineTransform oldMatrix = renderBuffer.getTransform();
+
+		// Transforms Sprite file --> World space
+		renderBuffer.scale(transform.scale.x, transform.scale.y);
+		renderBuffer.translate(transform.position.x, -transform.position.y); // Negative y b/c top-left origin with java.swing :(
+		renderBuffer.rotate(Math.toRadians(transform.rotation));
+
+		// Draws the image, with the origin at the middle
+		renderBuffer.drawImage(sprite, -sprite.getWidth(null) / 2, -sprite.getHeight(null) / 2, null);
+
+		// Resets the transformations so that the next IDrawable can draw
+		renderBuffer.setTransform(oldMatrix);
 	}
+
+	@Override
+	public void onSceneLoad() { }
 
 
 	@Override
-	public void awake()
-	{
-		for (EngineEventListener b : behaviors)
-		{
-			b.awake();
-		}
-	}
+	public void awake() { }
 
 
 	@Override
-	public void start()
-	{
-		for (EngineEventListener b : behaviors)
-		{
-			b.start();
-		}
-	}
+	public void start() { }
 
 
 	@Override
-	public void update()
-	{
-		for (EngineEventListener b : behaviors)
-		{
-			b.update();
-		}
-	}
+	public void update() { }
 
 
 	@Override
-	public void onDisable()
-	{
-		for (EngineEventListener b : behaviors)
-		{
-			b.update();
-		}
-	}
+	public void onDisable() { }
 
 
 	@Override
-	public void onSceneUnload()
-	{
-		for (EngineEventListener b : behaviors)
-		{
-			b.onSceneUnload();
-		}
-	}
+	public void onSceneUnload() { }
 
 
 	@Override
-	public void onApplicationQuit()
-	{
-		for (EngineEventListener b : behaviors)
-		{
-			b.onApplicationQuit();
-		}
-	}
+	public void onApplicationQuit() { }
 }

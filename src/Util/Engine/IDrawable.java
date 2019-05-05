@@ -1,11 +1,13 @@
 package Util.Engine;
 
-import java.awt.geom.AffineTransform;
-import java.awt.image.BufferedImage;
+import Util.Math.Vec2f;
+
+import java.awt.*;
 
 public interface IDrawable
 {
-	void draw(BufferedImage renderBuffer, AffineTransform cameraMatrix);
+	// Draws onto the render buffer
+	void draw(Graphics2D renderBuffer);
 
 	int getLayer();
 }
