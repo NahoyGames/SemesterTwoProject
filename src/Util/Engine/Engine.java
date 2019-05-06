@@ -1,24 +1,18 @@
 package Util.Engine;
 
-import Surviv.SurvivGameScene;
+import Util.Engine.Networking.Client.ClientNetManager;
+import Util.Engine.Networking.GenericNetManager;
+import Util.Engine.Networking.Server.ServerNetManager;
 
-import javax.swing.*;
+import javax.swing.Timer;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.HashMap;
-import java.util.TimerTask;
 
 public class Engine
 {
-	/** CONFIGURATIONS **/
-	public static final String WINDOW_NAME = "My Game";
-	public static final int FRAMES_PER_SECOND = 1200;
-	public static final int WINDOW_WIDTH = 900;
-	public static final int WINDOW_HEIGHT = 500;
-
+	// Config
+	private static EngineConfiguration config;
 
 	// Scenes
-	private static HashMap<String, Scene> scenes;
 	private static Scene loadedScene;
 
 	// Application
@@ -30,25 +24,96 @@ public class Engine
 	// Input
 	private static Input input;
 
+	// Network
+	private static GenericNetManager netManager;
 
-	public static void main(String[] args)
+
+//	public static void main(String[] args)
+//	{
+//		/** REGISTER SCENES HERE **/
+//		scenes = new HashMap<String, Scene>()
+//		{
+//			{
+//				put("Game", new SurvivGameScene());
+//			}
+//		};
+//
+//		/** REGISTER PACKETS HERE **/
+//		registeredPackets = new ArrayList<>();
+//		registeredPackets.add(TestRequestPacket.class);
+//
+//		// Init Engine
+//		canvas = new Canvas(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_NAME);
+//		input = new Input(canvas.getFrame());
+//
+//		// Init Network
+//		if (IS_SERVER_BUILD)
+//		{
+//			netManager = new ServerNetManager(TCP_PORT, UDP_PORT, registeredPackets);
+//		}
+//		else
+//		{
+//			netManager = new ClientNetManager("127.0.0.1", TCP_PORT, UDP_PORT, registeredPackets);
+//		}
+//
+//		// Init Scene
+//		loadScene("Game");
+//
+//		// Game Loop
+//		isPlaying = true;
+//		Time.step();
+//		Timer timer = new Timer(1000 / FRAMES_PER_SECOND, (ActionEvent e) ->
+//		{
+//			if (!isPlaying)
+//			{
+//				loadedScene.onApplicationQuit();
+//				System.exit(0);
+//				return;
+//			}
+//
+//			loadedScene.update();
+//			loadedScene.drawFrame(canvas);
+//
+//			if (IS_SERVER_BUILD)
+//			{
+//				((ServerNetManager) netManager).sendReliable(new TestRequestPacket("Hello world i sent a message!"));
+//			}
+//
+//			Time.step();
+//		});
+//		timer.setRepeats(true);
+//		timer.start();
+//	}
+
+
+	public static void init(EngineConfiguration config)
 	{
-		scenes = new HashMap<String, Scene>()
+		Engine.config = config;
+
+		// Engine
+		if (!config.HEADLESS_MODE)
 		{
-			{
-				put("Game", new SurvivGameScene());
-			}
-		};
+			canvas = new Canvas(config.WINDOW_WIDTH, config.WINDOW_HEIGHT, config.WINDOW_NAME);
+			input = new Input(canvas.getFrame());
+		}
 
-		loadScene("Game");
-		canvas = new Canvas(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_NAME);
-		input = new Input(canvas.getFrame());
+		// Networking
+		if (config.IS_SERVER_BUILD)
+		{
+			netManager = new ServerNetManager(config.TCP_PORT, config.UDP_PORT, config.REGISTERED_PACKETS);
+		}
+		else
+		{
+			netManager = new ClientNetManager(config.SERVER_IP, config.TCP_PORT, config.UDP_PORT, config.REGISTERED_PACKETS);
+		}
 
+		// Scene
+		loadScene(config.DEFAULT_SCENE);
 
 		// Game Loop
 		isPlaying = true;
 		Time.step();
-		Timer timer = new Timer(1000 / FRAMES_PER_SECOND, (ActionEvent e) ->
+		Timer timer = new Timer(1000 / config.FRAMES_PER_SECOND, (ActionEvent e) ->
 		{
 			if (!isPlaying)
 			{
@@ -58,45 +123,18 @@ public class Engine
 			}
 
 			loadedScene.update();
-			loadedScene.drawFrame(canvas);
+
+			if (!config.HEADLESS_MODE)
+			{
+				loadedScene.drawFrame(canvas);
+			}
 
 			Time.step();
 		});
+
+		// Start Game Loop
 		timer.setRepeats(true);
 		timer.start();
-
-
-
-		/*isPlaying = true;
-		long nextTick = System.currentTimeMillis();
-		while (isPlaying)
-		{
-			loadedScene.update();
-			loadedScene.draw(canvas.getRenderBuffer(), null);
-			canvas.repaint();
-
-			Time.step();
-
-			nextTick += 1000 / (long) FRAMES_PER_SECOND;
-			long sleepTime = nextTick - System.currentTimeMillis();
-			if (sleepTime >= 0)
-			{
-				try
-				{
-					Thread.sleep(sleepTime);
-				} catch (InterruptedException e)
-				{
-					continue;
-				}
-			}
-			else
-			{
-				continue; // Running behind!!
-			}
-		}
-
-		loadedScene.onApplicationQuit();
-		System.exit(0);*/
 	}
 
 
@@ -107,7 +145,7 @@ public class Engine
 			loadedScene.onSceneUnload();
 		}
 
-		loadedScene = scenes.get(name);
+		loadedScene = config.REGISTERED_SCENES.get(name);
 		loadedScene.onSceneLoad();
 	}
 
@@ -116,6 +154,9 @@ public class Engine
 
 	public static Scene scene() { return loadedScene; }
 
+	public static GenericNetManager netManager() { return netManager; }
+
+	public static EngineConfiguration config() { return config; }
 
 	public static void quit()
 	{

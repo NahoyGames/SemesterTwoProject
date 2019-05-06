@@ -4,8 +4,6 @@ public interface IEngineEventListener
 {
 	void onSceneLoad();
 
-	void awake();
-
 	void start();
 
 	void update();

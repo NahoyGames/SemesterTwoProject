@@ -28,7 +28,6 @@ public class Scene implements IEngineEventListener
 	{
 		entities.add(entity);
 		entities.sort(Comparator.comparing(IDrawable::getLayer)); // Sorts by layer
-		entity.awake();
 		entity.start();
 	}
 
@@ -53,7 +52,6 @@ public class Scene implements IEngineEventListener
 		for (GameEntity entity : entities)
 		{
 			entity.onSceneLoad();
-			entity.awake();
 		}
 
 		for (GameEntity entity : entities)
@@ -64,17 +62,14 @@ public class Scene implements IEngineEventListener
 
 
 	@Override
-	public void awake() { }
-
-
-	@Override
 	public void start() { }
 
 
 	@Override
 	public void update()
 	{
-		for (GameEntity entity : entities)
+		// toArray to avoid ConcurrentModificationException's
+		for (GameEntity entity : entities.toArray(new GameEntity[entities.size()]))
 		{
 			entity.update();
 		}

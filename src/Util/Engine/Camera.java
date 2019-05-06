@@ -33,7 +33,7 @@ public class Camera extends GameEntity
 		renderBuffer.translate(-transform.position.x , transform.position.y);
 
 		// Draws the entities in order
-		for (IDrawable d : drawables)
+		for (IDrawable d : drawables.toArray(new IDrawable[drawables.size()]))
 		{
 			d.draw(renderBuffer);
 		}

@@ -106,10 +106,6 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 
 
 	@Override
-	public void awake() { }
-
-
-	@Override
 	public void start() { }
 
 
