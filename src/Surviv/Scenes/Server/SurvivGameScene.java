@@ -15,15 +15,17 @@ public class SurvivGameScene extends Scene
 	@Override
 	public void onSceneLoad()
 	{
+		super.onSceneLoad();
 	}
 
 
 	@Override
 	public void update()
 	{
+		super.update();
+
 		if (Engine.input().getAxis("Horizontal") > 0)
 		{
-			System.out.println("Spawned an entity on server!");
 			addEntity(new Player(this));
 		}
 	}

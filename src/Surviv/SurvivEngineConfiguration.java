@@ -1,8 +1,8 @@
 package Surviv;
 
 import Surviv.Entities.Client.Player;
+import Surviv.Networking.Packets.TestRequestPacket;
 import Util.Engine.EngineConfiguration;
-import Util.Engine.Networking.Packets.SpawnEntityPacket;
 
 
 public class SurvivEngineConfiguration extends EngineConfiguration
@@ -12,7 +12,7 @@ public class SurvivEngineConfiguration extends EngineConfiguration
 		super();
 
 		/** REGISTER PACKETS >>HERE<< FOR BOTH CLIENT & SERVER **/
-		REGISTERED_PACKETS.add(SpawnEntityPacket.class);
+		REGISTERED_PACKETS.add(TestRequestPacket.class);
 
 
 		/** REGISTER ENTITIES >>HERE<< FOR BOTH CLIENT & SERVER **/

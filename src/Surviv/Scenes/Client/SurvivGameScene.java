@@ -12,5 +12,6 @@ public class SurvivGameScene extends Scene
 	@Override
 	public void onSceneLoad()
 	{
+		super.onSceneLoad();
 	}
 }

@@ -1,8 +1,11 @@
 package Surviv.Entities.Server;
 
+import Util.Engine.Engine;
+import Util.Engine.Input;
 import Util.Engine.Networking.Client.ClientGameEntity;
 import Util.Engine.Networking.Packet;
 import Util.Engine.Networking.Server.ServerGameEntity;
+import Util.Engine.Networking.Server.ServerNetTransform;
 import Util.Engine.Scene;
 import Util.Math.Vec2f;
 import com.esotericsoftware.kryonet.Connection;
@@ -16,6 +19,8 @@ public class Player extends ServerGameEntity
 	{
 		super(scene, SPRITE_PATH);
 		transform.scale = new Vec2f(0.1f, 0.1f);
+
+		addBehavior(new ServerNetTransform(this, 9));
 	}
 
 
@@ -32,6 +37,15 @@ public class Player extends ServerGameEntity
 		return Surviv.Entities.Client.Player.class;
 	}
 
+
+	@Override
+	public void update()
+	{
+		super.update();
+
+		transform.position.x = Engine.input().getAxis("MouseX");
+		transform.position.y = Engine.input().getAxis("MouseY");
+	}
 
 	@Override
 	public void onReceivePacket(Connection sender, Packet packet) { }

@@ -28,64 +28,6 @@ public class Engine
 	private static GenericNetManager netManager;
 
 
-//	public static void main(String[] args)
-//	{
-//		/** REGISTER SCENES HERE **/
-//		scenes = new HashMap<String, Scene>()
-//		{
-//			{
-//				put("Game", new SurvivGameScene());
-//			}
-//		};
-//
-//		/** REGISTER PACKETS HERE **/
-//		registeredPackets = new ArrayList<>();
-//		registeredPackets.add(TestRequestPacket.class);
-//
-//		// Init Engine
-//		canvas = new Canvas(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_NAME);
-//		input = new Input(canvas.getFrame());
-//
-//		// Init Network
-//		if (IS_SERVER_BUILD)
-//		{
-//			netManager = new ServerNetManager(TCP_PORT, UDP_PORT, registeredPackets);
-//		}
-//		else
-//		{
-//			netManager = new ClientNetManager("127.0.0.1", TCP_PORT, UDP_PORT, registeredPackets);
-//		}
-//
-//		// Init Scene
-//		loadScene("Game");
-//
-//		// Game Loop
-//		isPlaying = true;
-//		Time.step();
-//		Timer timer = new Timer(1000 / FRAMES_PER_SECOND, (ActionEvent e) ->
-//		{
-//			if (!isPlaying)
-//			{
-//				loadedScene.onApplicationQuit();
-//				System.exit(0);
-//				return;
-//			}
-//
-//			loadedScene.update();
-//			loadedScene.drawFrame(canvas);
-//
-//			if (IS_SERVER_BUILD)
-//			{
-//				((ServerNetManager) netManager).sendReliable(new TestRequestPacket("Hello world i sent a message!"));
-//			}
-//
-//			Time.step();
-//		});
-//		timer.setRepeats(true);
-//		timer.start();
-//	}
-
-
 	public static void init(EngineConfiguration config)
 	{
 		Engine.config = config;

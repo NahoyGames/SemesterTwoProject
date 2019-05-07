@@ -2,7 +2,7 @@ package Util.Engine;
 
 import Util.Engine.Networking.Client.ClientGameEntity;
 import Util.Engine.Networking.Packet;
-import Util.Engine.Networking.Packets.SpawnEntityPacket;
+import Util.Engine.Networking.Packets.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,6 +17,10 @@ public class EngineConfiguration
 	public int WINDOW_WIDTH = 600;
 	public int WINDOW_HEIGHT = 400;
 	public boolean HEADLESS_MODE = false; // if (true) --> no graphics, no input
+
+	/** Engine **/
+	public String[] SUPPORTED_VERSIONS;
+	public String VERSION;
 
 	/** Scenes **/
 	public HashMap<String, Scene> REGISTERED_SCENES;
@@ -36,6 +40,11 @@ public class EngineConfiguration
 		REGISTERED_PACKETS = new ArrayList<>();
 		REGISTERED_ENTITIES = new ArrayList<>();
 
+		// Default, "built-in," Packets
 		REGISTERED_PACKETS.add(SpawnEntityPacket.class);
+		REGISTERED_PACKETS.add(ClientAuthResponsePacket.class);
+		REGISTERED_PACKETS.add(ClientAuthRequestPacket.class);
+		REGISTERED_PACKETS.add(GameStatePacket.class);
+		REGISTERED_PACKETS.add(TransformPacket.class);
 	}
 }

@@ -1,8 +1,13 @@
 package Util.Engine.Networking.Server;
 
+import Util.Arrays.Arrays;
+import Util.Engine.Engine;
 import Util.Engine.Networking.GenericNetManager;
 import Util.Engine.Networking.Packet;
 
+import Util.Engine.Networking.Packets.ClientAuthRequestPacket;
+import Util.Engine.Networking.Packets.ClientAuthResponsePacket;
+import Util.Engine.Networking.Packets.GameStatePacket;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Server;
 
@@ -90,5 +95,27 @@ public class ServerNetManager extends GenericNetManager
 	public short getNextNetworkId() // Used for spawning Networked GameEntity's
 	{
 		return availableNetworkIDs.pop();
+	}
+
+
+	@Override
+	public void onReceivePacket(Connection sender, Packet packet)
+	{
+		if (packet instanceof ClientAuthRequestPacket)
+		{
+			ClientAuthRequestPacket requestPacket = (ClientAuthRequestPacket)packet;
+
+			// Check for unsupported version
+			if (!Arrays.contains(Engine.config().SUPPORTED_VERSIONS, requestPacket.version))
+			{
+				sendReliable(sender, new ClientAuthResponsePacket(false));
+				return;
+			}
+
+			System.out.println("User \"" + requestPacket.username + "\" has connected to the server!");
+			sendReliable(sender, new ClientAuthResponsePacket(true)); // Auth
+			sendReliable(sender, new GameStatePacket(netEntities.values().toArray(new ServerGameEntity[netEntities.size()]))); // Game State
+
+		}
 	}
 }

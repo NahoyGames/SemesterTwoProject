@@ -1,22 +1,18 @@
 package Util.Engine.Networking.Server;
 
 import Util.Engine.Engine;
-import Util.Engine.GameEntity;
 import Util.Engine.Networking.Client.ClientGameEntity;
-import Util.Engine.Networking.INetworkListener;
+import Util.Engine.Networking.NetGameEntity;
 import Util.Engine.Networking.Packet;
 import Util.Engine.Networking.Packets.SpawnEntityPacket;
 import Util.Engine.Scene;
 import com.esotericsoftware.kryonet.Connection;
 
-public abstract class ServerGameEntity extends GameEntity implements INetworkListener
+public abstract class ServerGameEntity extends NetGameEntity
 {
-	private short networkId;
-
-
 	public ServerGameEntity(Scene scene, String spritePath)
 	{
-		super(scene, spritePath);
+		super(scene, spritePath, ((ServerNetManager) Engine.netManager()).getNextNetworkId());
 
 		if (!(Engine.netManager() instanceof ServerNetManager))
 		{
@@ -24,10 +20,8 @@ public abstract class ServerGameEntity extends GameEntity implements INetworkLis
 			System.exit(-1);
 		}
 
-		Engine.netManager().addListener(this);
-
 		// Spawn over the network
-		sendReliable(new SpawnEntityPacket(networkId = ((ServerNetManager) Engine.netManager()).getNextNetworkId(), getClientCounterpart()));
+		sendReliable(new SpawnEntityPacket(getNetworkId(), getClientCounterpart()));
 	}
 
 

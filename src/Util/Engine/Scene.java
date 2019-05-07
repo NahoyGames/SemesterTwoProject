@@ -1,5 +1,7 @@
 package Util.Engine;
 
+import Util.Engine.Networking.NetGameEntity;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -28,6 +30,14 @@ public class Scene implements IEngineEventListener
 	{
 		entities.add(entity);
 		entities.sort(Comparator.comparing(IDrawable::getLayer)); // Sorts by layer
+
+		// Network
+		if (entity instanceof NetGameEntity)
+		{
+			System.out.println("Spawned a network entity");
+			Engine.netManager().addNetEntity(((NetGameEntity)entity).getNetworkId(), (NetGameEntity) entity);
+		}
+
 		entity.start();
 	}
 

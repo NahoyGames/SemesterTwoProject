@@ -73,6 +73,9 @@ public class Vec2f
 	}
 
 
+	public boolean equals(Vec2f a) { return this.x == a.x && this.y == a.y; }
+
+
 	public String toString()
 	{
 		return "(" + x + ", " + y + ")";

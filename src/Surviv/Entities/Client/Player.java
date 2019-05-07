@@ -3,9 +3,9 @@ package Surviv.Entities.Client;
 import Surviv.Networking.Packets.TestRequestPacket;
 import Util.Engine.Engine;
 import Util.Engine.Networking.Client.ClientGameEntity;
+import Util.Engine.Networking.Client.ClientNetTransform;
 import Util.Engine.Networking.Packet;
 import Util.Engine.Scene;
-import Util.Engine.Time;
 import Util.Math.Vec2f;
 import com.esotericsoftware.kryonet.Connection;
 
@@ -18,6 +18,8 @@ public class Player extends ClientGameEntity
 	{
 		super(scene, SPRITE_PATH, networkId);
 		transform.scale = new Vec2f(0.1f, 0.1f);
+
+		addBehavior(new ClientNetTransform(this));
 	}
 
 
@@ -41,11 +43,13 @@ public class Player extends ClientGameEntity
 	@Override
 	public void update()
 	{
-		float horizontal = Engine.input().getAxis("Horizontal");
-		float vertical = Engine.input().getAxis("Vertical");
+		super.update();
 
-		transform.position.x += horizontal * Time.deltaTime();
-		transform.position.y += vertical * Time.deltaTime();
+//		float horizontal = Engine.input().getAxis("Horizontal");
+//		float vertical = Engine.input().getAxis("Vertical");
+//
+//		transform.position.x += horizontal * Time.deltaTime();
+//		transform.position.y += vertical * Time.deltaTime();
 
 		//transform.rotation += Time.deltaTime();
 	}

@@ -1,21 +1,21 @@
 package Util.Engine.Networking;
 
-import Surviv.Entities.Client.Player;
-import Util.Engine.GameEntity;
-import Util.Engine.Networking.Client.ClientGameEntity;
+
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.EndPoint;
 import com.esotericsoftware.kryonet.Listener;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
-public abstract class GenericNetManager
+public abstract class GenericNetManager implements INetworkListener
 {
 	protected EndPoint transport;
 
 	protected List<INetworkListener> listeners;
+	protected HashMap<Short, NetGameEntity> netEntities;
 
 
 	public GenericNetManager(EndPoint transportType, Collection<Class<? extends Packet>> registeredPackets)
@@ -28,6 +28,9 @@ public abstract class GenericNetManager
 		{
 			this.transport.getKryo().register(c);
 		}
+
+		// Register additional classes
+		this.transport.getKryo().register(short[].class);
 
 		// Listeners
 		listeners = new ArrayList<>();
@@ -48,6 +51,12 @@ public abstract class GenericNetManager
 				}
 			}
 		});
+
+		// Listen for packets
+		addListener(this);
+
+		// Net Entities
+		netEntities = new HashMap<>();
 	}
 
 
@@ -60,5 +69,11 @@ public abstract class GenericNetManager
 	public void removeListener(INetworkListener listener)
 	{
 		this.listeners.remove(listener);
+	}
+
+
+	public void addNetEntity(Short networkId, NetGameEntity entity)
+	{
+		this.netEntities.put(networkId, entity);
 	}
 }

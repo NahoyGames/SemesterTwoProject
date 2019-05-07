@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashSet;
 
 
 public abstract class GameEntity implements IDrawable, IEngineEventListener
@@ -17,6 +18,9 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 
 	// Transform of this entity. Every entity must have one, even it's not being used.
 	protected Transform2D transform;
+
+	// Behaviors on this entity
+	protected HashSet<GameBehavior> behaviors;
 
 	// The image of this sprite
 	private Image sprite;
@@ -31,54 +35,9 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 		try { this.sprite = ImageIO.read(new File(spritePath)); }
 		catch (IOException e) { System.out.println("The sprite image was not found! Error: " + e); }
 		catch (NullPointerException e) { /* Do nothing, simply means the entity doesn't use graphics */ }
+
+		this.behaviors = new HashSet<>();
 	}
-
-
-	// region This is now deprecated because it was wayyy to slow
-	// Draws the sprite onto the screen, from the camera's perspective with a little bit of linear algebra :)
-	/*@Override
-	public final void draw(BufferedImage renderBuffer, AffineTransform cameraMatrix)
-	{
-		if (this.sprite == null)
-		{
-			return;
-		}
-
-		// Image space --> World space
-		AffineTransform transformMatrix = new AffineTransform()
-		{
-			{
-				scale(transform.scale.x, transform.scale.y);
-				rotate(Math.toRadians(transform.rotation));
-				translate(transform.position.x, transform.position.y);
-			}
-		};
-		// Image space --> Screen space
-		AffineTransform imageToScreenMatrix = new AffineTransform()
-		{
-			{
-				concatenate(cameraMatrix);
-				concatenate(transformMatrix);
-			}
-		};
-
-		for (int x = 0; x < sprite.getWidth(); x++)
-		{
-			for (int y = 0; y < sprite.getHeight(); y++)
-			{
-				Point2D.Float screenPoint = new Point2D.Float();
-				imageToScreenMatrix.transform(new Point2D.Float((float)x - sprite.getWidth() / 2, (float)y - sprite.getHeight() / 2), screenPoint);
-
-				// Is actually on screen?
-				if (screenPoint.x >= 0 && screenPoint.x < renderBuffer.getWidth()
-					&& screenPoint.y >= 0 && screenPoint.y < renderBuffer.getHeight())
-				{
-					renderBuffer.setRGB((int)screenPoint.x, (int)screenPoint.y, sprite.getRGB(x, y));
-				}
-			}
-		}
-	}*/
-	// endregion
 
 
 	@Override
@@ -101,26 +60,72 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 		renderBuffer.setTransform(oldMatrix);
 	}
 
-	@Override
-	public void onSceneLoad() { }
+
+	public Transform2D transform() { return transform; }
+
+
+	public void addBehavior(GameBehavior behavior)
+	{
+		this.behaviors.add(behavior);
+	}
 
 
 	@Override
-	public void start() { }
+	public void onSceneLoad()
+	{
+		for (GameBehavior b : behaviors)
+		{
+			b.onSceneLoad();
+		}
+	}
 
 
 	@Override
-	public void update() { }
+	public void start()
+	{
+		for (GameBehavior b : behaviors)
+		{
+			b.start();
+		}
+	}
 
 
 	@Override
-	public void onDisable() { }
+	public void update()
+	{
+		for (GameBehavior b : behaviors)
+		{
+			b.update();
+		}
+	}
 
 
 	@Override
-	public void onSceneUnload() { }
+	public void onDisable()
+	{
+		for (GameBehavior b : behaviors)
+		{
+			b.onDisable();
+		}
+	}
 
 
 	@Override
-	public void onApplicationQuit() { }
+	public void onSceneUnload()
+	{
+		for (GameBehavior b : behaviors)
+		{
+			b.onSceneUnload();
+		}
+	}
+
+
+	@Override
+	public void onApplicationQuit()
+	{
+		for (GameBehavior b : behaviors)
+		{
+			b.onApplicationQuit();
+		}
+	}
 }

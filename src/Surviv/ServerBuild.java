@@ -14,6 +14,11 @@ public class ServerBuild
 		{
 			{
 				WINDOW_NAME = "Surviv Server";
+				SUPPORTED_VERSIONS = new String[]
+				{
+					"0.0.1",
+					"0.0.1B"
+				};
 				REGISTERED_SCENES = new HashMap<String, Scene>()
 				{
 					{
