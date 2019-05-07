@@ -2,6 +2,7 @@ package Surviv.Scenes.Server;
 
 import Surviv.Entities.Server.*;
 import Util.Engine.Engine;
+import Util.Engine.GameEntity;
 import Util.Engine.Scene;
 
 public class SurvivGameScene extends Scene

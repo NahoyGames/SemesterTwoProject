@@ -41,16 +41,6 @@ public class Camera extends GameEntity
 
 
 	@Override
-	public void update()
-	{
-		float x = Engine.input().getAxis("Horizontal");
-		float y = Engine.input().getAxis("Vertical");
-
-		//transform.position.x += x;
-		//transform.position.y += y;
-	}
-
-	@Override
 	public int getLayer()
 	{
 		return 0;

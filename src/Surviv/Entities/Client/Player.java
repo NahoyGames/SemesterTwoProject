@@ -1,7 +1,6 @@
 package Surviv.Entities.Client;
 
 import Surviv.Networking.Packets.TestRequestPacket;
-import Util.Engine.Engine;
 import Util.Engine.Networking.Client.ClientGameEntity;
 import Util.Engine.Networking.Client.ClientNetTransform;
 import Util.Engine.Networking.Packet;
@@ -9,9 +8,10 @@ import Util.Engine.Scene;
 import Util.Math.Vec2f;
 import com.esotericsoftware.kryonet.Connection;
 
+
 public class Player extends ClientGameEntity
 {
-	private static final String SPRITE_PATH = "src/Assets/Sprites/Eye Base Color.png";
+	private static final String SPRITE_PATH = "/Assets/Sprites/character.png";
 
 
 	public Player(Scene scene, short networkId)

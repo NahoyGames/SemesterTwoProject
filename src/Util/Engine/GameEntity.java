@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashSet;
 
 
@@ -24,19 +25,28 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 
 	// The image of this sprite
 	private Image sprite;
+	private Vec2f anchor;
 
 
 	// Instantiates the entity in the given scene
-	protected GameEntity(Scene scene, String spritePath)
+	protected GameEntity(Scene scene, String spritePath, Vec2f anchor)
 	{
 		this.scene = scene;
 		this.transform = new Transform2D();
 
-		try { this.sprite = ImageIO.read(new File(spritePath)); }
-		catch (IOException e) { System.out.println("The sprite image was not found! Error: " + e); }
+		try { this.sprite = ImageIO.read(getClass().getResource(spritePath)); }
+		catch (IOException e) { System.out.println("The sprite image was not found! Error: " + e.toString()); e.printStackTrace(); }
 		catch (NullPointerException e) { /* Do nothing, simply means the entity doesn't use graphics */ }
 
+		this.anchor = anchor;
+
 		this.behaviors = new HashSet<>();
+	}
+
+
+	protected GameEntity(Scene scene, String spritePath)
+	{
+		this(scene, spritePath, new Vec2f(0.5f, 0.5f));
 	}
 
 
@@ -54,7 +64,7 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 		renderBuffer.rotate(Math.toRadians(transform.rotation));
 
 		// Draws the image, with the origin at the middle
-		renderBuffer.drawImage(sprite, -sprite.getWidth(null) / 2, -sprite.getHeight(null) / 2, null);
+		renderBuffer.drawImage(sprite, -(int)(sprite.getWidth(null) * anchor.x), -(int)(sprite.getHeight(null) * anchor.y), null);
 
 		// Resets the transformations so that the next IDrawable can draw
 		renderBuffer.setTransform(oldMatrix);

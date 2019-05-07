@@ -1,7 +1,6 @@
 package Surviv.Entities.Server;
 
 import Util.Engine.Engine;
-import Util.Engine.Input;
 import Util.Engine.Networking.Client.ClientGameEntity;
 import Util.Engine.Networking.Packet;
 import Util.Engine.Networking.Server.ServerGameEntity;
@@ -10,9 +9,10 @@ import Util.Engine.Scene;
 import Util.Math.Vec2f;
 import com.esotericsoftware.kryonet.Connection;
 
+
 public class Player extends ServerGameEntity
 {
-	private static final String SPRITE_PATH = "src/Assets/Sprites/Eye Base Color.png";
+	private static final String SPRITE_PATH = "/Assets/Sprites/character.png";
 
 
 	public Player(Scene scene)

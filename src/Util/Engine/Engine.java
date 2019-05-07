@@ -3,6 +3,7 @@ package Util.Engine;
 import Util.Engine.Networking.Client.ClientNetManager;
 import Util.Engine.Networking.GenericNetManager;
 import Util.Engine.Networking.Server.ServerNetManager;
+import com.esotericsoftware.minlog.Log;
 
 import javax.swing.Timer;
 import java.awt.event.ActionEvent;
@@ -31,12 +32,12 @@ public class Engine
 	public static void init(EngineConfiguration config)
 	{
 		Engine.config = config;
+		Log.set(Log.LEVEL_DEBUG);
 
 		// Engine
 		if (!config.HEADLESS_MODE)
 		{
-			canvas = new Canvas(config.WINDOW_WIDTH, config.WINDOW_HEIGHT, config.WINDOW_NAME);
-			input = new Input(canvas.getFrame());
+			canvas = new Canvas(config.WINDOW_WIDTH, config.WINDOW_HEIGHT, config.WINDOW_NAME, input = new Input());
 		}
 
 		// Networking

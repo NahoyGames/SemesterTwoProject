@@ -17,11 +17,8 @@ public class Input implements KeyListener, MouseMotionListener
 	private Vec2f oldMouse;
 
 
-	public Input(JFrame frame)
+	public Input()
 	{
-		frame.addKeyListener(this);
-		frame.addMouseMotionListener(this);
-
 		inputs = new EnumMap<>(InputAxes.class);
 		oldMouse = new Vec2f();
 
