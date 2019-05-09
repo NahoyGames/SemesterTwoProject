@@ -98,6 +98,12 @@ public class ServerNetManager extends GenericNetManager
 	}
 
 
+	public Connection[] getConnections()
+	{
+		return ((Server)transport).getConnections();
+	}
+
+
 	@Override
 	public void onReceivePacket(Connection sender, Packet packet)
 	{

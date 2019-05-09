@@ -18,7 +18,7 @@ public class Canvas
 	private JFrame frame;
 
 
-	public Canvas(int width, int height, String name, Input input)
+	public Canvas(int width, int height, String name)
 	{
 		this.width = width;
 		this.height = height;
@@ -26,11 +26,8 @@ public class Canvas
 
 		frame = new JFrame(name);
 
-		frame.addKeyListener(input);
-		frame.addMouseMotionListener(input);
 		frame.setFocusable(true);
 		frame.requestFocus();
-		panel.requestFocus();
 
 		frame.setSize(width, height);
 		frame.setResizable(true);

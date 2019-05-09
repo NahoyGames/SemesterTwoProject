@@ -22,9 +22,6 @@ public class Engine
 	// Graphics
 	private static Canvas canvas;
 
-	// Input
-	private static Input input;
-
 	// Network
 	private static GenericNetManager netManager;
 
@@ -37,7 +34,8 @@ public class Engine
 		// Engine
 		if (!config.HEADLESS_MODE)
 		{
-			canvas = new Canvas(config.WINDOW_WIDTH, config.WINDOW_HEIGHT, config.WINDOW_NAME, input = new Input());
+			canvas = new Canvas(config.WINDOW_WIDTH, config.WINDOW_HEIGHT, config.WINDOW_NAME);
+			Input.init();
 		}
 
 		// Networking
@@ -93,13 +91,13 @@ public class Engine
 	}
 
 
-	public static Input input() { return input; }
-
 	public static Scene scene() { return loadedScene; }
 
 	public static GenericNetManager netManager() { return netManager; }
 
 	public static EngineConfiguration config() { return config; }
+
+	public static Canvas canvas() { return canvas; }
 
 	public static void quit()
 	{

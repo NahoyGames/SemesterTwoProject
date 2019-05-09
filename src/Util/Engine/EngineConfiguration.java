@@ -46,5 +46,7 @@ public class EngineConfiguration
 		REGISTERED_PACKETS.add(ClientAuthRequestPacket.class);
 		REGISTERED_PACKETS.add(GameStatePacket.class);
 		REGISTERED_PACKETS.add(TransformPacket.class);
+		REGISTERED_PACKETS.add(ClientInputPacket.class);
+		REGISTERED_PACKETS.add(LinkClientToEntityPacket.class);
 	}
 }

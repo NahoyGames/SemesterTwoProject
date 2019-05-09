@@ -1,102 +1,49 @@
 package Util.Engine;
 
-import Util.Math.Vec2f;
 
-import javax.swing.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
-import java.util.EnumMap;
+import java.awt.event.*;
+import java.util.HashMap;
 
 
-public class Input implements KeyListener, MouseMotionListener
+public class Input
 {
-	private EnumMap<InputAxes, Float> inputs;
+	private static KeyAdapter adapter;
 
-	private Vec2f oldMouse;
+	private static HashMap<Integer, Boolean> buttonsDown;
 
 
-	public Input()
+	public static void init()
 	{
-		inputs = new EnumMap<>(InputAxes.class);
-		oldMouse = new Vec2f();
+		buttonsDown = new HashMap<>();
 
-		// Init inputs
-		for (InputAxes i : InputAxes.values())
+		adapter = new KeyAdapter()
 		{
-			inputs.put(i, new Float(0));
-		}
+			@Override
+			public void keyPressed(KeyEvent e)
+			{
+				Input.buttonsDown.put(e.getKeyCode(), true);
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e)
+			{
+				Input.buttonsDown.put(e.getKeyCode(), false);
+			}
+		};
+
+		Engine.canvas().getFrame().addKeyListener(adapter);
 	}
 
 
-	public float getAxis(InputAxes axis)
+	public static boolean getButtonDown(char key)
 	{
-		return inputs.get(axis);
-	}
+		int keyCode = KeyEvent.getExtendedKeyCodeForChar(key);
 
-
-	public float getAxis(String axis)
-	{
-		return inputs.get(InputAxes.valueOf(axis));
-	}
-
-
-	@Override
-	public void mouseDragged(MouseEvent e) { }
-
-
-	@Override
-	public void mouseMoved(MouseEvent e)
-	{
-		inputs.put(InputAxes.MouseX, (float)e.getX());
-		inputs.put(InputAxes.MouseY, (float)e.getY());
-
-		inputs.put(InputAxes.DeltaMouseX, (float)e.getX() - oldMouse.x);
-		inputs.put(InputAxes.DeltaMouseY, (float)e.getY() - oldMouse.y);
-
-		oldMouse.x = (float)e.getX();
-		oldMouse.y = (float)e.getY();
-	}
-
-
-	@Override
-	public void keyTyped(KeyEvent e)
-	{
-		setKey(e, true);
-	}
-
-
-	@Override
-	public void keyPressed(KeyEvent e)
-	{
-		setKey(e, true);
-	}
-
-
-	@Override
-	public void keyReleased(KeyEvent e)
-	{
-		setKey(e, false);
-	}
-
-
-	private void setKey(KeyEvent e, boolean toOn)
-	{
-		switch (e.getKeyCode())
+		if (buttonsDown.containsKey(keyCode))
 		{
-			case KeyEvent.VK_W:
-				inputs.put(InputAxes.Vertical, new Float(toOn ? 1 : 0));
-				break;
-			case KeyEvent.VK_S:
-				inputs.put(InputAxes.Vertical, new Float(toOn ? -1 : 0));
-				break;
-			case KeyEvent.VK_A:
-				inputs.put(InputAxes.Horizontal, new Float(toOn ? -1 : 0));
-				break;
-			case KeyEvent.VK_D:
-				inputs.put(InputAxes.Horizontal, new Float(toOn ? 1 : 0));
-				break;
+			return buttonsDown.get(keyCode);
 		}
+
+		return false;
 	}
 }

@@ -26,7 +26,7 @@ public class ServerNetTransform extends GameBehavior
 	{
 		timeElapsed += Time.deltaTime();
 
-		if (timeElapsed >= syncRate && !target.transform().position.equals(lastSentTransform.position) && target.transform().rotation == lastSentTransform.rotation)
+		if (timeElapsed >= syncRate && (!target.transform().position.equals(lastSentTransform.position) || target.transform().rotation != lastSentTransform.rotation))
 		{
 			timeElapsed = 0;
 

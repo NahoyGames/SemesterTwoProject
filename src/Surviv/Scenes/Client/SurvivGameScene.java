@@ -1,5 +1,6 @@
 package Surviv.Scenes.Client;
 
+import Surviv.Entities.TestGoToMouseEntity;
 import Util.Engine.Scene;
 
 public class SurvivGameScene extends Scene
@@ -13,5 +14,7 @@ public class SurvivGameScene extends Scene
 	public void onSceneLoad()
 	{
 		super.onSceneLoad();
+
+		addEntity(new TestGoToMouseEntity(this));
 	}
 }

@@ -59,9 +59,9 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 		AffineTransform oldMatrix = renderBuffer.getTransform();
 
 		// Transforms Sprite file --> World space
-		renderBuffer.scale(transform.scale.x, transform.scale.y);
 		renderBuffer.translate(transform.position.x, -transform.position.y); // Negative y b/c top-left origin with java.swing :(
 		renderBuffer.rotate(Math.toRadians(transform.rotation));
+		renderBuffer.scale(transform.scale.x, transform.scale.y);
 
 		// Draws the image, with the origin at the middle
 		renderBuffer.drawImage(sprite, -(int)(sprite.getWidth(null) * anchor.x), -(int)(sprite.getHeight(null) * anchor.y), null);
@@ -74,9 +74,14 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 	public Transform2D transform() { return transform; }
 
 
-	public void addBehavior(GameBehavior behavior)
+	public GameBehavior addBehavior(GameBehavior behavior)
 	{
-		this.behaviors.add(behavior);
+		if (this.behaviors.add(behavior))
+		{
+			return behavior;
+		}
+
+		return null;
 	}
 
 

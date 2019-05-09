@@ -7,5 +7,6 @@ public enum InputAxes
 	MouseX,
 	MouseY,
 	DeltaMouseX,
-	DeltaMouseY
+	DeltaMouseY,
+	Space
 }

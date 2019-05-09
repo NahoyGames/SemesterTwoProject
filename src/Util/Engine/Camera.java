@@ -1,6 +1,8 @@
 package Util.Engine;
 
 
+import Util.Math.Vec2f;
+
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.util.List;
@@ -37,6 +39,15 @@ public class Camera extends GameEntity
 		{
 			d.draw(renderBuffer);
 		}
+	}
+
+
+	public Vec2f screenToWorldPoint(Vec2f screenPoint)
+	{
+		int width = Engine.canvas().getFrame().getWidth();
+		int height = Engine.canvas().getFrame().getHeight();
+
+		return new Vec2f((screenPoint.x - width / 2) + transform.position.x, -(screenPoint.y - height / 2) + transform.position.y);
 	}
 
 

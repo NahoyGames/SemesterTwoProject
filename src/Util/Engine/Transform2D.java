@@ -25,4 +25,15 @@ public class Transform2D
 	{
 		this.position = position.add(amount);
 	}
+
+
+	public void lookAt(Vec2f point) { rotation = getLookAtAngle(point); }
+
+
+	public float getLookAtAngle(Vec2f point)
+	{
+		// Form a triangle between point and position and use arctan
+		// I used desmos to do the math: https://www.desmos.com/calculator/jk1vkerp19
+		return ((float)-Math.toDegrees(Math.atan2((point.y - position.y), (point.x - position.x)))) + 90f;
+	}
 }

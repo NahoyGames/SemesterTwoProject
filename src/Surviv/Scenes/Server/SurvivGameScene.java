@@ -2,8 +2,11 @@ package Surviv.Scenes.Server;
 
 import Surviv.Entities.Server.*;
 import Util.Engine.Engine;
-import Util.Engine.GameEntity;
+import Util.Engine.Input;
+import Util.Engine.Networking.Server.ServerNetManager;
 import Util.Engine.Scene;
+import com.esotericsoftware.kryonet.Connection;
+
 
 public class SurvivGameScene extends Scene
 {
@@ -25,9 +28,10 @@ public class SurvivGameScene extends Scene
 	{
 		super.update();
 
-		if (Engine.input().getAxis("Horizontal") > 0)
+		if (Input.getButtonDown(' '))
 		{
-			addEntity(new Player(this));
+			for (Connection c : ((ServerNetManager)Engine.netManager()).getConnections())
+			addEntity(new Player(this, c));
 		}
 	}
 }

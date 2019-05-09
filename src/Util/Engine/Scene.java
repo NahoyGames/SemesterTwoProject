@@ -56,6 +56,9 @@ public class Scene implements IEngineEventListener
 	}
 
 
+	public Camera camera() { return activeCamera; }
+
+
 	@Override
 	public void onSceneLoad()
 	{
