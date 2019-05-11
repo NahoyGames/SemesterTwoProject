@@ -4,6 +4,7 @@ package Surviv.Entities.Server;
 import Surviv.Behaviors.WeaponBehavior;
 import Surviv.Behaviors.Weapons.Ak47;
 import Surviv.Behaviors.Weapons.DesertEagle;
+import Surviv.Behaviors.Weapons.MachineGun;
 import Surviv.Behaviors.Weapons.Shotgun;
 import Surviv.Networking.Packets.ClientLookAtPacket;
 import Surviv.SurvivEngineConfiguration;
@@ -56,7 +57,9 @@ public class Player extends ServerGameEntity
 		inventory = new WeaponBehavior[]
 				{
 						(WeaponBehavior) addBehavior(new Ak47(this)),
-						(WeaponBehavior) addBehavior(new Shotgun(this))
+						(WeaponBehavior) addBehavior(new Shotgun(this)),
+						(WeaponBehavior) addBehavior(new DesertEagle(this)),
+						(WeaponBehavior) addBehavior(new MachineGun(this))
 				};
 	}
 
@@ -105,13 +108,15 @@ public class Player extends ServerGameEntity
 			transform.position.y -= 150 * Time.deltaTime(true);
 		}
 
-		if (inputReceiver.getButtonDown(KeyEvent.VK_SPACE))
+		if (inputReceiver.getButtonDown(Engine.config().MOUSE_KEYCODE))
 		{
 			inventory[equippedWeaponIndex].tryUse();
 		}
 
-		if (inputReceiver.getButtonDown(KeyEvent.VK_1)) { equippedWeaponIndex = 0; }
-		else if (inputReceiver.getButtonDown(KeyEvent.VK_2)) { equippedWeaponIndex = 1; }
+		if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).EQUIP_1_KEY)) { equippedWeaponIndex = 0; }
+		else if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).EQUIP_2_KEY)) { equippedWeaponIndex = 1; }
+		else if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).EQUIP_3_KEY)) { equippedWeaponIndex = 2; }
+		else if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).EQUIP_4_KEY)) { equippedWeaponIndex = 3; }
 	}
 
 	@Override

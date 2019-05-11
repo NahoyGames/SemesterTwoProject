@@ -16,6 +16,11 @@ public class SurvivEngineConfiguration extends EngineConfiguration
 	public int MOVE_RIGHT_KEY = KeyEvent.VK_RIGHT;
 	public int MOVE_LEFT_KEY = KeyEvent.VK_LEFT;
 
+	public int EQUIP_1_KEY = KeyEvent.VK_1;
+	public int EQUIP_2_KEY = KeyEvent.VK_2;
+	public int EQUIP_3_KEY = KeyEvent.VK_3;
+	public int EQUIP_4_KEY = KeyEvent.VK_4;
+
 	public final float MAX_BULLET_DISTANCE = 5000f;
 
 

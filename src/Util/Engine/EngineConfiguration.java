@@ -22,6 +22,9 @@ public class EngineConfiguration
 	public String[] SUPPORTED_VERSIONS;
 	public String VERSION;
 
+	/** Input **/
+	public final int MOUSE_KEYCODE = 999;
+
 	/** Scenes **/
 	public HashMap<String, Scene> REGISTERED_SCENES;
 	public String DEFAULT_SCENE;

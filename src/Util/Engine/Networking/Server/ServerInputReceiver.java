@@ -47,8 +47,6 @@ public class ServerInputReceiver extends GameBehavior implements INetworkListene
 			ClientInputPacket inputPacket = (ClientInputPacket) packet;
 
 			buttonsDown.put(inputPacket.keyCode, inputPacket.setOn);
-
-			System.out.println("Received packet for input " + KeyEvent.getKeyText(inputPacket.keyCode));
 		}
 	}
 }

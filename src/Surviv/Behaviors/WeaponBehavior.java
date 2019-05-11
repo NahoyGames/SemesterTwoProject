@@ -11,7 +11,7 @@ public abstract class WeaponBehavior extends GameBehavior
 	protected Player player;
 
 	protected float fireRate;
-	private float fireRateTimer;
+	protected float fireRateTimer;
 
 
 	protected WeaponBehavior(Player player)

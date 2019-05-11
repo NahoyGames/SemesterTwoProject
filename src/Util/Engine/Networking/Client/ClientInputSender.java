@@ -7,16 +7,19 @@ import Util.Engine.Networking.Packets.ClientInputPacket;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class ClientInputSender extends GameBehavior
 {
-	private KeyAdapter adapter;
+	private KeyAdapter keyAdapter;
+	private MouseAdapter mouseAdapter;
 
 
 	public ClientInputSender(int[] keyCodesToSend)
 	{
-		adapter = new KeyAdapter()
+		keyAdapter = new KeyAdapter()
 		{
 			@Override
 			public void keyPressed(KeyEvent e)
@@ -38,6 +41,39 @@ public class ClientInputSender extends GameBehavior
 			}
 		};
 
-		Engine.canvas().getFrame().addKeyListener(adapter);
+		Engine.canvas().getFrame().addKeyListener(keyAdapter);
+
+		mouseAdapter = new MouseAdapter()
+		{
+			@Override
+			public void mouseClicked(MouseEvent e)
+			{
+				if (Arrays.contains(keyCodesToSend, Engine.config().MOUSE_KEYCODE))
+				{
+					//((ClientNetManager) Engine.netManager()).sendReliable(new ClientInputPacket(Engine.config().MOUSE_KEYCODE, true));
+				}
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e)
+			{
+				if (Arrays.contains(keyCodesToSend, Engine.config().MOUSE_KEYCODE))
+				{
+					((ClientNetManager) Engine.netManager()).sendReliable(new ClientInputPacket(Engine.config().MOUSE_KEYCODE, true));
+				}
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e)
+			{
+				if (Arrays.contains(keyCodesToSend, Engine.config().MOUSE_KEYCODE))
+				{
+					System.out.println("Mouse released!");
+					((ClientNetManager) Engine.netManager()).sendReliable(new ClientInputPacket(Engine.config().MOUSE_KEYCODE, false));
+				}
+			}
+		};
+
+		Engine.canvas().getFrame().addMouseListener(mouseAdapter);
 	}
 }

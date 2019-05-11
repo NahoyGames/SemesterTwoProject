@@ -3,7 +3,7 @@ package Surviv.Behaviors.Weapons;
 import Surviv.Entities.Server.Bullet;
 import Surviv.Entities.Server.Player;
 
-public class Shotgun extends SpamClickGun
+public class Shotgun extends ClickCooldownGun
 {
 	private final float spread = 25f;
 	private final int shells = 15;
@@ -11,7 +11,7 @@ public class Shotgun extends SpamClickGun
 
 	public Shotgun(Player player)
 	{
-		super(player, 300);
+		super(player, 0.67f, 300);
 	}
 
 

@@ -12,7 +12,7 @@ import java.nio.file.StandardCopyOption;
 
 public class Launcher
 {
-	public static final String LAUNCHER_METADATA_LINK = "https://raw.githubusercontent.com/NahoyGames/SemesterTwoProject/master/launcherMeta";
+	public static final String LAUNCHER_METADATA_LINK = "https://raw.githubusercontent.com/NahoyGames/SemesterTwoProject/master/src/Launcher/launcherMeta";
 	public static final String LOCAL_VERSION_NAME = "yohanSemesterTwoProjectLatestRelease.jar";
 
 

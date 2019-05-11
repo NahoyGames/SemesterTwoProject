@@ -7,6 +7,6 @@ public class Ak47 extends AutoFireGun
 {
 	public Ak47(Player player)
 	{
-		super(player, 10, 1000, 15);
+		super(player, 10, 1000, 7.5f);
 	}
 }

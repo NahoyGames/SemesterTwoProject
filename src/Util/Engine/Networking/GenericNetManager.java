@@ -48,8 +48,13 @@ public abstract class GenericNetManager implements INetworkListener
 					// It uses toArray to avoid concurrent modification exceptions
 					for (INetworkListener listener : listeners.toArray(new INetworkListener[listeners.size()]))
 					{
-						listener.onReceivePacket(connection, (Packet) o);
+						try
+						{
+							listener.onReceivePacket(connection, (Packet) o);
+						}
+						catch (Exception e) { continue; }
 					}
+
 				}
 			}
 		});

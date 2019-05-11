@@ -5,19 +5,16 @@ import Surviv.Entities.Server.Bullet;
 import Surviv.Entities.Server.Player;
 import Util.Engine.Engine;
 
-import java.awt.event.KeyEvent;
-
-
-public abstract class SpamClickGun extends WeaponBehavior
+public class ClickCooldownGun extends WeaponBehavior
 {
 	private boolean canShoot; // True when the user released the key
 
 	private float dist;
 
 
-	public SpamClickGun(Player player, float dist)
+	public ClickCooldownGun(Player player, float fireRate, float dist)
 	{
-		super(player);
+		super(player, fireRate);
 
 		this.dist = dist;
 	}
@@ -26,8 +23,9 @@ public abstract class SpamClickGun extends WeaponBehavior
 	@Override
 	public boolean tryUse()
 	{
-		if (canShoot)
+		if (fireRateTimer >=  1f / fireRate && canShoot)
 		{
+			fireRateTimer = 0;
 			canShoot = false;
 			use();
 
@@ -43,6 +41,7 @@ public abstract class SpamClickGun extends WeaponBehavior
 	{
 		player.getScene().addEntity(new Bullet(player.getScene(), player.transform().position, player.transform().rotation, dist));
 	}
+
 
 	@Override
 	public void update()

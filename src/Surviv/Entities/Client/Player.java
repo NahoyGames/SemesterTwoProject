@@ -41,9 +41,11 @@ public class Player extends ClientGameEntity
 						((SurvivEngineConfiguration)Engine.config()).MOVE_DOWN_KEY,
 						((SurvivEngineConfiguration)Engine.config()).MOVE_RIGHT_KEY,
 						((SurvivEngineConfiguration)Engine.config()).MOVE_UP_KEY,
-						KeyEvent.VK_SPACE,
-						KeyEvent.VK_1,
-						KeyEvent.VK_2
+						((SurvivEngineConfiguration)Engine.config()).MOUSE_KEYCODE,
+						((SurvivEngineConfiguration)Engine.config()).EQUIP_1_KEY,
+						((SurvivEngineConfiguration)Engine.config()).EQUIP_2_KEY,
+						((SurvivEngineConfiguration)Engine.config()).EQUIP_3_KEY,
+						((SurvivEngineConfiguration)Engine.config()).EQUIP_4_KEY
 				}));
 	}
 
