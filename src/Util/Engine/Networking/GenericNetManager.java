@@ -1,6 +1,7 @@
 package Util.Engine.Networking;
 
 
+import Util.Math.Vec2f;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.EndPoint;
 import com.esotericsoftware.kryonet.Listener;
@@ -31,6 +32,7 @@ public abstract class GenericNetManager implements INetworkListener
 
 		// Register additional classes
 		this.transport.getKryo().register(short[].class);
+		this.transport.getKryo().register(Vec2f.class);
 
 		// Listeners
 		listeners = new ArrayList<>();

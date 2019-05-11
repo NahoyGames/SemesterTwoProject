@@ -25,7 +25,7 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 
 	// The image of this sprite
 	private Image sprite;
-	private Vec2f anchor;
+	protected Vec2f anchor;
 
 
 	// Instantiates the entity in the given scene
@@ -62,9 +62,10 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 		renderBuffer.translate(transform.position.x, -transform.position.y); // Negative y b/c top-left origin with java.swing :(
 		renderBuffer.rotate(Math.toRadians(transform.rotation));
 		renderBuffer.scale(transform.scale.x, transform.scale.y);
+		renderBuffer.translate(-(sprite.getWidth(null) * anchor.x), -(sprite.getHeight(null) * anchor.y));
 
 		// Draws the image, with the origin at the middle
-		renderBuffer.drawImage(sprite, -(int)(sprite.getWidth(null) * anchor.x), -(int)(sprite.getHeight(null) * anchor.y), null);
+		renderBuffer.drawImage(sprite, 0, 0, null);
 
 		// Resets the transformations so that the next IDrawable can draw
 		renderBuffer.setTransform(oldMatrix);
@@ -83,6 +84,9 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 
 		return null;
 	}
+
+
+	public Scene getScene() { return scene; }
 
 
 	@Override

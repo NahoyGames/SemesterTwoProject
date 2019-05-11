@@ -1,6 +1,7 @@
 package Surviv.Scenes.Server;
 
 import Surviv.Entities.Server.*;
+import Surviv.Scenes.SurvivMap;
 import Util.Engine.Engine;
 import Util.Engine.Input;
 import Util.Engine.Networking.Server.ServerNetManager;
@@ -10,9 +11,14 @@ import com.esotericsoftware.kryonet.Connection;
 
 public class SurvivGameScene extends Scene
 {
+	private boolean gameStarted = false;
+
+
 	public SurvivGameScene()
 	{
 		super("Surviv Game");
+
+		SurvivMap.generateMap(this);
 	}
 
 
@@ -28,10 +34,14 @@ public class SurvivGameScene extends Scene
 	{
 		super.update();
 
-		if (Input.getButtonDown(' '))
+		if (Input.getButtonDown(' ') && !gameStarted)
 		{
 			for (Connection c : ((ServerNetManager)Engine.netManager()).getConnections())
-			addEntity(new Player(this, c));
+			{
+				addEntity(new Player(this, c));
+			}
+
+			gameStarted = true;
 		}
 	}
 }

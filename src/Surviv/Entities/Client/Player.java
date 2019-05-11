@@ -3,6 +3,7 @@ package Surviv.Entities.Client;
 
 import Surviv.Networking.Packets.ClientLookAtPacket;
 import Surviv.Networking.Packets.TestRequestPacket;
+import Surviv.SurvivEngineConfiguration;
 import Util.Engine.Engine;
 import Util.Engine.Networking.Client.ClientGameEntity;
 import Util.Engine.Networking.Client.ClientInputSender;
@@ -34,7 +35,15 @@ public class Player extends ClientGameEntity
 
 		// Initial behaviors
 		addBehavior(new ClientNetTransform(this));
-		addBehavior(new ClientInputSender(new int[] {KeyEvent.VK_A, KeyEvent.VK_S, KeyEvent.VK_D, KeyEvent.VK_W}));
+		addBehavior(new ClientInputSender(new int[]
+				{
+						((SurvivEngineConfiguration)Engine.config()).MOVE_LEFT_KEY,
+						((SurvivEngineConfiguration)Engine.config()).MOVE_DOWN_KEY,
+						((SurvivEngineConfiguration)Engine.config()).MOVE_RIGHT_KEY,
+						((SurvivEngineConfiguration)Engine.config()).MOVE_UP_KEY,
+						KeyEvent.VK_SPACE
+				}));
+
 
 		// Look at mouse(not a behavior because it's player specific)
 		Engine.canvas().getFrame().addMouseMotionListener(new MouseMotionAdapter()
@@ -89,5 +98,10 @@ public class Player extends ClientGameEntity
 	public void update()
 	{
 		super.update();
+
+		if (isLocalPlayer())
+		{
+			Engine.scene().camera().transform().position = this.transform.position;
+		}
 	}
 }

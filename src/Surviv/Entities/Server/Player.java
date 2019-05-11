@@ -1,7 +1,13 @@
 package Surviv.Entities.Server;
 
 
+import Surviv.Behaviors.WeaponBehavior;
+import Surviv.Behaviors.Weapons.Ak47;
+import Surviv.Behaviors.Weapons.DesertEagle;
+import Surviv.Behaviors.Weapons.Shotgun;
 import Surviv.Networking.Packets.ClientLookAtPacket;
+import Surviv.SurvivEngineConfiguration;
+import Util.Engine.Engine;
 import Util.Engine.Networking.Client.ClientGameEntity;
 import Util.Engine.Networking.Packet;
 import Util.Engine.Networking.Packets.LinkClientToEntityPacket;
@@ -9,6 +15,7 @@ import Util.Engine.Networking.Server.ServerGameEntity;
 import Util.Engine.Networking.Server.ServerInputReceiver;
 import Util.Engine.Networking.Server.ServerNetTransform;
 import Util.Engine.Scene;
+import Util.Engine.Time;
 import Util.Math.Compressor;
 import Util.Math.Vec2f;
 import com.esotericsoftware.kryonet.Connection;
@@ -26,6 +33,9 @@ public class Player extends ServerGameEntity
 	private ServerInputReceiver inputReceiver;
 
 
+	private WeaponBehavior equippedWeapon;
+
+
 	public Player(Scene scene, Connection connection)
 	{
 		super(scene, SPRITE_PATH);
@@ -40,6 +50,8 @@ public class Player extends ServerGameEntity
 		// Initial behaviors
 		addBehavior(new ServerNetTransform(this, 9));
 		this.inputReceiver = (ServerInputReceiver) addBehavior(new ServerInputReceiver(connection));
+
+		equippedWeapon = (WeaponBehavior) addBehavior(new Ak47(this));
 	}
 
 
@@ -57,38 +69,46 @@ public class Player extends ServerGameEntity
 	}
 
 
+	public ServerInputReceiver getInputReceiver() { return inputReceiver; }
+
+
 	@Override
 	public void update()
 	{
 		super.update();
 
-		if (inputReceiver.getButtonDown(KeyEvent.VK_A))
+		if (inputReceiver.getButtonDown(((SurvivEngineConfiguration) Engine.config()).MOVE_LEFT_KEY))
 		{
-			transform.position.x -= 5;
+			transform.position.x -= 150 * Time.deltaTime(true);
 
 			System.out.println("a was pressed!");
 		}
 
-		if (inputReceiver.getButtonDown(KeyEvent.VK_D))
+		if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).MOVE_RIGHT_KEY))
 		{
-			transform.position.x += 5;
+			transform.position.x += 150 * Time.deltaTime(true);
 		}
 
-		if (inputReceiver.getButtonDown(KeyEvent.VK_W))
+		if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).MOVE_UP_KEY))
 		{
-			transform.position.y += 5;
+			transform.position.y += 150 * Time.deltaTime(true);
 		}
 
-		if (inputReceiver.getButtonDown(KeyEvent.VK_S))
+		if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).MOVE_DOWN_KEY))
 		{
-			transform.position.y -= 5;
+			transform.position.y -= 150 * Time.deltaTime(true);
+		}
+
+		if (inputReceiver.getButtonDown(KeyEvent.VK_SPACE))
+		{
+			equippedWeapon.tryUse();
 		}
 	}
 
 	@Override
 	public void onReceivePacket(Connection sender, Packet packet)
 	{
-		if (packet instanceof ClientLookAtPacket)
+		if (sender.getID() == this.inputReceiver.getSenderId() && packet instanceof ClientLookAtPacket)
 		{
 			ClientLookAtPacket lookAtPacket = (ClientLookAtPacket)packet;
 

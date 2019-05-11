@@ -1,5 +1,6 @@
 package Util.Engine;
 
+import Util.Engine.Networking.INetworkListener;
 import Util.Engine.Networking.NetGameEntity;
 
 import java.awt.*;
@@ -22,7 +23,7 @@ public class Scene implements IEngineEventListener
 
 		// Camera ~ Only MUST have entity
 		// Also adds to array directly instead of using addEntity() to avoid double-callbacks
-		entities.add(activeCamera = new Camera(this, Color.GREEN));
+		entities.add(activeCamera = new Camera(this, new Color(105, 116, 136)));
 	}
 
 
@@ -46,6 +47,11 @@ public class Scene implements IEngineEventListener
 	{
 		entity.onDisable();
 		entities.remove(entity);
+
+		if (entity instanceof INetworkListener)
+		{
+			Engine.netManager().removeListener((INetworkListener)entity);
+		}
 	}
 
 

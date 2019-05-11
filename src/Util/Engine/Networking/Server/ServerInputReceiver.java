@@ -36,6 +36,9 @@ public class ServerInputReceiver extends GameBehavior implements INetworkListene
 	}
 
 
+	public int getSenderId() { return this.sender.getID(); }
+
+
 	@Override
 	public void onReceivePacket(Connection sender, Packet packet)
 	{

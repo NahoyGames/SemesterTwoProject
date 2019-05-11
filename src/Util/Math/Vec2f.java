@@ -63,6 +63,16 @@ public class Vec2f
 	}
 
 
+	public static float distanceSquared(Vec2f a, Vec2f b)
+	{
+		return ((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
+	}
+	public static float distance(Vec2f a, Vec2f b)
+	{
+		return (float)Math.sqrt(distanceSquared(a, b));
+	}
+
+
 	public static Vec2f normalized(Vec2f a)
 	{
 		return a.scale(1 / a.length());
@@ -74,6 +84,9 @@ public class Vec2f
 
 
 	public boolean equals(Vec2f a) { return this.x == a.x && this.y == a.y; }
+
+
+	public Vec2f clone() { return new Vec2f(x, y); }
 
 
 	public String toString()

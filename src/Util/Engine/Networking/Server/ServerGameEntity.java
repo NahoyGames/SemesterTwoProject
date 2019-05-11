@@ -10,7 +10,7 @@ import com.esotericsoftware.kryonet.Connection;
 
 public abstract class ServerGameEntity extends NetGameEntity
 {
-	public ServerGameEntity(Scene scene, String spritePath)
+	public ServerGameEntity(Scene scene, String spritePath, Object... spawnParams)
 	{
 		super(scene, spritePath, ((ServerNetManager) Engine.netManager()).getNextNetworkId());
 
@@ -21,11 +21,17 @@ public abstract class ServerGameEntity extends NetGameEntity
 		}
 
 		// Spawn over the network
-		sendReliable(new SpawnEntityPacket(getNetworkId(), getClientCounterpart()));
+		spawnOverNetwork(spawnParams);
 	}
 
 
 	public abstract Class<? extends ClientGameEntity> getClientCounterpart();
+
+
+	protected void spawnOverNetwork(Object... params)
+	{
+		sendReliable(new SpawnEntityPacket(getNetworkId(), getClientCounterpart()));
+	}
 
 
 	protected final void sendReliable(Packet packet)

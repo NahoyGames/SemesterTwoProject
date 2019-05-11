@@ -4,7 +4,6 @@ package Util.Engine;
 import Util.Math.Vec2f;
 
 import java.awt.*;
-import java.awt.geom.AffineTransform;
 import java.util.List;
 
 public class Camera extends GameEntity
