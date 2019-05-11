@@ -41,7 +41,9 @@ public class Player extends ClientGameEntity
 						((SurvivEngineConfiguration)Engine.config()).MOVE_DOWN_KEY,
 						((SurvivEngineConfiguration)Engine.config()).MOVE_RIGHT_KEY,
 						((SurvivEngineConfiguration)Engine.config()).MOVE_UP_KEY,
-						KeyEvent.VK_SPACE
+						KeyEvent.VK_SPACE,
+						KeyEvent.VK_1,
+						KeyEvent.VK_2
 				}));
 	}
 
@@ -84,7 +86,12 @@ public class Player extends ClientGameEntity
 					@Override
 					public void mouseMoved(MouseEvent e)
 					{
-						System.out.println("Sent look at");
+						sendLookAt(Engine.scene().camera().screenToWorldPoint(new Vec2f(e.getX(), e.getY())));
+					}
+
+					@Override
+					public void mouseDragged(MouseEvent e)
+					{
 						sendLookAt(Engine.scene().camera().screenToWorldPoint(new Vec2f(e.getX(), e.getY())));
 					}
 				});

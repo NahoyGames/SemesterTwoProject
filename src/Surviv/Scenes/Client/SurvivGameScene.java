@@ -38,7 +38,7 @@ public class SurvivGameScene extends Scene implements INetworkListener
 		{
 			SpawnBulletPacket bulletPacket = (SpawnBulletPacket)packet;
 
-			addEntity(new Bullet(this, bulletPacket.origin, bulletPacket.dir));
+			addEntity(new Bullet(this, bulletPacket.origin, bulletPacket.dir, bulletPacket.dist));
 		}
 	}
 

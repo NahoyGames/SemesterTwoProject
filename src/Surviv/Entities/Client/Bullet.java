@@ -1,5 +1,7 @@
 package Surviv.Entities.Client;
 
+import Surviv.SurvivEngineConfiguration;
+import Util.Engine.Engine;
 import Util.Engine.Networking.Client.ClientGameEntity;
 import Util.Engine.Networking.Packet;
 import Util.Engine.Scene;
@@ -14,9 +16,10 @@ public class Bullet extends ClientGameEntity
 
 
 	private Vec2f origin, dir;
+	private float distSquared;
 
 
-	public Bullet(Scene scene, Vec2f origin, byte dir)
+	public Bullet(Scene scene, Vec2f origin, byte dir, byte dist)
 	{
 		super(scene, SPRITE_PATH, (short)-1);
 
@@ -28,6 +31,9 @@ public class Bullet extends ClientGameEntity
 
 		float radDir = (float)Math.toRadians(this.transform.rotation + 90f);
 		this.dir = new Vec2f(-(float)Math.cos(radDir), (float)Math.sin(radDir));
+
+		distSquared = Compressor.scaleByteToFloat(dist, 0, ((SurvivEngineConfiguration) Engine.config()).MAX_BULLET_DISTANCE);
+		distSquared *= distSquared;
 
 		this.transform.scale = new Vec2f(0.15f, 0f);
 	}
@@ -44,7 +50,7 @@ public class Bullet extends ClientGameEntity
 
 		this.transform.scale.y = Math.min(0.5f, distTraveled / 50000);
 
-		if (distTraveled >= 1000 * 1000)
+		if (distTraveled >= distSquared)
 		{
 			scene.removeEntity(this);
 		}

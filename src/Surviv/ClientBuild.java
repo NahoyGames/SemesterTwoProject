@@ -15,7 +15,7 @@ public class ClientBuild
 			{
 				WINDOW_NAME = "Surviv Client";
 				VERSION = "0.0.1";
-				SERVER_IP = "127.0.0.1";
+				SERVER_IP = args.length > 0 ? args[0] : "127.0.0.1";
 				REGISTERED_SCENES = new HashMap<String, Scene>()
 				{
 					{

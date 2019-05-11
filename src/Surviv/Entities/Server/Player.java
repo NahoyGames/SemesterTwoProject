@@ -33,7 +33,8 @@ public class Player extends ServerGameEntity
 	private ServerInputReceiver inputReceiver;
 
 
-	private WeaponBehavior equippedWeapon;
+	private int equippedWeaponIndex;
+	private WeaponBehavior[] inventory;
 
 
 	public Player(Scene scene, Connection connection)
@@ -51,7 +52,12 @@ public class Player extends ServerGameEntity
 		addBehavior(new ServerNetTransform(this, 9));
 		this.inputReceiver = (ServerInputReceiver) addBehavior(new ServerInputReceiver(connection));
 
-		equippedWeapon = (WeaponBehavior) addBehavior(new Ak47(this));
+		// Inventory
+		inventory = new WeaponBehavior[]
+				{
+						(WeaponBehavior) addBehavior(new Ak47(this)),
+						(WeaponBehavior) addBehavior(new Shotgun(this))
+				};
 	}
 
 
@@ -101,8 +107,11 @@ public class Player extends ServerGameEntity
 
 		if (inputReceiver.getButtonDown(KeyEvent.VK_SPACE))
 		{
-			equippedWeapon.tryUse();
+			inventory[equippedWeaponIndex].tryUse();
 		}
+
+		if (inputReceiver.getButtonDown(KeyEvent.VK_1)) { equippedWeaponIndex = 0; }
+		else if (inputReceiver.getButtonDown(KeyEvent.VK_2)) { equippedWeaponIndex = 1; }
 	}
 
 	@Override

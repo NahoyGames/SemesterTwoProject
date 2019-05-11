@@ -21,7 +21,7 @@ public class Bullet extends ServerGameEntity
 
 	public Bullet(Scene scene, Vec2f origin, float dir, float dist)
 	{
-		super(scene, SPRITE_PATH, origin, dir);
+		super(scene, SPRITE_PATH, origin, dir, dist);
 
 		anchor = new Vec2f(0.5f, 0.05f);
 
@@ -47,7 +47,7 @@ public class Bullet extends ServerGameEntity
 	@Override
 	protected void spawnOverNetwork(Object... params)
 	{
-		sendUnreliable(new SpawnBulletPacket((Vec2f)params[0], (float)params[1]));
+		sendUnreliable(new SpawnBulletPacket((Vec2f)params[0], (float)params[1], (float)params[2]));
 	}
 
 	@Override
