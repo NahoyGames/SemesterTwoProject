@@ -46,4 +46,15 @@ public class Input
 
 		return false;
 	}
+
+
+	public static boolean getButtonDown(int keyCode)
+	{
+		if (buttonsDown.containsKey(keyCode))
+		{
+			return buttonsDown.get(keyCode);
+		}
+
+		return false;
+	}
 }

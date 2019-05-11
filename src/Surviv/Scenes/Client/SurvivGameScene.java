@@ -20,6 +20,7 @@ public class SurvivGameScene extends Scene implements INetworkListener
 		SurvivMap.generateMap(this);
 	}
 
+
 	@Override
 	public void onSceneLoad()
 	{

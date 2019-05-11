@@ -10,6 +10,8 @@ public class Camera extends GameEntity
 {
 	private Color background;
 
+	private float fov = 1f;
+
 
 	public Camera(Scene scene, Color background)
 	{
@@ -31,6 +33,7 @@ public class Camera extends GameEntity
 		// Applies the World --> Camera space transformation
 		renderBuffer.translate(width / 2, height / 2);
 		renderBuffer.rotate(-transform.rotation);
+		renderBuffer.scale(1 / fov, 1 / fov);
 		renderBuffer.translate(-transform.position.x , transform.position.y);
 
 		// Draws the entities in order
@@ -48,6 +51,10 @@ public class Camera extends GameEntity
 
 		return new Vec2f((screenPoint.x - width / 2) + transform.position.x, -(screenPoint.y - height / 2) + transform.position.y);
 	}
+
+
+	public float getFov() { return fov; }
+	public void setFov(float value) { fov = value; }
 
 
 	@Override

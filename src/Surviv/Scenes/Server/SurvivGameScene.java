@@ -6,7 +6,10 @@ import Util.Engine.Engine;
 import Util.Engine.Input;
 import Util.Engine.Networking.Server.ServerNetManager;
 import Util.Engine.Scene;
+import Util.Engine.Time;
 import com.esotericsoftware.kryonet.Connection;
+
+import java.awt.event.KeyEvent;
 
 
 public class SurvivGameScene extends Scene
@@ -42,6 +45,15 @@ public class SurvivGameScene extends Scene
 			}
 
 			gameStarted = true;
+		}
+
+		if (Input.getButtonDown(KeyEvent.VK_UP))
+		{
+			camera().setFov(camera().getFov() + 0.001f * Time.deltaTime());
+		}
+		else if (Input.getButtonDown(KeyEvent.VK_DOWN))
+		{
+			camera().setFov(camera().getFov() - 0.001f * Time.deltaTime());
 		}
 	}
 }

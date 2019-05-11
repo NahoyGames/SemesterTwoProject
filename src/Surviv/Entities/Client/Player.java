@@ -43,18 +43,6 @@ public class Player extends ClientGameEntity
 						((SurvivEngineConfiguration)Engine.config()).MOVE_UP_KEY,
 						KeyEvent.VK_SPACE
 				}));
-
-
-		// Look at mouse(not a behavior because it's player specific)
-		Engine.canvas().getFrame().addMouseMotionListener(new MouseMotionAdapter()
-		{
-			@Override
-			public void mouseMoved(MouseEvent e)
-			{
-				System.out.println("Sent look at");
-				sendLookAt(Engine.scene().camera().screenToWorldPoint(new Vec2f(e.getX(), e.getY())));
-			}
-		});
 	}
 
 
@@ -89,6 +77,17 @@ public class Player extends ClientGameEntity
 			{
 				hasLocalPlayerAuthority = true;
 				System.out.println("I, netEntity#" + getNetworkId() + ", have local player authority!");
+
+				// Look at mouse(not a behavior because it's player specific)
+				Engine.canvas().getFrame().addMouseMotionListener(new MouseMotionAdapter()
+				{
+					@Override
+					public void mouseMoved(MouseEvent e)
+					{
+						System.out.println("Sent look at");
+						sendLookAt(Engine.scene().camera().screenToWorldPoint(new Vec2f(e.getX(), e.getY())));
+					}
+				});
 			}
 		}
 	}
