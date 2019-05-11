@@ -6,9 +6,7 @@ import Util.Math.Vec2f;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
-import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashSet;
 
 
@@ -26,6 +24,7 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 	// The image of this sprite
 	private Image sprite;
 	protected Vec2f anchor;
+	private float alpha = 1f;
 
 
 	// Instantiates the entity in the given scene
@@ -64,11 +63,28 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 		renderBuffer.scale(transform.scale.x, transform.scale.y);
 		renderBuffer.translate(-(sprite.getWidth(null) * anchor.x), -(sprite.getHeight(null) * anchor.y));
 
+		// Alpha
+		renderBuffer.setComposite(AlphaComposite.SrcOver.derive(getAlpha()));
+
 		// Draws the image, with the origin at the middle
 		renderBuffer.drawImage(sprite, 0, 0, null);
 
 		// Resets the transformations so that the next IDrawable can draw
 		renderBuffer.setTransform(oldMatrix);
+	}
+
+
+	@Override
+	public float setAlpha(float val)
+	{
+		return this.alpha = val;
+	}
+
+
+	@Override
+	public float getAlpha()
+	{
+		return alpha;
 	}
 
 

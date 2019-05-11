@@ -10,4 +10,8 @@ public interface IDrawable
 	void draw(Graphics2D renderBuffer);
 
 	int getLayer();
+
+	float getAlpha();
+
+	float setAlpha(float val);
 }

@@ -1,5 +1,6 @@
 package Surviv.Entities.Client;
 
+import Surviv.Behaviors.FadeBehavior;
 import Surviv.SurvivEngineConfiguration;
 import Util.Engine.Engine;
 import Util.Engine.Networking.Client.ClientGameEntity;
@@ -17,6 +18,8 @@ public class Bullet extends ClientGameEntity
 
 	private Vec2f origin, dir;
 	private float distSquared;
+
+	private FadeBehavior fadeBehavior;
 
 
 	public Bullet(Scene scene, Vec2f origin, byte dir, byte dist)
@@ -36,6 +39,8 @@ public class Bullet extends ClientGameEntity
 		distSquared *= distSquared;
 
 		this.transform.scale = new Vec2f(0.15f, 0f);
+
+		fadeBehavior = ((FadeBehavior)addBehavior(new FadeBehavior(this)));
 	}
 
 
@@ -52,7 +57,7 @@ public class Bullet extends ClientGameEntity
 
 		if (distTraveled >= distSquared)
 		{
-			scene.removeEntity(this);
+			fadeBehavior.scheduleFade(0.05f, 0f, true);
 		}
 	}
 
