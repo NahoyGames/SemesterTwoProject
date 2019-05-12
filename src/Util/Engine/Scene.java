@@ -2,6 +2,7 @@ package Util.Engine;
 
 import Util.Engine.Networking.INetworkListener;
 import Util.Engine.Networking.NetGameEntity;
+import Util.Engine.Physics.CollisionManager;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -15,6 +16,8 @@ public class Scene implements IEngineEventListener
 	private List<GameEntity> entities;
 	private Camera activeCamera;
 
+	private CollisionManager collisionManager;
+
 
 	public Scene(String name)
 	{
@@ -24,6 +27,8 @@ public class Scene implements IEngineEventListener
 		// Camera ~ Only MUST have entity
 		// Also adds to array directly instead of using addEntity() to avoid double-callbacks
 		entities.add(activeCamera = new Camera(this, new Color(105, 116, 136)));
+
+		collisionManager = new CollisionManager(this);
 	}
 
 
@@ -65,6 +70,9 @@ public class Scene implements IEngineEventListener
 	public Camera camera() { return activeCamera; }
 
 
+	public CollisionManager collisionManager() { return collisionManager; }
+
+
 	@Override
 	public void onSceneLoad()
 	{
@@ -92,6 +100,8 @@ public class Scene implements IEngineEventListener
 		{
 			entity.update();
 		}
+
+		collisionManager.step();
 	}
 
 

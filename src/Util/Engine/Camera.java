@@ -4,6 +4,9 @@ package Util.Engine;
 import Util.Math.Vec2f;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.geom.AffineTransform;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Camera extends GameEntity
@@ -12,11 +15,16 @@ public class Camera extends GameEntity
 
 	private float fov = 1f;
 
+	private List<IDrawable> debugDrawables;
+	private boolean drawDebug = true;
+
 
 	public Camera(Scene scene, Color background)
 	{
 		super(scene, null);
 		this.background = background;
+
+		debugDrawables = new ArrayList<>();
 	}
 
 
@@ -36,10 +44,34 @@ public class Camera extends GameEntity
 		renderBuffer.scale(1 / fov, 1 / fov);
 		renderBuffer.translate(-transform.position.x , transform.position.y);
 
+		// Anti-aliasing
+		renderBuffer.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		renderBuffer.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
+		renderBuffer.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+
 		// Draws the entities in order
 		for (IDrawable d : drawables.toArray(new IDrawable[drawables.size()]))
 		{
 			d.draw(renderBuffer);
+		}
+
+		// Draws debug graphics
+		if (drawDebug)
+		{
+			for (IDrawable d : debugDrawables.toArray(new IDrawable[debugDrawables.size()]))
+			{
+				d.draw(renderBuffer);
+			}
+		}
+
+		// Reset --> Camera Space
+		renderBuffer.setTransform(new AffineTransform());
+
+		// User Interface
+		if (drawDebug)
+		{
+			renderBuffer.setColor(Color.GREEN);
+			renderBuffer.drawString("DEBUG: ON", 10, 10);
 		}
 	}
 
@@ -56,6 +88,21 @@ public class Camera extends GameEntity
 	public float getFov() { return fov; }
 	public void setFov(float value) { fov = value; }
 
+
+	public void addDebugDrawable(IDrawable drawable) { this.debugDrawables.add(drawable); }
+	public void removeDebugDrawable(IDrawable drawable) { this.debugDrawables.remove(drawable); }
+
+
+	@Override
+	public void update()
+	{
+		super.update();
+
+		if (Input.getButtonDown(KeyEvent.VK_CONTROL) && Input.getButtonDown(KeyEvent.VK_D))
+		{
+			drawDebug = !drawDebug;
+		}
+	}
 
 	@Override
 	public int getLayer()

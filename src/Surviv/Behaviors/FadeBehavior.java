@@ -51,7 +51,7 @@ public class FadeBehavior extends GameBehavior
 		{
 			entity.setAlpha(Math.max(0, entity.getAlpha() - deltaAlphaPerSecond * Time.deltaTime(true)));
 
-			if (entity.getAlpha() <= 0)
+			if (entity.getAlpha() <= 0.01f)
 			{
 				if (destroyOnComplete)
 				{

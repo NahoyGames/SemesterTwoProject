@@ -53,6 +53,13 @@ public class Vec2f
 	}
 
 
+	public static Vec2f scale(Vec2f a, Vec2f b)
+	{
+		return new Vec2f(a.x * b.x, a.y * b.y);
+	}
+	public Vec2f scale(Vec2f a) { return scale(this, a); }
+
+
 	public float lengthSquared()
 	{
 		return x * x + y * y;
@@ -81,6 +88,20 @@ public class Vec2f
 	{
 		return normalized(this);
 	}
+
+
+	public static Vec2f abs(Vec2f a)
+	{
+		return new Vec2f(Math.abs(a.x), Math.abs(a.y));
+	}
+	public Vec2f abs() { return abs(this); }
+
+
+	public static Vec2f max(Vec2f a, Vec2f b)
+	{
+		return new Vec2f(Math.max(a.x, b.x), Math.max(a.y, b.y));
+	}
+	public Vec2f max(Vec2f a) { return max(this, a); }
 
 
 	public boolean equals(Vec2f a) { return this.x == a.x && this.y == a.y; }

@@ -91,6 +91,9 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 	public Transform2D transform() { return transform; }
 
 
+	public Vec2f anchor() { return anchor; }
+
+
 	public GameBehavior addBehavior(GameBehavior behavior)
 	{
 		if (this.behaviors.add(behavior))
@@ -142,6 +145,8 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 		{
 			b.onDisable();
 		}
+
+		behaviors = null;
 	}
 
 

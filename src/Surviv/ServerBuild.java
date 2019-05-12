@@ -27,6 +27,7 @@ public class ServerBuild
 				};
 				DEFAULT_SCENE = "Game";
 				IS_SERVER_BUILD = true;
+				HEADLESS_MODE = false;
 			}
 		});
 	}

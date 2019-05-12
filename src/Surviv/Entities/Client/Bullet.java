@@ -5,6 +5,9 @@ import Surviv.SurvivEngineConfiguration;
 import Util.Engine.Engine;
 import Util.Engine.Networking.Client.ClientGameEntity;
 import Util.Engine.Networking.Packet;
+import Util.Engine.Physics.Collider;
+import Util.Engine.Physics.Colliders.PointCollider;
+import Util.Engine.Physics.CollisionInfo;
 import Util.Engine.Scene;
 import Util.Engine.Time;
 import Util.Math.Compressor;
@@ -20,6 +23,8 @@ public class Bullet extends ClientGameEntity
 	private float distSquared;
 
 	private FadeBehavior fadeBehavior;
+
+	private PointCollider collider;
 
 
 	public Bullet(Scene scene, Vec2f origin, byte dir, byte dist)
@@ -41,6 +46,24 @@ public class Bullet extends ClientGameEntity
 		this.transform.scale = new Vec2f(0.15f, 0f);
 
 		fadeBehavior = ((FadeBehavior)addBehavior(new FadeBehavior(this)));
+
+		scene.collisionManager().addCollider(collider = new PointCollider(false, this)
+		{
+			@Override
+			public void onCollision(Collider other, CollisionInfo info)
+			{
+				super.onCollision(other, info);
+
+				//fadeBehavior.scheduleFade(0.01f, 0f, true);
+
+				// Bounce
+				Bullet.this.origin = info.point;
+				Bullet.this.dir = info.normal;
+				Bullet.this.transform.rotation = (float)Math.toDegrees(Math.atan2(info.normal.y, -info.normal.x)) - 90f;
+				Bullet.this.transform.scale.y = 0f;
+				Bullet.this.distSquared /= 10;
+			}
+		});
 	}
 
 
@@ -67,6 +90,14 @@ public class Bullet extends ClientGameEntity
 		return -1;
 	}
 
+
+	@Override
+	public void onDisable()
+	{
+		super.onDisable();
+
+		scene.collisionManager().removeCollider(collider);
+	}
 
 	@Override
 	public void onReceivePacket(Connection sender, Packet packet) { }

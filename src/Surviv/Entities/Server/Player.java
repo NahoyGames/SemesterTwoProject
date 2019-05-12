@@ -43,7 +43,7 @@ public class Player extends ServerGameEntity
 		super(scene, SPRITE_PATH);
 
 		// Initial transforms
-		transform.scale = new Vec2f(0.1f, 0.1f);
+		transform.scale = Vec2f.one().scale(0.15f);
 
 		// Assign client
 		this.connection = connection;

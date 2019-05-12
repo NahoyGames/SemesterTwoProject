@@ -31,7 +31,7 @@ public class Player extends ClientGameEntity
 		super(scene, SPRITE_PATH, networkId);
 
 		// Initial transform
-		transform.scale = new Vec2f(0.1f, 0.1f);
+		transform.scale = Vec2f.one().scale(0.15f);
 
 		// Initial behaviors
 		addBehavior(new ClientNetTransform(this));
