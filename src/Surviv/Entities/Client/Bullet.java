@@ -2,6 +2,7 @@ package Surviv.Entities.Client;
 
 import Surviv.Behaviors.FadeBehavior;
 import Surviv.Entities.Environment.IBouncyEnvironment;
+import Surviv.Entities.Server.Player;
 import Surviv.SurvivEngineConfiguration;
 import Util.Engine.Engine;
 import Util.Engine.Networking.Client.ClientGameEntity;
@@ -66,6 +67,11 @@ public class Bullet extends ClientGameEntity
 				}
 				else
 				{
+					if (other.getEntity() instanceof Player)
+					{
+						System.out.println("Player was shot!!");
+					}
+
 					fadeBehavior.scheduleFade(0.01f, 0f, true);
 				}
 			}

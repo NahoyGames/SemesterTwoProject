@@ -64,6 +64,18 @@ public class CircleCollider extends Collider
 	@Override
 	public CollisionInfo hasCollisionWith(PointCollider other)
 	{
+		Vec2f normal = other.getOrigin().subtract(getOrigin());
+		float dist = normal.length() - getRadius();
+		boolean hasCollision = dist <= 0;
+
+		if (hasCollision)
+		{
+			normal = normal.normalized();
+			Vec2f point = normal.scale(getRadius()).add(getOrigin());
+
+			return new CollisionInfo(point, normal, dist);
+		}
+
 		return null;
 	}
 

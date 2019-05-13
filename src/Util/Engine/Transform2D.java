@@ -36,4 +36,10 @@ public class Transform2D
 		// I used desmos to do the math: https://www.desmos.com/calculator/jk1vkerp19
 		return ((float)-Math.toDegrees(Math.atan2((point.y - position.y), (point.x - position.x)))) + 90f;
 	}
+
+
+	public Vec2f forward()
+	{
+		return new Vec2f((float)-Math.cos(Math.toRadians(rotation + 90f)), (float)Math.sin(Math.toRadians(rotation + 90f)));
+	}
 }

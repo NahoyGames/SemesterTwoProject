@@ -1,3 +1,3 @@
 package Surviv.Entities.Environment;
 
-public interface IBouncyEnvironment { }
+public interface IBouncyEnvironment extends IEnvironment { }

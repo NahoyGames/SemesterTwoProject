@@ -17,6 +17,7 @@ public class SurvivMap
 		addBarrel(scene, new Vec2f(60, -30), 0.35f);
 		addBarrel(scene, new Vec2f(40, 60), 0.35f);
 		addCrate(scene, new Vec2f(100, 200), 0.15f);
+		addCrate(scene, new Vec2f(-400, -200), 0.15f);
 	}
 
 

@@ -40,7 +40,6 @@ public class Scene implements IEngineEventListener
 		// Network
 		if (entity instanceof NetGameEntity)
 		{
-			System.out.println("Spawned a network entity");
 			Engine.netManager().addNetEntity(((NetGameEntity)entity).getNetworkId(), (NetGameEntity) entity);
 		}
 

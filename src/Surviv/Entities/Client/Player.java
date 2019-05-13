@@ -1,6 +1,7 @@
 package Surviv.Entities.Client;
 
 
+import Surviv.Entities.Environment.IEnvironment;
 import Surviv.Networking.Packets.ClientLookAtPacket;
 import Surviv.Networking.Packets.TestRequestPacket;
 import Surviv.SurvivEngineConfiguration;
@@ -11,11 +12,13 @@ import Util.Engine.Networking.Client.ClientNetManager;
 import Util.Engine.Networking.Client.ClientNetTransform;
 import Util.Engine.Networking.Packet;
 import Util.Engine.Networking.Packets.LinkClientToEntityPacket;
+import Util.Engine.Physics.Collider;
+import Util.Engine.Physics.Colliders.CircleCollider;
+import Util.Engine.Physics.CollisionInfo;
 import Util.Engine.Scene;
 import Util.Math.Vec2f;
 import com.esotericsoftware.kryonet.Connection;
 
-import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
@@ -47,6 +50,22 @@ public class Player extends ClientGameEntity
 						((SurvivEngineConfiguration)Engine.config()).EQUIP_3_KEY,
 						((SurvivEngineConfiguration)Engine.config()).EQUIP_4_KEY
 				}));
+
+
+		// Hitbox
+		scene.collisionManager().addCollider(new CircleCollider(false, this, 100)
+		{
+			@Override
+			public void onCollision(Collider other, CollisionInfo info)
+			{
+				super.onCollision(other, info);
+
+				if (other.getEntity() instanceof IEnvironment && !(Float.isNaN(info.normal.x) && Float.isNaN(info.normal.y)))
+				{
+					Player.this.transform.position = Player.this.transform.position.subtract(info.normal.scale(info.dist));
+				}
+			}
+		});
 	}
 
 

@@ -6,6 +6,7 @@ import Surviv.Behaviors.Weapons.Ak47;
 import Surviv.Behaviors.Weapons.DesertEagle;
 import Surviv.Behaviors.Weapons.MachineGun;
 import Surviv.Behaviors.Weapons.Shotgun;
+import Surviv.Entities.Environment.IEnvironment;
 import Surviv.Networking.Packets.ClientLookAtPacket;
 import Surviv.SurvivEngineConfiguration;
 import Util.Engine.Engine;
@@ -74,7 +75,7 @@ public class Player extends ServerGameEntity
 			{
 				super.onCollision(other, info);
 
-				if (!(Float.isNaN(info.normal.x) && Float.isNaN(info.normal.y)))
+				if (other.getEntity() instanceof IEnvironment && !(Float.isNaN(info.normal.x) && Float.isNaN(info.normal.y)))
 				{
 					Player.this.transform.position = Player.this.transform.position.subtract(info.normal.scale(info.dist));
 				}

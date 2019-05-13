@@ -23,6 +23,6 @@ public abstract class AutoFireGun extends WeaponBehavior
 	public void use()
 	{
 		float randomSpread = ((float)Math.random() - 0.5f) * spread;
-		player.getScene().addEntity(new Bullet(player.getScene(), player.transform().position, player.transform().rotation + randomSpread, dist));
+		player.getScene().addEntity(new Bullet(player.getScene(), player.transform().position.add(player.transform().forward().scale(30)), player.transform().rotation + randomSpread, dist));
 	}
 }

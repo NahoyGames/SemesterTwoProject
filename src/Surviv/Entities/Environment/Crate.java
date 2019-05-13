@@ -3,7 +3,7 @@ package Surviv.Entities.Environment;
 import Util.Engine.GameEntity;
 import Util.Engine.Scene;
 
-public class Crate extends GameEntity
+public class Crate extends GameEntity implements IEnvironment
 {
 	private static final String SPRITE_PATH = "/Assets/Sprites/Environment/crate.png";
 

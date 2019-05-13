@@ -64,6 +64,11 @@ public class Bullet extends ServerGameEntity
 				}
 				else
 				{
+					if (other.getEntity() instanceof Player) // TODO replace with IDamageable or some health component
+					{
+						System.out.println("Player was shot!!");
+					}
+
 					fadeBehavior.scheduleFade(0.01f, 0f, true);
 				}
 			}

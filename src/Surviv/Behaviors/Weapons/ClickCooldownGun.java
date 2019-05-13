@@ -39,7 +39,7 @@ public class ClickCooldownGun extends WeaponBehavior
 	@Override
 	public void use()
 	{
-		player.getScene().addEntity(new Bullet(player.getScene(), player.transform().position, player.transform().rotation, dist));
+		player.getScene().addEntity(new Bullet(player.getScene(), player.transform().position.add(player.transform().forward().scale(30)), player.transform().rotation, dist));
 	}
 
 

@@ -24,16 +24,31 @@ public class CollisionManager
 
 	public void step()
 	{
-		for (Collider dynamicCol : dynamicColliders.toArray(new Collider[dynamicColliders.size()]))
+		//Collider[] dynamics = dynamicColliders.toArray(new Collider[dynamicColliders.size()]);
+		for (int d = 0; d < dynamicColliders.size(); d++)
 		{
+			// Dynamic to static
 			for (Collider staticCol : staticColliders.toArray(new Collider[staticColliders.size()]))
 			{
-				CollisionInfo collision = dynamicCol.hasCollisionWith(staticCol);
+				CollisionInfo collision = dynamicColliders.get(d).hasCollisionWith(staticCol);
 
 				if (collision != null)
 				{
-					dynamicCol.onCollision(staticCol, collision);
-					staticCol.onCollision(dynamicCol, collision);
+					dynamicColliders.get(d).onCollision(staticCol, collision);
+					staticCol.onCollision(dynamicColliders.get(d), collision);
+				}
+			}
+
+			// Dynamic to dynamic
+			for (int d2 = d + 1; d2 < dynamicColliders.size(); d2++)
+			{
+				CollisionInfo collision = dynamicColliders.get(d).hasCollisionWith(dynamicColliders.get(d2));
+
+				if (collision != null)
+				{
+					System.out.println("Dynamic to dynamic collision!");
+					dynamicColliders.get(d).onCollision(dynamicColliders.get(d2), collision);
+					dynamicColliders.get(d2).onCollision(dynamicColliders.get(d), collision);
 				}
 			}
 		}
