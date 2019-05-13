@@ -1,6 +1,7 @@
 package Surviv.Entities.Client;
 
 import Surviv.Behaviors.FadeBehavior;
+import Surviv.Entities.Environment.IBouncyEnvironment;
 import Surviv.SurvivEngineConfiguration;
 import Util.Engine.Engine;
 import Util.Engine.Networking.Client.ClientGameEntity;
@@ -16,7 +17,7 @@ import com.esotericsoftware.kryonet.Connection;
 
 public class Bullet extends ClientGameEntity
 {
-	private static String SPRITE_PATH = "/Assets/Sprites/Environment/Bullets/bullet_short_trail.png";
+	private static String SPRITE_PATH = "/Assets/Sprites/Bullets/bullet_short_trail.png";
 
 
 	private Vec2f origin, dir;
@@ -54,14 +55,19 @@ public class Bullet extends ClientGameEntity
 			{
 				super.onCollision(other, info);
 
-				//fadeBehavior.scheduleFade(0.01f, 0f, true);
-
-				// Bounce
-				Bullet.this.origin = info.point;
-				Bullet.this.dir = info.normal;
-				Bullet.this.transform.rotation = (float)Math.toDegrees(Math.atan2(info.normal.y, -info.normal.x)) - 90f;
-				Bullet.this.transform.scale.y = 0f;
-				Bullet.this.distSquared /= 10;
+				if (other.getEntity() instanceof IBouncyEnvironment)
+				{
+					// Bounce
+					Bullet.this.origin = info.point;
+					Bullet.this.dir = info.normal;
+					Bullet.this.transform.rotation = (float) Math.toDegrees(Math.atan2(info.normal.y, -info.normal.x)) - 90f;
+					Bullet.this.transform.scale.y = 0f;
+					Bullet.this.distSquared /= 10;
+				}
+				else
+				{
+					fadeBehavior.scheduleFade(0.01f, 0f, true);
+				}
 			}
 		});
 	}

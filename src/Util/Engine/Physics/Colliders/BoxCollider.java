@@ -27,6 +27,6 @@ public class BoxCollider extends Collider
 	@Override
 	protected void drawDebug(Graphics2D renderBuffer)
 	{
-		renderBuffer.drawRect((int)-halfSize.x, (int)-halfSize.y, (int)halfSize.x, (int)halfSize.y);
+		renderBuffer.drawRect((int)-getHalfSize().x, (int)-getHalfSize().y, (int)getHalfSize().x * 2, (int)getHalfSize().y * 2);
 	}
 }

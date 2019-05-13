@@ -29,8 +29,15 @@ public class ColliderUtil
 	public static CollisionInfo circleCircleCollision(Vec2f aOrigin, float aRad, Vec2f bOrigin, float bRad)
 	{
 		Vec2f normal = aOrigin.subtract(bOrigin);
+		float dist = normal.length() - (aRad + bRad);
+		boolean hasCollision = dist <= 0;
 
-		System.out.println("Not yet implemented!");
+		if (hasCollision)
+		{
+			normal = normal.normalized();
+
+			return new CollisionInfo(null, normal, dist);
+		}
 
 		return null;
 	}
@@ -38,34 +45,14 @@ public class ColliderUtil
 
 	public static CollisionInfo pointBoxCollision(Vec2f pt, Vec2f rectPos, Vec2f rectHalfSize)
 	{
-		Vec2f normal = pt.subtract(rectPos).abs().subtract(rectHalfSize).max(Vec2f.zero());
-		float distSquared = normal.lengthSquared();
-		boolean hasCollision = distSquared <= 0;
+		Vec2f nearest = rectPos.add(rectHalfSize).min(pt).max(rectPos.subtract(rectHalfSize));
 
-		if (hasCollision)
+		Vec2f normal = nearest.subtract(pt);
+		float dist = normal.length();
+
+		if (dist <= 0.001f)
 		{
-			Vec2f faceNormal;
-			if (normal.y > 0) // If y > 0, then the point hit either the top or bottom edge
-			{
-				if (pt.y > rectPos.y)
-				{
-					faceNormal = Vec2f.up();
-				} else
-				{
-					faceNormal = Vec2f.up().scale(-1);
-				}
-			} else
-			{
-				if (pt.x > rectPos.x)
-				{
-					faceNormal = Vec2f.right();
-				} else
-				{
-					faceNormal = Vec2f.right().scale(-1);
-				}
-			}
-
-			return new CollisionInfo(pt, faceNormal, distSquared);
+			return new CollisionInfo(nearest, nearest.subtract(rectPos).normalized(), dist);
 		}
 
 		return null;
@@ -74,13 +61,15 @@ public class ColliderUtil
 
 	public static CollisionInfo boxCircleCollision(Vec2f rectPos, Vec2f rectHalfSize, Vec2f circOrigin, float rad)
 	{
-		Vec2f normal = circOrigin.subtract(rectPos);
-		float distSquared = normal.abs().subtract(rectHalfSize).max(Vec2f.zero()).lengthSquared();
-		boolean hasCollision = distSquared <= rad * rad;
+		// Nearest point to the circle, on the box
+		Vec2f nearest = rectPos.add(rectHalfSize).min(circOrigin).max(rectPos.subtract(rectHalfSize));
 
-		if (hasCollision)
+		Vec2f normal = nearest.subtract(circOrigin);
+		float dist = normal.length() - rad;
+
+		if (dist <= 0)
 		{
-			return new CollisionInfo(null, normal, distSquared);
+			return new CollisionInfo(nearest, normal.scale(-1).normalized(), dist);
 		}
 
 		return null;

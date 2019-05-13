@@ -9,19 +9,23 @@ import Surviv.Behaviors.Weapons.Shotgun;
 import Surviv.Networking.Packets.ClientLookAtPacket;
 import Surviv.SurvivEngineConfiguration;
 import Util.Engine.Engine;
+import Util.Engine.IDrawable;
 import Util.Engine.Networking.Client.ClientGameEntity;
 import Util.Engine.Networking.Packet;
 import Util.Engine.Networking.Packets.LinkClientToEntityPacket;
 import Util.Engine.Networking.Server.ServerGameEntity;
 import Util.Engine.Networking.Server.ServerInputReceiver;
 import Util.Engine.Networking.Server.ServerNetTransform;
+import Util.Engine.Physics.Collider;
+import Util.Engine.Physics.Colliders.CircleCollider;
+import Util.Engine.Physics.CollisionInfo;
 import Util.Engine.Scene;
 import Util.Engine.Time;
 import Util.Math.Compressor;
 import Util.Math.Vec2f;
 import com.esotericsoftware.kryonet.Connection;
 
-import java.awt.event.KeyEvent;
+import java.awt.*;
 
 
 public class Player extends ServerGameEntity
@@ -61,6 +65,21 @@ public class Player extends ServerGameEntity
 						(WeaponBehavior) addBehavior(new DesertEagle(this)),
 						(WeaponBehavior) addBehavior(new MachineGun(this))
 				};
+
+		// Hitbox
+		scene.collisionManager().addCollider(new CircleCollider(false, this, 100)
+		{
+			@Override
+			public void onCollision(Collider other, CollisionInfo info)
+			{
+				super.onCollision(other, info);
+
+				if (!(Float.isNaN(info.normal.x) && Float.isNaN(info.normal.y)))
+				{
+					Player.this.transform.position = Player.this.transform.position.subtract(info.normal.scale(info.dist));
+				}
+			}
+		});
 	}
 
 
@@ -89,8 +108,6 @@ public class Player extends ServerGameEntity
 		if (inputReceiver.getButtonDown(((SurvivEngineConfiguration) Engine.config()).MOVE_LEFT_KEY))
 		{
 			transform.position.x -= 150 * Time.deltaTime(true);
-
-			System.out.println("a was pressed!");
 		}
 
 		if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).MOVE_RIGHT_KEY))
@@ -126,7 +143,6 @@ public class Player extends ServerGameEntity
 		{
 			ClientLookAtPacket lookAtPacket = (ClientLookAtPacket)packet;
 
-			System.out.println("received look at " + Compressor.scaleByteToFloat(lookAtPacket.rotation, -180, 180));
 			transform.rotation = Compressor.scaleByteToFloat(lookAtPacket.rotation, -180, 180);
 		}
 	}

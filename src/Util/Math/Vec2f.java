@@ -104,6 +104,17 @@ public class Vec2f
 	public Vec2f max(Vec2f a) { return max(this, a); }
 
 
+	public static Vec2f min(Vec2f a, Vec2f b)
+	{
+		return new Vec2f(Math.min(a.x, b.x), Math.min(a.y, b.y));
+	}
+	public Vec2f min(Vec2f a) { return min(this, a); }
+
+
+	public static float vMax(Vec2f a) { return Math.max(a.x, a.y); }
+	public float vMax() { return vMax(this); }
+
+
 	public boolean equals(Vec2f a) { return this.x == a.x && this.y == a.y; }
 
 

@@ -1,10 +1,10 @@
-package Surviv.Entities.Common;
+package Surviv.Entities.Environment;
 
 import Util.Engine.GameEntity;
 import Util.Engine.Scene;
 
 
-public class Barrel extends GameEntity
+public class Barrel extends GameEntity implements IBouncyEnvironment
 {
 	private static final String SPRITE_PATH = "/Assets/Sprites/Environment/barrel.png";
 

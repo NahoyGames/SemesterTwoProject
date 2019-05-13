@@ -20,12 +20,12 @@ public class CircleCollider extends Collider
 	@Override
 	protected void drawDebug(Graphics2D renderBuffer)
 	{
-		renderBuffer.drawOval((int)-radius, (int)-radius, (int)radius * 2, (int)radius * 2);
+		renderBuffer.drawOval((int)-getRadius(), (int)-getRadius(), (int)getRadius() * 2, (int)getRadius() * 2);
 	}
 
 
 	public float getRadius()
 	{
-		return radius;
+		return radius * getEntity().transform().scale.x;
 	}
 }
