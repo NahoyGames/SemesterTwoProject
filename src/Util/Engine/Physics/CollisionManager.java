@@ -1,8 +1,6 @@
 package Util.Engine.Physics;
 
-import Util.Engine.Physics.Colliders.BoxCollider;
-import Util.Engine.Physics.Colliders.PointCollider;
-import Util.Engine.Physics.Colliders.CircleCollider;
+
 import Util.Engine.Scene;
 
 import java.util.ArrayList;
@@ -30,7 +28,7 @@ public class CollisionManager
 		{
 			for (Collider staticCol : staticColliders.toArray(new Collider[staticColliders.size()]))
 			{
-				CollisionInfo collision = hasCollision(dynamicCol, staticCol);
+				CollisionInfo collision = dynamicCol.hasCollisionWith(staticCol);
 
 				if (collision != null)
 				{
@@ -71,53 +69,5 @@ public class CollisionManager
 		}
 
 		scene.camera().removeDebugDrawable(collider);
-	}
-
-
-	public CollisionInfo hasCollision(Collider a, Collider b)
-	{
-		if (a instanceof CircleCollider)
-		{
-			if (b instanceof PointCollider)
-			{
-				return ColliderUtil.pointCircleCollision(b.getOrigin(), a.getOrigin(), ((CircleCollider)a).getRadius());
-			}
-			else if (b instanceof CircleCollider)
-			{
-				return ColliderUtil.circleCircleCollision(a.getOrigin(), ((CircleCollider) a).getRadius(), b.getOrigin(), ((CircleCollider) b).getRadius());
-			}
-			else if (b instanceof BoxCollider)
-			{
-				return ColliderUtil.boxCircleCollision(b.getOrigin(), ((BoxCollider) b).getHalfSize(), a.getOrigin(), ((CircleCollider) a).getRadius());
-			}
-		}
-		else if (a instanceof BoxCollider)
-		{
-			if (b instanceof PointCollider)
-			{
-				return ColliderUtil.pointBoxCollision(b.getOrigin(), a.getOrigin(), ((BoxCollider) a).getHalfSize());
-			}
-			else if (b instanceof CircleCollider)
-			{
-				return ColliderUtil.boxCircleCollision(a.getOrigin(), ((BoxCollider) a).getHalfSize(), b.getOrigin(), ((CircleCollider) b).getRadius());
-			}
-			else if (b instanceof BoxCollider)
-			{
-				return null; // TODO Box-Box collision
-			}
-		}
-		else if (a instanceof PointCollider)
-		{
-			if (b instanceof CircleCollider)
-			{
-				return ColliderUtil.pointCircleCollision(a.getOrigin(), b.getOrigin(), ((CircleCollider) b).getRadius());
-			}
-			else if (b instanceof BoxCollider)
-			{
-				return ColliderUtil.pointBoxCollision(a.getOrigin(), b.getOrigin(), ((BoxCollider) b).getHalfSize());
-			}
-		}
-
-		return null;
 	}
 }

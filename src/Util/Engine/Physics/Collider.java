@@ -1,8 +1,11 @@
 package Util.Engine.Physics;
 
-import Util.Engine.Engine;
+
 import Util.Engine.GameEntity;
 import Util.Engine.IDrawable;
+import Util.Engine.Physics.Colliders.BoxCollider;
+import Util.Engine.Physics.Colliders.CircleCollider;
+import Util.Engine.Physics.Colliders.PointCollider;
 import Util.Math.Vec2f;
 
 import java.awt.*;
@@ -40,6 +43,21 @@ public abstract class Collider implements IDrawable
 	public void onCollision(Collider other, CollisionInfo info)
 	{
 
+	}
+
+
+	public abstract CollisionInfo hasCollisionWith(BoxCollider other);
+	public abstract CollisionInfo hasCollisionWith(CircleCollider other);
+	public abstract CollisionInfo hasCollisionWith(PointCollider other);
+
+
+	public final CollisionInfo hasCollisionWith(Collider other)
+	{
+		if (other instanceof BoxCollider) { return hasCollisionWith((BoxCollider)other); }
+		else if (other instanceof CircleCollider) { return hasCollisionWith((CircleCollider)other); }
+		else if (other instanceof PointCollider) { return hasCollisionWith((PointCollider)other); }
+
+		return null;
 	}
 
 
