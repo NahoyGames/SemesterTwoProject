@@ -1,23 +1,22 @@
 package Surviv.Behaviors.Weapons;
 
-import Surviv.Behaviors.WeaponBehavior;
+import Surviv.Behaviors.ServerWeaponBehavior;
 import Surviv.Entities.Server.Bullet;
 import Surviv.Entities.Server.Player;
 import Util.Engine.Engine;
+import Util.Engine.GameEntity;
 
-import java.awt.event.KeyEvent;
 
-
-public abstract class SpamClickGun extends WeaponBehavior
+public abstract class SpamClickGun extends ServerWeaponBehavior
 {
 	private boolean canShoot; // True when the user released the key
 
 	private float dist;
 
 
-	public SpamClickGun(Player player, float dist)
+	public SpamClickGun(GameEntity player, String spritePath, float dist)
 	{
-		super(player);
+		super(player, spritePath);
 
 		this.dist = dist;
 	}
@@ -49,7 +48,7 @@ public abstract class SpamClickGun extends WeaponBehavior
 	{
 		super.update();
 
-		if (!player.getInputReceiver().getButtonDown(Engine.config().MOUSE_KEYCODE))
+		if (player instanceof Player && !((Player)player).getInputReceiver().getButtonDown(Engine.config().MOUSE_KEYCODE))
 		{
 			canShoot = true;
 		}

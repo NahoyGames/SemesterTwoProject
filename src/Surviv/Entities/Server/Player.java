@@ -1,16 +1,16 @@
 package Surviv.Entities.Server;
 
 
-import Surviv.Behaviors.WeaponBehavior;
+import Surviv.Behaviors.ServerWeaponBehavior;
 import Surviv.Behaviors.Weapons.Ak47;
 import Surviv.Behaviors.Weapons.DesertEagle;
 import Surviv.Behaviors.Weapons.MachineGun;
 import Surviv.Behaviors.Weapons.Shotgun;
 import Surviv.Entities.Environment.IEnvironment;
 import Surviv.Networking.Packets.ClientLookAtPacket;
+import Surviv.Networking.Packets.PlayerChangeInventoryPacket;
 import Surviv.SurvivEngineConfiguration;
 import Util.Engine.Engine;
-import Util.Engine.IDrawable;
 import Util.Engine.Networking.Client.ClientGameEntity;
 import Util.Engine.Networking.Packet;
 import Util.Engine.Networking.Packets.LinkClientToEntityPacket;
@@ -40,7 +40,7 @@ public class Player extends ServerGameEntity
 
 
 	private int equippedWeaponIndex;
-	private WeaponBehavior[] inventory;
+	private ServerWeaponBehavior[] inventory;
 
 
 	public Player(Scene scene, Connection connection)
@@ -59,12 +59,12 @@ public class Player extends ServerGameEntity
 		this.inputReceiver = (ServerInputReceiver) addBehavior(new ServerInputReceiver(connection));
 
 		// Inventory
-		inventory = new WeaponBehavior[]
+		inventory = new ServerWeaponBehavior[]
 				{
-						(WeaponBehavior) addBehavior(new Ak47(this)),
-						(WeaponBehavior) addBehavior(new Shotgun(this)),
-						(WeaponBehavior) addBehavior(new DesertEagle(this)),
-						(WeaponBehavior) addBehavior(new MachineGun(this))
+						(ServerWeaponBehavior) addBehavior(new Ak47(this)),
+						(ServerWeaponBehavior) addBehavior(new Shotgun(this)),
+						(ServerWeaponBehavior) addBehavior(new DesertEagle(this)),
+						(ServerWeaponBehavior) addBehavior(new MachineGun(this))
 				};
 
 		// Hitbox
@@ -83,6 +83,16 @@ public class Player extends ServerGameEntity
 		});
 	}
 
+
+	@Override
+	protected void drawGraphics(Graphics2D renderBuffer)
+	{
+		// Draw weapon
+		renderBuffer.drawImage(inventory[equippedWeaponIndex].getGraphics(), 0, 0, null);
+
+		// Draw sprite *above* weapon
+		super.drawGraphics(renderBuffer);
+	}
 
 	@Override
 	public int getLayer()
@@ -131,10 +141,10 @@ public class Player extends ServerGameEntity
 			inventory[equippedWeaponIndex].tryUse();
 		}
 
-		if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).EQUIP_1_KEY)) { equippedWeaponIndex = 0; }
-		else if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).EQUIP_2_KEY)) { equippedWeaponIndex = 1; }
-		else if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).EQUIP_3_KEY)) { equippedWeaponIndex = 2; }
-		else if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).EQUIP_4_KEY)) { equippedWeaponIndex = 3; }
+		if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).EQUIP_1_KEY)) { sendReliable(new PlayerChangeInventoryPacket(getNetworkId(), (byte)(equippedWeaponIndex = 0))); }
+		else if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).EQUIP_2_KEY)) { sendReliable(new PlayerChangeInventoryPacket(getNetworkId(), (byte)(equippedWeaponIndex = 1))); }
+		else if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).EQUIP_3_KEY)) { sendReliable(new PlayerChangeInventoryPacket(getNetworkId(), (byte)(equippedWeaponIndex = 2))); }
+		else if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).EQUIP_4_KEY)) { sendReliable(new PlayerChangeInventoryPacket(getNetworkId(), (byte)(equippedWeaponIndex = 3))); }
 	}
 
 	@Override

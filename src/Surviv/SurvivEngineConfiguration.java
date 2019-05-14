@@ -2,6 +2,7 @@ package Surviv;
 
 import Surviv.Entities.Client.Player;
 import Surviv.Networking.Packets.ClientLookAtPacket;
+import Surviv.Networking.Packets.PlayerChangeInventoryPacket;
 import Surviv.Networking.Packets.SpawnBulletPacket;
 import Surviv.Networking.Packets.TestRequestPacket;
 import Util.Engine.EngineConfiguration;
@@ -32,6 +33,7 @@ public class SurvivEngineConfiguration extends EngineConfiguration
 		REGISTERED_PACKETS.add(TestRequestPacket.class);
 		REGISTERED_PACKETS.add(ClientLookAtPacket.class);
 		REGISTERED_PACKETS.add(SpawnBulletPacket.class);
+		REGISTERED_PACKETS.add(PlayerChangeInventoryPacket.class);
 
 
 		/** REGISTER ENTITIES >>HERE<< FOR BOTH CLIENT & SERVER **/

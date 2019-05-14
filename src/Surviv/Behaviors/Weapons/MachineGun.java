@@ -2,15 +2,19 @@ package Surviv.Behaviors.Weapons;
 
 import Surviv.Entities.Server.Player;
 import Util.Engine.Engine;
+import Util.Engine.GameEntity;
 import Util.Engine.Time;
 
 public class MachineGun extends AutoFireGun
 {
+	private static final String SPRITE_PATH = "/Assets/Sprites/Weapons/fists.png";
+
 	private float loadUpTimer;
 
-	public MachineGun(Player player)
+
+	public MachineGun(GameEntity player)
 	{
-		super(player, 20, 700, 25);
+		super(player, SPRITE_PATH, 20, 700, 25);
 	}
 
 
@@ -19,7 +23,7 @@ public class MachineGun extends AutoFireGun
 	{
 		super.update();
 
-		if (!player.getInputReceiver().getButtonDown(Engine.config().MOUSE_KEYCODE))
+		if (player instanceof Player && !((Player)player).getInputReceiver().getButtonDown(Engine.config().MOUSE_KEYCODE))
 		{
 			loadUpTimer = Math.max(0, loadUpTimer - Time.deltaTime(true) * 2);
 		}

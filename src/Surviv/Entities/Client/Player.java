@@ -1,8 +1,15 @@
 package Surviv.Entities.Client;
 
 
+import Surviv.Behaviors.ServerWeaponBehavior;
+import Surviv.Behaviors.WeaponBehavior;
+import Surviv.Behaviors.Weapons.Ak47;
+import Surviv.Behaviors.Weapons.DesertEagle;
+import Surviv.Behaviors.Weapons.MachineGun;
+import Surviv.Behaviors.Weapons.Shotgun;
 import Surviv.Entities.Environment.IEnvironment;
 import Surviv.Networking.Packets.ClientLookAtPacket;
+import Surviv.Networking.Packets.PlayerChangeInventoryPacket;
 import Surviv.Networking.Packets.TestRequestPacket;
 import Surviv.SurvivEngineConfiguration;
 import Util.Engine.Engine;
@@ -19,6 +26,7 @@ import Util.Engine.Scene;
 import Util.Math.Vec2f;
 import com.esotericsoftware.kryonet.Connection;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
@@ -27,6 +35,9 @@ public class Player extends ClientGameEntity
 {
 	private static final String SPRITE_PATH = "/Assets/Sprites/character.png";
 	private boolean hasLocalPlayerAuthority;
+
+	private int equippedWeaponIndex;
+	private WeaponBehavior[] inventory;
 
 
 	public Player(Scene scene, short networkId)
@@ -51,6 +62,14 @@ public class Player extends ClientGameEntity
 						((SurvivEngineConfiguration)Engine.config()).EQUIP_4_KEY
 				}));
 
+		// Inventory
+		inventory = new WeaponBehavior[]
+				{
+						(WeaponBehavior) addBehavior(new Ak47(this)),
+						(WeaponBehavior) addBehavior(new Shotgun(this)),
+						(WeaponBehavior) addBehavior(new DesertEagle(this)),
+						(WeaponBehavior) addBehavior(new MachineGun(this))
+				};
 
 		// Hitbox
 		scene.collisionManager().addCollider(new CircleCollider(false, this, 100)
@@ -79,6 +98,14 @@ public class Player extends ClientGameEntity
 		((ClientNetManager) Engine.netManager()).sendUnreliable(new ClientLookAtPacket(rot));
 	}
 
+
+	@Override
+	protected void drawGraphics(Graphics2D renderBuffer)
+	{
+		renderBuffer.drawImage(inventory[equippedWeaponIndex].getGraphics(), 0, 0, null);
+
+		super.drawGraphics(renderBuffer);
+	}
 
 	@Override
 	public int getLayer()
@@ -116,6 +143,15 @@ public class Player extends ClientGameEntity
 						sendLookAt(Engine.scene().camera().screenToWorldPoint(new Vec2f(e.getX(), e.getY())));
 					}
 				});
+			}
+		}
+		else if (packet instanceof PlayerChangeInventoryPacket)
+		{
+			PlayerChangeInventoryPacket inventoryPacket = (PlayerChangeInventoryPacket)packet;
+
+			if (inventoryPacket.entityNetworkId == getNetworkId())
+			{
+				equippedWeaponIndex = (int) inventoryPacket.inventoryIndex;
 			}
 		}
 	}

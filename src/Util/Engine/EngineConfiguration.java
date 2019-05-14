@@ -14,8 +14,8 @@ public class EngineConfiguration
 	/** Window **/
 	public String WINDOW_NAME = "My Engine";
 	public int FRAMES_PER_SECOND = 60;
-	public int WINDOW_WIDTH = 700;
-	public int WINDOW_HEIGHT = 500;
+	public int WINDOW_WIDTH = 600;
+	public int WINDOW_HEIGHT = 400;
 	public boolean HEADLESS_MODE = false; // if (true) --> no graphics, no input
 
 	/** Engine **/

@@ -66,11 +66,19 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 		// Alpha
 		renderBuffer.setComposite(AlphaComposite.SrcOver.derive(getAlpha()));
 
-		// Draws the image, with the origin at the middle
-		renderBuffer.drawImage(sprite, 0, 0, null);
+		// Draw the graphics
+		drawGraphics(renderBuffer);
 
 		// Resets the transformations so that the next IDrawable can draw
 		renderBuffer.setTransform(oldMatrix);
+	}
+
+
+	// Used to draw sprites without the hassle of transforms
+	protected void drawGraphics(Graphics2D renderBuffer)
+	{
+		// Draws the image, with the origin at the middle
+		renderBuffer.drawImage(sprite, 0, 0, null);
 	}
 
 

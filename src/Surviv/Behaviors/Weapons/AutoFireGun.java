@@ -1,18 +1,19 @@
 package Surviv.Behaviors.Weapons;
 
-import Surviv.Behaviors.WeaponBehavior;
+import Surviv.Behaviors.ServerWeaponBehavior;
 import Surviv.Entities.Server.Bullet;
 import Surviv.Entities.Server.Player;
+import Util.Engine.GameEntity;
 
-public abstract class AutoFireGun extends WeaponBehavior
+public abstract class AutoFireGun extends ServerWeaponBehavior
 {
 	protected float dist;
 	protected float spread;
 
 
-	public AutoFireGun(Player player, float fireRate, float dist, float spread)
+	public AutoFireGun(GameEntity player, String spritePath, float fireRate, float dist, float spread)
 	{
-		super(player, fireRate);
+		super(player, spritePath, fireRate);
 
 		this.dist = dist;
 		this.spread = spread;

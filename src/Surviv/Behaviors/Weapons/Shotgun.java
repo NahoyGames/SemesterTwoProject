@@ -2,16 +2,19 @@ package Surviv.Behaviors.Weapons;
 
 import Surviv.Entities.Server.Bullet;
 import Surviv.Entities.Server.Player;
+import Util.Engine.GameEntity;
 
 public class Shotgun extends ClickCooldownGun
 {
+	private static final String SPRITE_PATH = "/Assets/Sprites/Weapons/shotgun.png";
+
 	private final float spread = 25f;
 	private final int shells = 15;
 
 
-	public Shotgun(Player player)
+	public Shotgun(GameEntity player)
 	{
-		super(player, 0.67f, 300);
+		super(player, SPRITE_PATH, 0.67f, 300);
 	}
 
 

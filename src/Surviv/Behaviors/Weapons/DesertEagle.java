@@ -1,11 +1,15 @@
 package Surviv.Behaviors.Weapons;
 
 import Surviv.Entities.Server.Player;
+import Util.Engine.GameEntity;
 
 public class DesertEagle extends SpamClickGun
 {
-	public DesertEagle(Player player)
+	private static final String SPRITE_PATH = "/Assets/Sprites/Weapons/fists.png";
+
+
+	public DesertEagle(GameEntity player)
 	{
-		super(player, 1000);
+		super(player, SPRITE_PATH, 1000);
 	}
 }

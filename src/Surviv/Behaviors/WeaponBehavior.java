@@ -1,55 +1,26 @@
 package Surviv.Behaviors;
 
-import Surviv.Entities.Server.Bullet;
-import Surviv.Entities.Server.Player;
 import Util.Engine.GameBehavior;
-import Util.Engine.Time;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.io.IOException;
 
-public abstract class WeaponBehavior extends GameBehavior
+public class WeaponBehavior extends GameBehavior
 {
-	protected Player player;
-
-	protected float fireRate;
-	protected float fireRateTimer;
+	private Image sprite;
 
 
-	protected WeaponBehavior(Player player)
+	public WeaponBehavior(String spritePath)
 	{
-		this(player, 5);
+		try { this.sprite = ImageIO.read(getClass().getResource(spritePath)); }
+		catch (IOException e) { System.out.println("The sprite image was not found! Error: " + e.toString()); e.printStackTrace(); }
+		catch (NullPointerException e) { /* Do nothing, simply means the entity doesn't use graphics */ }
 	}
 
 
-	protected WeaponBehavior(Player player, float fireRate)
+	public Image getGraphics()
 	{
-		this.player = player;
-		this.fireRate = fireRate;
-
-		this.fireRateTimer = 0;
-	}
-
-
-	public abstract void use();
-
-
-	public boolean tryUse()
-	{
-		if (fireRateTimer >=  1f / fireRate)
-		{
-			fireRateTimer = 0;
-			use();
-
-			return true;
-		}
-
-		return false;
-	}
-
-	@Override
-	public void update()
-	{
-		super.update();
-
-		fireRateTimer += Time.deltaTime(true);
+		return sprite;
 	}
 }
