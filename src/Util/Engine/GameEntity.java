@@ -67,7 +67,12 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 		renderBuffer.setComposite(AlphaComposite.SrcOver.derive(getAlpha()));
 
 		// Draw the graphics
-		drawGraphics(renderBuffer);
+		drawSprite(renderBuffer);
+
+		// GUIs
+		renderBuffer.setTransform(oldMatrix);
+		renderBuffer.translate(transform.position.x, -transform.position.y); // Negative y b/c top-left origin with java.swing :(
+		drawGui(renderBuffer);
 
 		// Resets the transformations so that the next IDrawable can draw
 		renderBuffer.setTransform(oldMatrix);
@@ -75,11 +80,14 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 
 
 	// Used to draw sprites without the hassle of transforms
-	protected void drawGraphics(Graphics2D renderBuffer)
+	protected void drawSprite(Graphics2D renderBuffer)
 	{
 		// Draws the image, with the origin at the middle
 		renderBuffer.drawImage(sprite, 0, 0, null);
 	}
+
+
+	protected void drawGui(Graphics2D renderBuffer) { }
 
 
 	@Override

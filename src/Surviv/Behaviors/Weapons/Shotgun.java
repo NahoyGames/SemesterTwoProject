@@ -1,7 +1,6 @@
 package Surviv.Behaviors.Weapons;
 
 import Surviv.Entities.Server.Bullet;
-import Surviv.Entities.Server.Player;
 import Util.Engine.GameEntity;
 
 public class Shotgun extends ClickCooldownGun

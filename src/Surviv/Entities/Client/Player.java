@@ -1,7 +1,7 @@
 package Surviv.Entities.Client;
 
 
-import Surviv.Behaviors.ServerWeaponBehavior;
+import Surviv.Behaviors.Health.ClientHealthBehavior;
 import Surviv.Behaviors.WeaponBehavior;
 import Surviv.Behaviors.Weapons.Ak47;
 import Surviv.Behaviors.Weapons.DesertEagle;
@@ -39,6 +39,8 @@ public class Player extends ClientGameEntity
 	private int equippedWeaponIndex;
 	private WeaponBehavior[] inventory;
 
+	private ClientHealthBehavior health;
+
 
 	public Player(Scene scene, short networkId)
 	{
@@ -61,6 +63,7 @@ public class Player extends ClientGameEntity
 						((SurvivEngineConfiguration)Engine.config()).EQUIP_3_KEY,
 						((SurvivEngineConfiguration)Engine.config()).EQUIP_4_KEY
 				}));
+		addBehavior(health = new ClientHealthBehavior(this, 100));
 
 		// Inventory
 		inventory = new WeaponBehavior[]
@@ -100,11 +103,20 @@ public class Player extends ClientGameEntity
 
 
 	@Override
-	protected void drawGraphics(Graphics2D renderBuffer)
+	protected void drawSprite(Graphics2D renderBuffer)
 	{
 		renderBuffer.drawImage(inventory[equippedWeaponIndex].getGraphics(), 0, 0, null);
 
-		super.drawGraphics(renderBuffer);
+		super.drawSprite(renderBuffer);
+	}
+
+
+	@Override
+	protected void drawGui(Graphics2D renderBuffer)
+	{
+		super.drawGui(renderBuffer);
+
+		health.drawHealthBar(renderBuffer, - 30);
 	}
 
 	@Override

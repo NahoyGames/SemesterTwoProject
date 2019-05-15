@@ -1,6 +1,7 @@
 package Surviv.Entities.Server;
 
 
+import Surviv.Behaviors.Health.ServerHealthBehavior;
 import Surviv.Behaviors.ServerWeaponBehavior;
 import Surviv.Behaviors.Weapons.Ak47;
 import Surviv.Behaviors.Weapons.DesertEagle;
@@ -35,9 +36,9 @@ public class Player extends ServerGameEntity
 
 	private Connection connection;
 
-
 	private ServerInputReceiver inputReceiver;
 
+	private ServerHealthBehavior health;
 
 	private int equippedWeaponIndex;
 	private ServerWeaponBehavior[] inventory;
@@ -56,7 +57,8 @@ public class Player extends ServerGameEntity
 
 		// Initial behaviors
 		addBehavior(new ServerNetTransform(this, 9));
-		this.inputReceiver = (ServerInputReceiver) addBehavior(new ServerInputReceiver(connection));
+		addBehavior(inputReceiver = new ServerInputReceiver(connection));
+		addBehavior(health = new ServerHealthBehavior(this, 100));
 
 		// Inventory
 		inventory = new ServerWeaponBehavior[]
@@ -79,19 +81,32 @@ public class Player extends ServerGameEntity
 				{
 					Player.this.transform.position = Player.this.transform.position.subtract(info.normal.scale(info.dist));
 				}
+				else if (other.getEntity() instanceof Bullet)
+				{
+					health.damage(5);
+				}
 			}
 		});
 	}
 
 
 	@Override
-	protected void drawGraphics(Graphics2D renderBuffer)
+	protected void drawSprite(Graphics2D renderBuffer)
 	{
 		// Draw weapon
 		renderBuffer.drawImage(inventory[equippedWeaponIndex].getGraphics(), 0, 0, null);
 
 		// Draw sprite *above* weapon
-		super.drawGraphics(renderBuffer);
+		super.drawSprite(renderBuffer);
+	}
+
+
+	@Override
+	protected void drawGui(Graphics2D renderBuffer)
+	{
+		super.drawGui(renderBuffer);
+
+		health.drawHealthBar(renderBuffer, -30);
 	}
 
 	@Override
