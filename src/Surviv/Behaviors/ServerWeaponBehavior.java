@@ -14,15 +14,15 @@ public abstract class ServerWeaponBehavior extends WeaponBehavior
 	protected float fireRateTimer;
 
 
-	protected ServerWeaponBehavior(GameEntity player, String spritePath)
+	protected ServerWeaponBehavior(GameEntity player, String spritePath, int damage)
 	{
-		this(player, spritePath, 5);
+		this(player, spritePath, 5, damage);
 	}
 
 
-	protected ServerWeaponBehavior(GameEntity player, String spritePath, float fireRate)
+	protected ServerWeaponBehavior(GameEntity player, String spritePath, float fireRate, int damage)
 	{
-		super(spritePath);
+		super(spritePath, damage);
 
 		this.player = player;
 		this.fireRate = fireRate;

@@ -11,6 +11,6 @@ public class Ak47 extends AutoFireGun
 
 	public Ak47(GameEntity player)
 	{
-		super(player, SPRITE_PATH, 10, 1000, 7.5f);
+		super(player, SPRITE_PATH, 10, 1000, 7.5f, 5);
 	}
 }

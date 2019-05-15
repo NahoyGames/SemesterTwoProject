@@ -35,4 +35,10 @@ public class HealthBehavior extends GameBehavior
 		renderBuffer.setColor(new Color(94, 136, 88));
 		renderBuffer.fillRect(-width/2, height, (int)(width * ((float)health/maxHealth)), 5);
 	}
+
+
+	protected void die()
+	{
+		entity.getScene().removeEntity(entity);
+	}
 }

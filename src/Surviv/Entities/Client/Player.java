@@ -40,6 +40,7 @@ public class Player extends ClientGameEntity
 	private WeaponBehavior[] inventory;
 
 	private ClientHealthBehavior health;
+	private Collider collider;
 
 
 	public Player(Scene scene, short networkId)
@@ -75,7 +76,7 @@ public class Player extends ClientGameEntity
 				};
 
 		// Hitbox
-		scene.collisionManager().addCollider(new CircleCollider(false, this, 100)
+		scene.collisionManager().addCollider(collider = new CircleCollider(false, this, 100)
 		{
 			@Override
 			public void onCollision(Collider other, CollisionInfo info)
@@ -116,7 +117,7 @@ public class Player extends ClientGameEntity
 	{
 		super.drawGui(renderBuffer);
 
-		health.drawHealthBar(renderBuffer, - 30);
+		health.drawHealthBar(renderBuffer, -30);
 	}
 
 	@Override
@@ -178,5 +179,14 @@ public class Player extends ClientGameEntity
 		{
 			Engine.scene().camera().transform().position = this.transform.position;
 		}
+	}
+
+
+	@Override
+	public void onDisable()
+	{
+		super.onDisable();
+
+		scene.collisionManager().removeCollider(collider);
 	}
 }

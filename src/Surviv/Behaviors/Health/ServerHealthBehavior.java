@@ -18,6 +18,11 @@ public class ServerHealthBehavior extends HealthBehavior
 		this.health = Math.max(Math.min(newHealth, maxHealth), 0);
 
 		((ServerNetManager)Engine.netManager()).sendReliable(new HealthPacket(health, maxHealth, entity.getNetworkId()));
+
+		if (this.health <= 0)
+		{
+			die();
+		}
 	}
 
 

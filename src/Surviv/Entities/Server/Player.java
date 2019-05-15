@@ -39,6 +39,7 @@ public class Player extends ServerGameEntity
 	private ServerInputReceiver inputReceiver;
 
 	private ServerHealthBehavior health;
+	private Collider collider;
 
 	private int equippedWeaponIndex;
 	private ServerWeaponBehavior[] inventory;
@@ -70,7 +71,7 @@ public class Player extends ServerGameEntity
 				};
 
 		// Hitbox
-		scene.collisionManager().addCollider(new CircleCollider(false, this, 100)
+		scene.collisionManager().addCollider(collider = new CircleCollider(false, this, 100)
 		{
 			@Override
 			public void onCollision(Collider other, CollisionInfo info)
@@ -80,10 +81,6 @@ public class Player extends ServerGameEntity
 				if (other.getEntity() instanceof IEnvironment && !(Float.isNaN(info.normal.x) && Float.isNaN(info.normal.y)))
 				{
 					Player.this.transform.position = Player.this.transform.position.subtract(info.normal.scale(info.dist));
-				}
-				else if (other.getEntity() instanceof Bullet)
-				{
-					health.damage(5);
 				}
 			}
 		});
@@ -160,6 +157,14 @@ public class Player extends ServerGameEntity
 		else if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).EQUIP_2_KEY)) { sendReliable(new PlayerChangeInventoryPacket(getNetworkId(), (byte)(equippedWeaponIndex = 1))); }
 		else if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).EQUIP_3_KEY)) { sendReliable(new PlayerChangeInventoryPacket(getNetworkId(), (byte)(equippedWeaponIndex = 2))); }
 		else if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).EQUIP_4_KEY)) { sendReliable(new PlayerChangeInventoryPacket(getNetworkId(), (byte)(equippedWeaponIndex = 3))); }
+	}
+
+	@Override
+	public void onDisable()
+	{
+		super.onDisable();
+
+		scene.collisionManager().removeCollider(collider);
 	}
 
 	@Override

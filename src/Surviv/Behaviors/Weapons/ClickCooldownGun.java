@@ -10,12 +10,12 @@ public class ClickCooldownGun extends ServerWeaponBehavior
 {
 	private boolean canShoot; // True when the user released the key
 
-	private float dist;
+	protected float dist;
 
 
-	public ClickCooldownGun(GameEntity player, String spritePath, float fireRate, float dist)
+	public ClickCooldownGun(GameEntity player, String spritePath, float fireRate, float dist, int damage)
 	{
-		super(player, spritePath, fireRate);
+		super(player, spritePath, fireRate, damage);
 
 		this.dist = dist;
 	}
@@ -40,7 +40,7 @@ public class ClickCooldownGun extends ServerWeaponBehavior
 	@Override
 	public void use()
 	{
-		player.getScene().addEntity(new Bullet(player.getScene(), player.transform().position.add(player.transform().forward().scale(30)), player.transform().rotation, dist));
+		player.getScene().addEntity(new Bullet(player.getScene(), player.transform().position.add(player.transform().forward().scale(30)), player.transform().rotation, dist, damage));
 	}
 
 

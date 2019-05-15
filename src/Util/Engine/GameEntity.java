@@ -121,6 +121,22 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 	}
 
 
+	public <T extends GameBehavior> T getBehavior(Class<T> type)
+	{
+		if (behaviors == null) { return null; }
+
+		for (GameBehavior b : behaviors)
+		{
+			if (b.getClass().equals(type))
+			{
+				return (T)b;
+			}
+		}
+
+		return null;
+	}
+
+
 	public Scene getScene() { return scene; }
 
 

@@ -1,6 +1,7 @@
 package Surviv.Entities.Server;
 
 import Surviv.Behaviors.FadeBehavior;
+import Surviv.Behaviors.Health.ServerHealthBehavior;
 import Surviv.Entities.Environment.IBouncyEnvironment;
 import Surviv.Networking.Packets.SpawnBulletPacket;
 import Util.Engine.Networking.Client.ClientGameEntity;
@@ -22,13 +23,14 @@ public class Bullet extends ServerGameEntity
 
 	private Vec2f origin, dir;
 	private float distSquared;
+	private int damage;
 
 	private FadeBehavior fadeBehavior;
 
 	private PointCollider collider;
 
 
-	public Bullet(Scene scene, Vec2f origin, float dir, float dist)
+	public Bullet(Scene scene, Vec2f origin, float dir, float dist, int damage)
 	{
 		super(scene, SPRITE_PATH, origin, dir, dist);
 
@@ -64,9 +66,10 @@ public class Bullet extends ServerGameEntity
 				}
 				else
 				{
-					if (other.getEntity() instanceof Player) // TODO replace with IDamageable or some health component
+					ServerHealthBehavior health;
+					if (other.getEntity() != null && (health = other.getEntity().getBehavior(ServerHealthBehavior.class)) != null)
 					{
-						System.out.println("Player was shot!!");
+						health.damage(damage);
 					}
 
 					fadeBehavior.scheduleFade(0.01f, 0f, true);

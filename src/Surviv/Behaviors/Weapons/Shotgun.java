@@ -13,7 +13,7 @@ public class Shotgun extends ClickCooldownGun
 
 	public Shotgun(GameEntity player)
 	{
-		super(player, SPRITE_PATH, 0.67f, 300);
+		super(player, SPRITE_PATH, 0.67f, 300, 3);
 	}
 
 
@@ -23,7 +23,7 @@ public class Shotgun extends ClickCooldownGun
 		for (int i = 0; i < shells; i++)
 		{
 			float randomSpread = ((float) Math.random() - 0.5f) * spread;
-			player.getScene().addEntity(new Bullet(player.getScene(), player.transform().position.add(player.transform().forward().scale(30)), player.transform().rotation + randomSpread, 300));
+			player.getScene().addEntity(new Bullet(player.getScene(), player.transform().position.add(player.transform().forward().scale(30)), player.transform().rotation + randomSpread, dist, damage));
 		}
 	}
 }

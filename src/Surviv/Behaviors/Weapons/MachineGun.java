@@ -14,7 +14,7 @@ public class MachineGun extends AutoFireGun
 
 	public MachineGun(GameEntity player)
 	{
-		super(player, SPRITE_PATH, 20, 700, 25);
+		super(player, SPRITE_PATH, 20, 700, 25, 3);
 	}
 
 

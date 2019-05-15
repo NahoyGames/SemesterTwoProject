@@ -1,18 +1,17 @@
-package Surviv.Entities.Environment;
+package Surviv.Entities.Server;
 
-import Surviv.Behaviors.Health.HealthBehavior;
+import Surviv.Entities.Environment.IEnvironment;
 import Util.Engine.GameEntity;
 import Util.Engine.Scene;
 
-public class Crate extends GameEntity implements IEnvironment
+public class LootCrate extends GameEntity implements IEnvironment
 {
 	private static final String SPRITE_PATH = "/Assets/Sprites/Environment/crate.png";
 
 
-	public Crate(Scene scene)
+	public LootCrate(Scene scene)
 	{
 		super(scene, SPRITE_PATH);
-
 	}
 
 

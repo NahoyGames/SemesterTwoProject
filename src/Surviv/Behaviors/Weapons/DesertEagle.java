@@ -1,6 +1,6 @@
 package Surviv.Behaviors.Weapons;
 
-import Surviv.Entities.Server.Player;
+
 import Util.Engine.GameEntity;
 
 public class DesertEagle extends SpamClickGun
@@ -10,6 +10,6 @@ public class DesertEagle extends SpamClickGun
 
 	public DesertEagle(GameEntity player)
 	{
-		super(player, SPRITE_PATH, 1000);
+		super(player, SPRITE_PATH, 1000, 10);
 	}
 }

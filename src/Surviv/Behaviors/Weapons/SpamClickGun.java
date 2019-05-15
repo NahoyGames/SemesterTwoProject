@@ -14,9 +14,9 @@ public abstract class SpamClickGun extends ServerWeaponBehavior
 	private float dist;
 
 
-	public SpamClickGun(GameEntity player, String spritePath, float dist)
+	public SpamClickGun(GameEntity player, String spritePath, float dist, int damage)
 	{
-		super(player, spritePath);
+		super(player, spritePath, damage);
 
 		this.dist = dist;
 	}
@@ -40,7 +40,7 @@ public abstract class SpamClickGun extends ServerWeaponBehavior
 	@Override
 	public void use()
 	{
-		player.getScene().addEntity(new Bullet(player.getScene(), player.transform().position.add(player.transform().forward().scale(30)), player.transform().rotation, dist));
+		player.getScene().addEntity(new Bullet(player.getScene(), player.transform().position.add(player.transform().forward().scale(30)), player.transform().rotation, dist, damage));
 	}
 
 	@Override
