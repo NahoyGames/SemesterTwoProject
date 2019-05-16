@@ -26,8 +26,6 @@ public class ClientHealthBehavior extends HealthBehavior implements INetworkList
 		{
 			this.health = (int)Compressor.scaleByteToFloat(((HealthPacket) packet).newHealth, 0, maxHealth);
 
-			System.out.println("My health is :" + this.health);
-
 			if (this.health <= 0)
 			{
 				die();

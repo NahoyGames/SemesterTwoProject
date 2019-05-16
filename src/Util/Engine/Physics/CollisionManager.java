@@ -46,7 +46,6 @@ public class CollisionManager
 
 				if (collision != null)
 				{
-					System.out.println("Dynamic to dynamic collision!");
 					dynamicColliders.get(d).onCollision(dynamicColliders.get(d2), collision);
 					dynamicColliders.get(d2).onCollision(dynamicColliders.get(d), collision);
 				}

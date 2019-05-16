@@ -1,11 +1,10 @@
-package Surviv.Entities.Server;
+package Surviv.Entities.Client;
 
-import Surviv.Behaviors.Health.ServerHealthBehavior;
+import Surviv.Behaviors.Health.ClientHealthBehavior;
 import Surviv.Entities.Environment.IEnvironment;
 import Util.Engine.Networking.Client.ClientGameEntity;
+import Util.Engine.Networking.Client.ClientNetTransform;
 import Util.Engine.Networking.Packet;
-import Util.Engine.Networking.Server.ServerGameEntity;
-import Util.Engine.Networking.Server.ServerNetTransform;
 import Util.Engine.Physics.Colliders.BoxCollider;
 import Util.Engine.Scene;
 import Util.Math.Vec2f;
@@ -14,16 +13,16 @@ import com.esotericsoftware.kryonet.Connection;
 import java.awt.*;
 
 
-public class LootCrate extends ServerGameEntity implements IEnvironment
+public class LootCrate extends ClientGameEntity implements IEnvironment
 {
 	private static final String SPRITE_PATH = "/Assets/Sprites/Environment/crate.png";
 
-	private ServerHealthBehavior health;
+	private ClientHealthBehavior health;
 
 
-	public LootCrate(Scene scene)
+	public LootCrate(Scene scene, short networkId)
 	{
-		super(scene, SPRITE_PATH);
+		super(scene, SPRITE_PATH, networkId);
 
 		// Transform
 		transform().scale = Vec2f.one().scale(0.15f);
@@ -32,8 +31,8 @@ public class LootCrate extends ServerGameEntity implements IEnvironment
 		addBehavior(new BoxCollider(true, this, Vec2f.one().scale(150f)));
 
 		// Behaviors
-		addBehavior(health = new ServerHealthBehavior(this, 50));
-		addBehavior(new ServerNetTransform(this, 1));
+		addBehavior(health = new ClientHealthBehavior(this, 50));
+		addBehavior(new ClientNetTransform(this));
 	}
 
 
@@ -52,12 +51,6 @@ public class LootCrate extends ServerGameEntity implements IEnvironment
 		health.drawHealthBar(renderBuffer, -30);
 	}
 
-
-	@Override
-	public Class<? extends ClientGameEntity> getClientCounterpart()
-	{
-		return Surviv.Entities.Client.LootCrate.class;
-	}
 
 	@Override
 	public void onReceivePacket(Connection sender, Packet packet)

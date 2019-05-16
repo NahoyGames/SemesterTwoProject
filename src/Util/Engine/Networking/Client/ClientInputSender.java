@@ -35,7 +35,6 @@ public class ClientInputSender extends GameBehavior
 			{
 				if (Arrays.contains(keyCodesToSend, e.getKeyCode()))
 				{
-					System.out.println("KEY RELEASED");
 					((ClientNetManager)Engine.netManager()).sendReliable(new ClientInputPacket(e.getKeyCode(), false));
 				}
 			}
@@ -68,7 +67,6 @@ public class ClientInputSender extends GameBehavior
 			{
 				if (Arrays.contains(keyCodesToSend, Engine.config().MOUSE_KEYCODE))
 				{
-					System.out.println("Mouse released!");
 					((ClientNetManager) Engine.netManager()).sendReliable(new ClientInputPacket(Engine.config().MOUSE_KEYCODE, false));
 				}
 			}

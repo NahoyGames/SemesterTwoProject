@@ -82,7 +82,8 @@ public class Vec2f
 
 	public static Vec2f normalized(Vec2f a)
 	{
-		return a.scale(1 / a.length());
+		float length = a.length();
+		return length == 0 ? Vec2f.zero() : a.scale(1 / length);
 	}
 	public Vec2f normalized()
 	{

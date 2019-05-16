@@ -48,7 +48,7 @@ public class Bullet extends ServerGameEntity
 
 		fadeBehavior = ((FadeBehavior)addBehavior(new FadeBehavior(this)));
 
-		scene.collisionManager().addCollider(collider = new PointCollider(false, this)
+		addBehavior(collider = new PointCollider(false, this)
 		{
 			@Override
 			public void onCollision(Collider other, CollisionInfo info)
@@ -121,15 +121,6 @@ public class Bullet extends ServerGameEntity
 	private void onCollision(Collider other, CollisionInfo info)
 	{
 		System.out.println("Bullet has collision!");
-	}
-
-
-	@Override
-	public void onDisable()
-	{
-		super.onDisable();
-
-		scene.collisionManager().removeCollider(collider);
 	}
 
 

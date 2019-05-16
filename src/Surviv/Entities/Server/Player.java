@@ -71,7 +71,7 @@ public class Player extends ServerGameEntity
 				};
 
 		// Hitbox
-		scene.collisionManager().addCollider(collider = new CircleCollider(false, this, 100)
+		addBehavior(collider = new CircleCollider(false, this, 100)
 		{
 			@Override
 			public void onCollision(Collider other, CollisionInfo info)
@@ -128,26 +128,32 @@ public class Player extends ServerGameEntity
 	{
 		super.update();
 
+		// Movement
+		Vec2f movement = Vec2f.zero();
+
 		if (inputReceiver.getButtonDown(((SurvivEngineConfiguration) Engine.config()).MOVE_LEFT_KEY))
 		{
-			transform.position.x -= 150 * Time.deltaTime(true);
+			movement.x -= 1;
 		}
 
 		if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).MOVE_RIGHT_KEY))
 		{
-			transform.position.x += 150 * Time.deltaTime(true);
+			movement.x += 1;
 		}
 
 		if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).MOVE_UP_KEY))
 		{
-			transform.position.y += 150 * Time.deltaTime(true);
+			movement.y += 1;
 		}
 
 		if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).MOVE_DOWN_KEY))
 		{
-			transform.position.y -= 150 * Time.deltaTime(true);
+			movement.y -= 1;
 		}
 
+		transform.position = transform.position.add(movement.normalized().scale(Time.deltaTime(true) * 200));
+
+		// Inventory Slots
 		if (inputReceiver.getButtonDown(Engine.config().MOUSE_KEYCODE))
 		{
 			inventory[equippedWeaponIndex].tryUse();
@@ -159,13 +165,6 @@ public class Player extends ServerGameEntity
 		else if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).EQUIP_4_KEY)) { sendReliable(new PlayerChangeInventoryPacket(getNetworkId(), (byte)(equippedWeaponIndex = 3))); }
 	}
 
-	@Override
-	public void onDisable()
-	{
-		super.onDisable();
-
-		scene.collisionManager().removeCollider(collider);
-	}
 
 	@Override
 	public void onReceivePacket(Connection sender, Packet packet)

@@ -1,6 +1,7 @@
 package Util.Engine.Physics;
 
 
+import Util.Engine.GameBehavior;
 import Util.Engine.GameEntity;
 import Util.Engine.IDrawable;
 import Util.Engine.Physics.Colliders.BoxCollider;
@@ -12,7 +13,7 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 
 
-public abstract class Collider implements IDrawable
+public abstract class Collider extends GameBehavior implements IDrawable
 {
 	public final boolean isStatic;
 
@@ -25,6 +26,7 @@ public abstract class Collider implements IDrawable
 		this.entity = entity;
 
 		entity.getScene().camera().addDebugDrawable(this);
+		entity.getScene().collisionManager().addCollider(this);
 	}
 
 
@@ -40,10 +42,7 @@ public abstract class Collider implements IDrawable
 	}
 
 
-	public void onCollision(Collider other, CollisionInfo info)
-	{
-
-	}
+	public void onCollision(Collider other, CollisionInfo info) { }
 
 
 	public abstract CollisionInfo hasCollisionWith(BoxCollider other);
@@ -102,5 +101,14 @@ public abstract class Collider implements IDrawable
 	public float setAlpha(float val)
 	{
 		return 1;
+	}
+
+
+	@Override
+	public void onDisable()
+	{
+		super.onDisable();
+
+		entity.getScene().collisionManager().removeCollider(this);
 	}
 }

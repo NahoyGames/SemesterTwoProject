@@ -16,7 +16,7 @@ public class Camera extends GameEntity
 	private float fov = 1f;
 
 	private List<IDrawable> debugDrawables;
-	private boolean drawDebug = true;
+	private boolean drawDebug = false;
 
 
 	public Camera(Scene scene, Color background)

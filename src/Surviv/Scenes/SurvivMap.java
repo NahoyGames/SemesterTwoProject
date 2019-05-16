@@ -2,6 +2,8 @@ package Surviv.Scenes;
 
 import Surviv.Entities.Environment.Barrel;
 import Surviv.Entities.Environment.Crate;
+import Surviv.Entities.Server.LootCrate;
+import Util.Engine.Engine;
 import Util.Engine.Physics.Colliders.BoxCollider;
 import Util.Engine.Physics.Colliders.CircleCollider;
 import Util.Engine.Scene;
@@ -16,8 +18,11 @@ public class SurvivMap
 	{
 		addBarrel(scene, new Vec2f(60, -30), 0.35f);
 		addBarrel(scene, new Vec2f(40, 60), 0.35f);
-		addCrate(scene, new Vec2f(100, 200), 0.15f);
-		addCrate(scene, new Vec2f(-400, -200), 0.15f);
+
+		for (int i = 0; i < 30; i++)
+		{
+			addCrate(scene, new Vec2f((float)(Math.random() - 0.5) * 2000, (float)(Math.random() - 0.5) * 2000));
+		}
 	}
 
 
@@ -28,21 +33,20 @@ public class SurvivMap
 			{
 				transform().position = pos;
 				transform().scale = Vec2f.one().scale(scale);
-				scene.collisionManager().addCollider(new CircleCollider(true, this, 50f));
 			}
 		});
 	}
 
 
 
-	private static void addCrate(Scene scene, Vec2f pos, float scale)
+	private static void addCrate(Scene scene, Vec2f pos)
 	{
-		scene.addEntity(new Crate(scene)
+		if (Engine.config() == null || !Engine.config().IS_SERVER_BUILD) { return; }
+
+		scene.addEntity(new LootCrate(scene)
 		{
 			{
 				transform.position = pos;
-				transform.scale = Vec2f.one().scale(scale);
-				scene.collisionManager().addCollider(new BoxCollider(true, this, Vec2f.one().scale(150f)));
 			}
 		});
 	}

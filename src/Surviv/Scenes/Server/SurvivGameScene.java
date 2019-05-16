@@ -21,7 +21,6 @@ public class SurvivGameScene extends Scene
 	{
 		super("Surviv Game");
 
-		SurvivMap.generateMap(this);
 	}
 
 
@@ -39,6 +38,10 @@ public class SurvivGameScene extends Scene
 
 		if (Input.getButtonDown(' ') && !gameStarted)
 		{
+			// Map(crates)
+			SurvivMap.generateMap(this);
+
+			// Players
 			for (Connection c : ((ServerNetManager)Engine.netManager()).getConnections())
 			{
 				addEntity(new Player(this, c));

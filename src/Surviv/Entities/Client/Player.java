@@ -76,7 +76,7 @@ public class Player extends ClientGameEntity
 				};
 
 		// Hitbox
-		scene.collisionManager().addCollider(collider = new CircleCollider(false, this, 100)
+		addBehavior(collider = new CircleCollider(false, this, 100)
 		{
 			@Override
 			public void onCollision(Collider other, CollisionInfo info)
@@ -179,14 +179,5 @@ public class Player extends ClientGameEntity
 		{
 			Engine.scene().camera().transform().position = this.transform.position;
 		}
-	}
-
-
-	@Override
-	public void onDisable()
-	{
-		super.onDisable();
-
-		scene.collisionManager().removeCollider(collider);
 	}
 }

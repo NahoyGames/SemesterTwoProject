@@ -49,7 +49,7 @@ public class Bullet extends ClientGameEntity
 
 		fadeBehavior = ((FadeBehavior)addBehavior(new FadeBehavior(this)));
 
-		scene.collisionManager().addCollider(collider = new PointCollider(false, this)
+		addBehavior(collider = new PointCollider(false, this)
 		{
 			@Override
 			public void onCollision(Collider other, CollisionInfo info)
@@ -102,14 +102,6 @@ public class Bullet extends ClientGameEntity
 		return -1;
 	}
 
-
-	@Override
-	public void onDisable()
-	{
-		super.onDisable();
-
-		scene.collisionManager().removeCollider(collider);
-	}
 
 	@Override
 	public void onReceivePacket(Connection sender, Packet packet) { }

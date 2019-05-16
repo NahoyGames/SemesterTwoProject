@@ -1,5 +1,6 @@
 package Surviv;
 
+import Surviv.Entities.Client.LootCrate;
 import Surviv.Entities.Client.Player;
 import Surviv.Networking.Packets.*;
 import Util.Engine.EngineConfiguration;
@@ -36,5 +37,6 @@ public class SurvivEngineConfiguration extends EngineConfiguration
 
 		/** REGISTER ENTITIES >>HERE<< FOR BOTH CLIENT & SERVER **/
 		REGISTERED_ENTITIES.add(Player.class);
+		REGISTERED_ENTITIES.add(LootCrate.class);
 	}
 }
