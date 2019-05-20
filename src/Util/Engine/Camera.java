@@ -52,7 +52,10 @@ public class Camera extends GameEntity
 		// Draws the entities in order
 		for (IDrawable d : drawables.toArray(new IDrawable[drawables.size()]))
 		{
-			d.draw(renderBuffer);
+			if (d != null)
+			{
+				d.draw(renderBuffer);
+			}
 		}
 
 		// Draws debug graphics

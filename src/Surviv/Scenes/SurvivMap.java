@@ -1,11 +1,9 @@
 package Surviv.Scenes;
 
 import Surviv.Entities.Environment.Barrel;
-import Surviv.Entities.Environment.Crate;
 import Surviv.Entities.Server.LootCrate;
+import Surviv.Entities.Server.Tree;
 import Util.Engine.Engine;
-import Util.Engine.Physics.Colliders.BoxCollider;
-import Util.Engine.Physics.Colliders.CircleCollider;
 import Util.Engine.Scene;
 import Util.Math.Vec2f;
 
@@ -22,6 +20,7 @@ public class SurvivMap
 		for (int i = 0; i < 30; i++)
 		{
 			addCrate(scene, new Vec2f((float)(Math.random() - 0.5) * 2000, (float)(Math.random() - 0.5) * 2000));
+			addTree(scene, new Vec2f((float)(Math.random() - 0.5) * 2000, (float)(Math.random() - 0.5) * 2000));
 		}
 	}
 
@@ -44,6 +43,19 @@ public class SurvivMap
 		if (Engine.config() == null || !Engine.config().IS_SERVER_BUILD) { return; }
 
 		scene.addEntity(new LootCrate(scene)
+		{
+			{
+				transform.position = pos;
+			}
+		});
+	}
+
+
+	private static void addTree(Scene scene, Vec2f pos)
+	{
+		if (Engine.config() == null || !Engine.config().IS_SERVER_BUILD) { return; }
+
+		scene.addEntity(new Tree(scene)
 		{
 			{
 				transform.position = pos;

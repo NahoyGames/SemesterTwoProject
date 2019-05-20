@@ -46,6 +46,8 @@ public class Bullet extends ServerGameEntity
 
 		this.transform.scale = new Vec2f(0.15f, 0f);
 
+		this.damage = damage;
+
 		fadeBehavior = ((FadeBehavior)addBehavior(new FadeBehavior(this)));
 
 		addBehavior(collider = new PointCollider(false, this)
@@ -69,7 +71,7 @@ public class Bullet extends ServerGameEntity
 					ServerHealthBehavior health;
 					if (other.getEntity() != null && (health = other.getEntity().getBehavior(ServerHealthBehavior.class)) != null)
 					{
-						health.damage(damage);
+						health.damage(Bullet.this.damage);
 					}
 
 					fadeBehavior.scheduleFade(0.01f, 0f, true);
@@ -115,12 +117,6 @@ public class Bullet extends ServerGameEntity
 			fadeBehavior.scheduleFade(0.05f, 0f, true);
 		}
 
-	}
-
-
-	private void onCollision(Collider other, CollisionInfo info)
-	{
-		System.out.println("Bullet has collision!");
 	}
 
 

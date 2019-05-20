@@ -62,7 +62,8 @@ public class Player extends ClientGameEntity
 						((SurvivEngineConfiguration)Engine.config()).EQUIP_1_KEY,
 						((SurvivEngineConfiguration)Engine.config()).EQUIP_2_KEY,
 						((SurvivEngineConfiguration)Engine.config()).EQUIP_3_KEY,
-						((SurvivEngineConfiguration)Engine.config()).EQUIP_4_KEY
+						((SurvivEngineConfiguration)Engine.config()).EQUIP_4_KEY,
+						((SurvivEngineConfiguration)Engine.config()).PICK_UP_KEY
 				}));
 		addBehavior(health = new ClientHealthBehavior(this, 100));
 

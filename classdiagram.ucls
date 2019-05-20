@@ -1,0 +1,1603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.3" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="Surviv.Scenes.SurvivMap" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Scenes/SurvivMap.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="137" width="205" x="-14" y="116"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="Util.Engine.Networking.Packets.ClientAuthResponsePacket" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/Packets/ClientAuthResponsePacket.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="119" width="223" x="2908" y="2471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="Surviv.Behaviors.Weapons.MachineGun" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Behaviors/Weapons/MachineGun.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="137" width="165" x="7258" y="2006"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="Surviv.Behaviors.Weapons.SpamClickGun" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Behaviors/Weapons/SpamClickGun.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="173" width="253" x="6798" y="1775"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="Util.Engine.Networking.Packets.SpawnEntityPacket" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/Packets/SpawnEntityPacket.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="137" width="305" x="3171" y="2471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="Util.Engine.Physics.Colliders.CircleCollider" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Physics/Colliders/CircleCollider.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="191" width="263" x="2584" y="1472"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="7" language="java" name="Util.Engine.Networking.Client" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/Client" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="221" x="231" y="116"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="8" language="java" name="Util.Engine.EngineConfiguration" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/EngineConfiguration.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="353" width="397" x="5504" y="383"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="Surviv.Behaviors.Weapons.Ak47" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Behaviors/Weapons/Ak47.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="145" x="7463" y="2006"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="Surviv.Networking.Packets.ClientLookAtPacket" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Networking/Packets/ClientLookAtPacket.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="119" width="162" x="3516" y="2471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="Surviv.Networking.Packets.SpawnBulletPacket" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Networking/Packets/SpawnBulletPacket.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="137" width="220" x="5985" y="2471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="Util.Engine.Networking.NetGameEntity" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/NetGameEntity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="119" width="215" x="6890" y="776"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="Surviv.ServerBuild" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/ServerBuild.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="124" x="492" y="116"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="Util.Engine.Networking.GenericNetManager" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/GenericNetManager.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="155" width="342" x="6424" y="383"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="15" language="java" name="Util.Engine.Networking.Server" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/Server" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="225" x="656" y="116"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="16" language="java" name="Surviv.Behaviors.ServerWeaponBehavior" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Behaviors/ServerWeaponBehavior.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="191" width="300" x="7362" y="1472"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="Util.Math.Vec2f" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Math/Vec2f.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="677" width="214" x="7820" y="2792"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="18" language="java" name="Surviv.Behaviors.Health" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Behaviors/Health" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="185" x="921" y="116"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="19" language="java" name="Util.Engine.GameEntity" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/GameEntity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="425" width="265" x="6430" y="2006"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="Surviv.Entities.Environment.Barrel" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Entities/Environment/Barrel.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="119" width="145" x="6245" y="2471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="21" language="java" name="Util.Engine.Networking.INetworkListener" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/INetworkListener.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="83" width="254" x="6892" y="1472"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="22" language="java" name="Util.Engine.Networking.Packets.GameStatePacket" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/Packets/GameStatePacket.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="137" width="237" x="3718" y="2471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="23" language="java" name="Util.Engine.IDrawable" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/IDrawable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="137" width="149" x="5664" y="2792"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="24" language="java" name="Util.Engine.IEngineEventListener" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/IEngineEventListener.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="173" width="168" x="7612" y="2471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="25" language="java" name="Surviv.Behaviors.Health.ClientHealthBehavior" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Behaviors/Health/ClientHealthBehavior.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="119" width="254" x="6932" y="1115"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="Util.Engine.Input" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Input.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="173" width="253" x="1146" y="116"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="Util.Engine.Networking.Packets.ClientAuthRequestPacket" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/Packets/ClientAuthRequestPacket.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="137" width="203" x="3995" y="2471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="28" language="java" name="Util.Engine.Physics.Colliders" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Physics/Colliders" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="218" x="1439" y="116"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="29" language="java" name="Surviv.ClientBuild" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/ClientBuild.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="124" x="1697" y="116"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="Surviv.Behaviors.WeaponBehavior" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Behaviors/WeaponBehavior.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="137" width="174" x="7514" y="1115"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="Util.Math.Compressor" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Math/Compressor.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="119" width="227" x="1861" y="116"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="32" language="java" name="Surviv.Entities.Client" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Entities/Client" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="163" x="2128" y="116"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="33" language="java" name="Surviv.Behaviors.Weapons.Shotgun" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Behaviors/Weapons/Shotgun.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="155" width="145" x="7694" y="2006"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="Surviv.Networking.Packets.TestRequestPacket" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Networking/Packets/TestRequestPacket.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="119" width="169" x="4238" y="2471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="Util.Engine.Physics.CollisionManager" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Physics/CollisionManager.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="137" width="181" x="5262" y="383"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="36" language="java" name="Util.Engine.Networking.Packets" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/Packets" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="235" x="2331" y="116"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="37" language="java" name="Surviv.Scenes.Server.SurvivGameScene" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Scenes/Server/SurvivGameScene.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="137" width="147" x="5607" y="1115"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="38" language="java" name="Surviv.Entities.Environment" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Entities/Environment" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="210" x="2606" y="116"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="39" language="java" name="Util.Math" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Math" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="114" x="2856" y="116"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="40" language="java" name="Surviv.Behaviors.Health.HealthBehavior" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Behaviors/Health/HealthBehavior.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="173" width="219" x="7452" y="383"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="41" language="java" name="Util.Engine.Transform2D" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Transform2D.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="173" width="175" x="7820" y="2471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="42" language="java" name="Surviv.Networking.Packets.PlayerChangeInventoryPacket" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Networking/Packets/PlayerChangeInventoryPacket.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="137" width="249" x="4447" y="2471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="43" language="java" name="Util.Arrays.Arrays" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Arrays/Arrays.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="137" width="182" x="3010" y="116"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="44" language="java" name="Surviv.Behaviors.FadeBehavior" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Behaviors/FadeBehavior.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="191" width="230" x="7091" y="1775"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="45" language="java" name="Surviv.Entities.Environment.Crate" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Entities/Environment/Crate.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="119" width="145" x="6430" y="2471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="46" language="java" name="Util.Engine.Networking.Client.ClientGameEntity" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/Client/ClientGameEntity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="119" width="227" x="7226" y="1115"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="47" language="java" name="Util.Engine.Physics.Colliders.BoxCollider" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Physics/Colliders/BoxCollider.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="173" width="263" x="6125" y="1472"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="48" language="java" name="Surviv.Networking.Packets" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Networking/Packets" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="203" x="3232" y="116"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="49" language="java" name="Surviv.Networking.Packets.HealthPacket" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Networking/Packets/HealthPacket.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="137" width="165" x="4736" y="2471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="50" language="java" name="Surviv.Entities.Server.Bullet" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Entities/Server/Bullet.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="263" width="341" x="8310" y="1472"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="51" language="java" name="Util.Engine.Networking.Server.ServerGameEntity" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/Server/ServerGameEntity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="191" width="341" x="8043" y="1115"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="52" language="java" name="Surviv.Behaviors.Weapons.DesertEagle" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Behaviors/Weapons/DesertEagle.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="163" x="6798" y="2006"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="53" language="java" name="Surviv.Entities.Server" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Entities/Server" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="168" x="3475" y="116"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="54" language="java" name="Surviv.Behaviors.Weapons" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Behaviors/Weapons" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="204" x="3683" y="116"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <interface id="55" language="java" name="Surviv.Entities.Environment.IBouncyEnvironment" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Entities/Environment/IBouncyEnvironment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="65" width="165" x="6245" y="3509"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="56" language="java" name="Util.Engine.Canvas" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Canvas.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="209" width="189" x="5941" y="383"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="57" language="java" name="Surviv.Entities.Client.Player" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Entities/Client/Player.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="281" width="254" x="7166" y="776"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="58" language="java" name="Surviv.Entities.Server.LootCrate" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Entities/Server/LootCrate.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="119" width="145" x="6615" y="2471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="59" language="java" name="Util.Engine.Time" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Time.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="155" width="155" x="3927" y="116"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="60" language="java" name="Surviv.Entities.Client.Bullet" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Entities/Client/Bullet.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="191" width="254" x="8016" y="1472"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="61" language="java" name="Surviv.Scenes.Server" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Scenes/Server" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="167" x="4122" y="116"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="62" language="java" name="Util.Engine.Physics.CollisionInfo" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Physics/CollisionInfo.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="189" x="7383" y="2471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="63" language="java" name="Util.Engine.Engine" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Engine.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="227" width="210" x="5941" y="116"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="64" language="java" name="Util.Engine.GameBehavior" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/GameBehavior.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="191" width="154" x="7732" y="116"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="65" language="java" name="Util.Engine.InputAxes" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/InputAxes.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="209" width="159" x="4329" y="116"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="66" language="java" name="Util.Engine.Networking.Packets.ClientInputPacket" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/Packets/ClientInputPacket.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="137" width="187" x="4941" y="2471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="67" language="java" name="Util.Engine.Networking.Server.ServerNetTransform" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/Server/ServerNetTransform.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="137" width="256" x="8405" y="776"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="68" language="java" name="Util.Engine.Camera" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Camera.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="281" width="260" x="5664" y="2471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="69" language="java" name="Surviv.Scenes.Client" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Scenes/Client" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="162" x="4528" y="116"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="70" language="java" name="Util.Arrays" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Arrays" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="114" x="4730" y="116"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="71" language="java" name="Surviv.Behaviors" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Behaviors" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="138" x="4884" y="116"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="72" language="java" name="Util.Engine.Networking.Packets.LinkClientToEntityPacket" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/Packets/LinkClientToEntityPacket.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="119" width="193" x="5168" y="2471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="73" language="java" name="Util.Engine.Canvas.Panel" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Canvas.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="119" width="196" x="5830" y="776"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="74" language="java" name="Util.Engine.Networking.Server.ServerInputReceiver" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/Server/ServerInputReceiver.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="173" width="254" x="7728" y="1115"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="75" language="java" name="Surviv.Behaviors.Health.ServerHealthBehavior" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Behaviors/Health/ServerHealthBehavior.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="119" width="248" x="8424" y="1115"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="76" language="java" name="Util.Engine.Networking.Packet" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/Packet.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="83" width="112" x="4352" y="2006"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="77" language="java" name="Util.Engine" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="114" x="5062" y="116"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="78" language="java" name="Surviv.Behaviors.Weapons.AutoFireGun" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Behaviors/Weapons/AutoFireGun.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="137" width="293" x="7361" y="1775"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="79" language="java" name="Surviv" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="114" x="5216" y="116"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="80" language="java" name="Util.Engine.Physics.Colliders.PointCollider" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Physics/Colliders/PointCollider.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="155" width="263" x="8077" y="1775"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="81" language="java" name="Surviv.Scenes" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Scenes" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="119" x="5370" y="116"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="82" language="java" name="Util.Engine.Networking" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="178" x="5529" y="116"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="83" language="java" name="Util.Engine.Networking.Client.ClientInputSender" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/Client/ClientInputSender.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="119" width="189" x="7732" y="383"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="84" language="java" name="Util.Engine.Scene" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Scene.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="299" width="221" x="5323" y="776"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="85" language="java" name="Surviv.Behaviors.Weapons.ClickCooldownGun" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Behaviors/Weapons/ClickCooldownGun.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="173" width="301" x="7694" y="1775"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="86" language="java" name="Surviv.Entities.Environment.IEnvironment" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Entities/Environment/IEnvironment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="65" width="132" x="6430" y="2792"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <package id="87" language="java" name="Util.Engine.Physics" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Physics" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="154" x="5747" y="116"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="88" language="java" name="Util.Engine.Networking.Client.ClientNetManager" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/Client/ClientNetManager.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="137" width="345" x="6066" y="776"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="89" language="java" name="Surviv.SurvivEngineConfiguration" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/SurvivEngineConfiguration.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="245" width="206" x="5584" y="776"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="90" language="java" name="Util.Engine.Networking.Server.ServerNetManager" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/Server/ServerNetManager.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="227" width="315" x="6451" y="776"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="91" language="java" name="Util.Engine.Networking.Client.ClientNetTransform" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/Client/ClientNetTransform.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="254" x="7460" y="776"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="92" language="java" name="Surviv.Scenes.Client.SurvivGameScene" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Scenes/Client/SurvivGameScene.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="119" width="254" x="6533" y="1115"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="93" language="java" name="Surviv.Entities.Server.Player" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Surviv/Entities/Server/Player.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="281" width="341" x="8003" y="776"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="94" language="java" name="Util.Engine.Networking.Packets.TransformPacket" 
+    project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Networking/Packets/TransformPacket.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="173" width="223" x="5401" y="2471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="95" language="java" name="Util.Engine.Physics.Collider" project="AP Comp. Sci. 2nd Semester Project" 
+    file="/AP Comp. Sci. 2nd Semester Project/src/Util/Engine/Physics/Collider.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="317" width="263" x="5283" y="1115"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="96">    
+    <end type="SOURCE" refId="89"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <generalization id="97">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="64"/>  
+  </generalization>  
+  <generalization id="98">    
+    <bendpoint x="7972" y="776"/>    
+    <bendpoint x="7972" y="383"/>    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="64"/>  
+  </generalization>  
+  <association id="99">    
+    <end type="SOURCE" refId="63" navigable="false">      
+      <attribute id="100" name="canvas"/>      
+      <multiplicity id="101" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="56" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="102">    
+    <bendpoint x="6502" y="1775"/>    
+    <bendpoint x="6502" y="1472"/>    
+    <bendpoint x="6502" y="1115"/>    
+    <bendpoint x="6796" y="776"/>    
+    <bendpoint x="6796" y="383"/>    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="103" name="behaviors"/>      
+      <multiplicity id="104" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="64" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="105">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="76"/>  
+  </generalization>  
+  <association id="106">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="107" name="REGISTERED_SCENES"/>      
+      <multiplicity id="108" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="84" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="109">    
+    <end type="SOURCE" refId="78"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <generalization id="110">    
+    <end type="SOURCE" refId="57"/>    
+    <end type="TARGET" refId="46"/>  
+  </generalization>  
+  <association id="111">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="112" name="transform"/>      
+      <multiplicity id="113" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="114">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="85"/>  
+  </generalization>  
+  <generalization id="115">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="76"/>  
+  </generalization>  
+  <association id="116">    
+    <end type="SOURCE" refId="68" navigable="false">      
+      <attribute id="117" name="debugDrawables"/>      
+      <multiplicity id="118" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="119">    
+    <bendpoint x="5292" y="776"/>    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="120" name="colliders"/>      
+      <multiplicity id="121" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="95" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="122">    
+    <bendpoint x="7483" y="1115"/>    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <association id="123">    
+    <end type="SOURCE" refId="62" navigable="false">      
+      <attribute id="124" name="point"/>      
+      <multiplicity id="125" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="126">    
+    <end type="SOURCE" refId="47"/>    
+    <end type="TARGET" refId="95"/>  
+  </generalization>  
+  <generalization id="127">    
+    <end type="SOURCE" refId="90"/>    
+    <end type="TARGET" refId="14"/>  
+  </generalization>  
+  <generalization id="128">    
+    <end type="SOURCE" refId="92"/>    
+    <end type="TARGET" refId="84"/>  
+  </generalization>  
+  <association id="129">    
+    <bendpoint x="5555" y="1472"/>    
+    <bendpoint x="5597" y="1775"/>    
+    <end type="SOURCE" refId="95" navigable="false">      
+      <attribute id="130" name="entity"/>      
+      <multiplicity id="131" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="132">    
+    <bendpoint x="5954" y="2471"/>    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="23"/>  
+  </realization>  
+  <association id="133">    
+    <bendpoint x="8702" y="1115"/>    
+    <bendpoint x="8702" y="1472"/>    
+    <bendpoint x="8702" y="1775"/>    
+    <bendpoint x="8660" y="2006"/>    
+    <end type="SOURCE" refId="67" navigable="false">      
+      <attribute id="134" name="lastSentTransform"/>      
+      <multiplicity id="135" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="136">    
+    <bendpoint x="8681" y="1775"/>    
+    <bendpoint x="8681" y="2006"/>    
+    <bendpoint x="8681" y="2471"/>    
+    <end type="SOURCE" refId="50" navigable="false">      
+      <attribute id="137" name="dir"/>      
+      <multiplicity id="138" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="139">    
+    <bendpoint x="6838" y="776"/>    
+    <bendpoint x="6859" y="1115"/>    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <realization id="140">    
+    <end type="SOURCE" refId="74"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <association id="141">    
+    <bendpoint x="6460" y="1775"/>    
+    <bendpoint x="6460" y="1472"/>    
+    <bendpoint x="6460" y="1115"/>    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="142" name="scene"/>      
+      <multiplicity id="143" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="84" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="144">    
+    <end type="SOURCE" refId="50" navigable="false">      
+      <attribute id="145" name="fadeBehavior"/>      
+      <multiplicity id="146" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="44" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="147">    
+    <end type="SOURCE" refId="45"/>    
+    <end type="TARGET" refId="86"/>  
+  </realization>  
+  <generalization id="148">    
+    <end type="SOURCE" refId="94"/>    
+    <end type="TARGET" refId="76"/>  
+  </generalization>  
+  <generalization id="149">    
+    <bendpoint x="6689" y="1472"/>    
+    <end type="SOURCE" refId="80"/>    
+    <end type="TARGET" refId="95"/>  
+  </generalization>  
+  <generalization id="150">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <realization id="151">    
+    <end type="SOURCE" refId="92"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <generalization id="152">    
+    <end type="SOURCE" refId="72"/>    
+    <end type="TARGET" refId="76"/>  
+  </generalization>  
+  <association id="153">    
+    <end type="SOURCE" refId="62" navigable="false">      
+      <attribute id="154" name="normal"/>      
+      <multiplicity id="155" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="156">    
+    <bendpoint x="6838" y="1472"/>    
+    <bendpoint x="6838" y="1115"/>    
+    <bendpoint x="6859" y="776"/>    
+    <bendpoint x="6859" y="383"/>    
+    <end type="SOURCE" refId="44"/>    
+    <end type="TARGET" refId="64"/>  
+  </generalization>  
+  <generalization id="157">    
+    <bendpoint x="8374" y="776"/>    
+    <end type="SOURCE" refId="75"/>    
+    <end type="TARGET" refId="40"/>  
+  </generalization>  
+  <nesting id="158">    
+    <end type="SOURCE" refId="56"/>    
+    <end type="TARGET" refId="73"/>  
+  </nesting>  
+  <generalization id="159">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="76"/>  
+  </generalization>  
+  <generalization id="160">    
+    <end type="SOURCE" refId="68"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <generalization id="161">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="76"/>  
+  </generalization>  
+  <association id="162">    
+    <end type="SOURCE" refId="40" navigable="false">      
+      <attribute id="163" name="entity"/>      
+      <multiplicity id="164" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="165">    
+    <end type="SOURCE" refId="57" navigable="false">      
+      <attribute id="166" name="inventory"/>      
+      <multiplicity id="167" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="168">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="64"/>  
+  </generalization>  
+  <generalization id="169">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="30"/>  
+  </generalization>  
+  <association id="170">    
+    <end type="SOURCE" refId="41" navigable="false">      
+      <attribute id="171" name="position"/>      
+      <multiplicity id="172" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="173">    
+    <bendpoint x="7951" y="383"/>    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="64"/>  
+  </generalization>  
+  <generalization id="174">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="76"/>  
+  </generalization>  
+  <association id="175">    
+    <end type="SOURCE" refId="60" navigable="false">      
+      <attribute id="176" name="fadeBehavior"/>      
+      <multiplicity id="177" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="44" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="178">    
+    <end type="SOURCE" refId="63" navigable="false">      
+      <attribute id="179" name="netManager"/>      
+      <multiplicity id="180" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="181">    
+    <end type="SOURCE" refId="93" navigable="false">      
+      <attribute id="182" name="health"/>      
+      <multiplicity id="183" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="75" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="184">    
+    <bendpoint x="6439" y="1775"/>    
+    <bendpoint x="6725" y="2006"/>    
+    <bendpoint x="6811" y="2471"/>    
+    <end type="SOURCE" refId="47" navigable="false">      
+      <attribute id="185" name="halfSize"/>      
+      <multiplicity id="186" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="187">    
+    <bendpoint x="5271" y="776"/>    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="188" name="dynamicColliders"/>      
+      <multiplicity id="189" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="95" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="190">    
+    <end type="SOURCE" refId="63" navigable="false">      
+      <attribute id="191" name="config"/>      
+      <multiplicity id="192" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="193">    
+    <end type="SOURCE" refId="45"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <association id="194">    
+    <bendpoint x="8639" y="1775"/>    
+    <bendpoint x="8639" y="2006"/>    
+    <bendpoint x="8639" y="2471"/>    
+    <end type="SOURCE" refId="50" navigable="false">      
+      <attribute id="195" name="origin"/>      
+      <multiplicity id="196" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="197">    
+    <end type="SOURCE" refId="57" navigable="false">      
+      <attribute id="198" name="health"/>      
+      <multiplicity id="199" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="200">    
+    <end type="SOURCE" refId="60" navigable="false">      
+      <attribute id="201" name="collider"/>      
+      <multiplicity id="202" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="80" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="203">    
+    <end type="SOURCE" refId="67" navigable="false">      
+      <attribute id="204" name="target"/>      
+      <multiplicity id="205" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="51" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="206">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <association id="207">    
+    <end type="SOURCE" refId="50" navigable="false">      
+      <attribute id="208" name="collider"/>      
+      <multiplicity id="209" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="80" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="210">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="84"/>  
+  </generalization>  
+  <realization id="211">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <realization id="212">    
+    <bendpoint x="2877" y="1472"/>    
+    <bendpoint x="2877" y="1775"/>    
+    <bendpoint x="2877" y="2006"/>    
+    <bendpoint x="2877" y="2471"/>    
+    <end type="SOURCE" refId="95"/>    
+    <end type="TARGET" refId="23"/>  
+  </realization>  
+  <generalization id="213">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="76"/>  
+  </generalization>  
+  <generalization id="214">    
+    <end type="SOURCE" refId="58"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <generalization id="215">    
+    <end type="SOURCE" refId="51"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <association id="216">    
+    <end type="SOURCE" refId="84" navigable="false">      
+      <attribute id="217" name="collisionManager"/>      
+      <multiplicity id="218" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="219">    
+    <end type="SOURCE" refId="85"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <association id="220">    
+    <end type="SOURCE" refId="93" navigable="false">      
+      <attribute id="221" name="inputReceiver"/>      
+      <multiplicity id="222" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="74" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="223">    
+    <end type="SOURCE" refId="56" navigable="false">      
+      <attribute id="224" name="panel"/>      
+      <multiplicity id="225" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="73" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="226">    
+    <end type="SOURCE" refId="93" navigable="false">      
+      <attribute id="227" name="collider"/>      
+      <multiplicity id="228" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="95" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="229">    
+    <bendpoint x="6901" y="1115"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <association id="230">    
+    <bendpoint x="8025" y="1775"/>    
+    <bendpoint x="8025" y="2006"/>    
+    <bendpoint x="8025" y="2471"/>    
+    <end type="SOURCE" refId="60" navigable="false">      
+      <attribute id="231" name="origin"/>      
+      <multiplicity id="232" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="233">    
+    <end type="SOURCE" refId="52"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="234">    
+    <end type="SOURCE" refId="93"/>    
+    <end type="TARGET" refId="51"/>  
+  </generalization>  
+  <realization id="235">    
+    <end type="SOURCE" refId="58"/>    
+    <end type="TARGET" refId="86"/>  
+  </realization>  
+  <association id="236">    
+    <bendpoint x="5250" y="776"/>    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="237" name="staticColliders"/>      
+      <multiplicity id="238" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="95" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="239">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="86"/>  
+  </generalization>  
+  <realization id="240">    
+    <bendpoint x="6481" y="1115"/>    
+    <bendpoint x="6614" y="1472"/>    
+    <bendpoint x="6746" y="1775"/>    
+    <bendpoint x="6746" y="2006"/>    
+    <end type="SOURCE" refId="84"/>    
+    <end type="TARGET" refId="24"/>  
+  </realization>  
+  <association id="241">    
+    <end type="SOURCE" refId="44" navigable="false">      
+      <attribute id="242" name="entity"/>      
+      <multiplicity id="243" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="244">    
+    <end type="SOURCE" refId="41" navigable="false">      
+      <attribute id="245" name="scale"/>      
+      <multiplicity id="246" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="247">    
+    <end type="SOURCE" refId="60"/>    
+    <end type="TARGET" refId="46"/>  
+  </generalization>  
+  <association id="248">    
+    <bendpoint x="8012" y="1115"/>    
+    <end type="SOURCE" refId="93" navigable="false">      
+      <attribute id="249" name="inventory"/>      
+      <multiplicity id="250" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="251">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="76"/>  
+  </generalization>  
+  <generalization id="252">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="95"/>  
+  </generalization>  
+  <association id="253">    
+    <bendpoint x="6790" y="2471"/>    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="254" name="anchor"/>      
+      <multiplicity id="255" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="256">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="257" name="netEntities"/>      
+      <multiplicity id="258" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="259">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="76"/>  
+  </generalization>  
+  <association id="260">    
+    <bendpoint x="6767" y="1775"/>    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="261" name="player"/>      
+      <multiplicity id="262" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="263">    
+    <end type="SOURCE" refId="57" navigable="false">      
+      <attribute id="264" name="collider"/>      
+      <multiplicity id="265" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="95" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="266">    
+    <bendpoint x="7744" y="776"/>    
+    <bendpoint x="7701" y="383"/>    
+    <end type="SOURCE" refId="74"/>    
+    <end type="TARGET" refId="64"/>  
+  </generalization>  
+  <generalization id="267">    
+    <end type="SOURCE" refId="66"/>    
+    <end type="TARGET" refId="76"/>  
+  </generalization>  
+  <association id="268">    
+    <bendpoint x="6418" y="1115"/>    
+    <bendpoint x="6418" y="1472"/>    
+    <bendpoint x="6418" y="1775"/>    
+    <end type="SOURCE" refId="84" navigable="false">      
+      <attribute id="269" name="entities"/>      
+      <multiplicity id="270" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="271">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="272" name="scene"/>      
+      <multiplicity id="273" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="84" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="274">    
+    <bendpoint x="5473" y="383"/>    
+    <end type="SOURCE" refId="63" navigable="false">      
+      <attribute id="275" name="loadedScene"/>      
+      <multiplicity id="276" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="84" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="277">    
+    <bendpoint x="6880" y="1115"/>    
+    <bendpoint x="6802" y="1472"/>    
+    <bendpoint x="6725" y="1775"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <association id="278">    
+    <end type="SOURCE" refId="91" navigable="false">      
+      <attribute id="279" name="target"/>      
+      <multiplicity id="280" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="46" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="281">    
+    <bendpoint x="8077" y="383"/>    
+    <end type="SOURCE" refId="67"/>    
+    <end type="TARGET" refId="64"/>  
+  </generalization>  
+  <association id="282">    
+    <bendpoint x="5576" y="1115"/>    
+    <bendpoint x="5576" y="1472"/>    
+    <bendpoint x="5576" y="1775"/>    
+    <bendpoint x="5576" y="2006"/>    
+    <end type="SOURCE" refId="84" navigable="false">      
+      <attribute id="283" name="activeCamera"/>      
+      <multiplicity id="284" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="68" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="285">    
+    <end type="SOURCE" refId="50"/>    
+    <end type="TARGET" refId="51"/>  
+  </generalization>  
+  <generalization id="286">    
+    <end type="SOURCE" refId="88"/>    
+    <end type="TARGET" refId="14"/>  
+  </generalization>  
+  <association id="287">    
+    <bendpoint x="8046" y="1775"/>    
+    <bendpoint x="8046" y="2006"/>    
+    <bendpoint x="8046" y="2471"/>    
+    <end type="SOURCE" refId="60" navigable="false">      
+      <attribute id="288" name="dir"/>      
+      <multiplicity id="289" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="290">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="24"/>  
+  </realization>  
+  <association id="291">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="292" name="origin"/>      
+      <multiplicity id="293" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="294">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="78"/>  
+  </generalization>  
+  <realization id="295">    
+    <bendpoint x="6254" y="2792"/>    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="55"/>  
+  </realization>  
+  <generalization id="296">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="78"/>  
+  </generalization>  
+  <association id="297">    
+    <bendpoint x="6817" y="776"/>    
+    <bendpoint x="6817" y="1115"/>    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="298" name="listeners"/>      
+      <multiplicity id="299" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="300">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <generalization id="301">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="76"/>  
+  </generalization>  
+  <generalization id="302">    
+    <bendpoint x="7135" y="776"/>    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="40"/>  
+  </generalization>  
+  <realization id="303">    
+    <bendpoint x="8723" y="383"/>    
+    <bendpoint x="8723" y="776"/>    
+    <bendpoint x="8723" y="1115"/>    
+    <bendpoint x="8681" y="1472"/>    
+    <bendpoint x="8618" y="1775"/>    
+    <bendpoint x="8618" y="2006"/>    
+    <end type="SOURCE" refId="64"/>    
+    <end type="TARGET" refId="24"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

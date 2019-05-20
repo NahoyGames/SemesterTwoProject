@@ -52,8 +52,6 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 	@Override
 	public final void draw(Graphics2D renderBuffer)
 	{
-		if (sprite == null) { return; }
-
 		// Stores the --> Camera matrix
 		AffineTransform oldMatrix = renderBuffer.getTransform();
 
@@ -61,7 +59,7 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 		renderBuffer.translate(transform.position.x, -transform.position.y); // Negative y b/c top-left origin with java.swing :(
 		renderBuffer.rotate(Math.toRadians(transform.rotation));
 		renderBuffer.scale(transform.scale.x, transform.scale.y);
-		renderBuffer.translate(-(sprite.getWidth(null) * anchor.x), -(sprite.getHeight(null) * anchor.y));
+		if (sprite != null) { renderBuffer.translate(-(sprite.getWidth(null) * anchor.x), -(sprite.getHeight(null) * anchor.y)); }
 
 		// Alpha
 		renderBuffer.setComposite(AlphaComposite.SrcOver.derive(getAlpha()));
@@ -134,6 +132,13 @@ public abstract class GameEntity implements IDrawable, IEngineEventListener
 		}
 
 		return null;
+	}
+
+
+	public void removeBehavior(GameBehavior behavior)
+	{
+		behavior.onDisable();
+		behaviors.remove(behavior);
 	}
 
 

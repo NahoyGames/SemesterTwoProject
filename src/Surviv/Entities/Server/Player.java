@@ -8,6 +8,7 @@ import Surviv.Behaviors.Weapons.DesertEagle;
 import Surviv.Behaviors.Weapons.MachineGun;
 import Surviv.Behaviors.Weapons.Shotgun;
 import Surviv.Entities.Environment.IEnvironment;
+import Surviv.Entities.Items.LootItem;
 import Surviv.Networking.Packets.ClientLookAtPacket;
 import Surviv.Networking.Packets.PlayerChangeInventoryPacket;
 import Surviv.SurvivEngineConfiguration;
@@ -81,6 +82,13 @@ public class Player extends ServerGameEntity
 				if (other.getEntity() instanceof IEnvironment && !(Float.isNaN(info.normal.x) && Float.isNaN(info.normal.y)))
 				{
 					Player.this.transform.position = Player.this.transform.position.subtract(info.normal.scale(info.dist));
+				}
+				else if (other.getEntity() instanceof LootItem)
+				{
+					if (inputReceiver.getButtonDown(((SurvivEngineConfiguration)Engine.config()).PICK_UP_KEY))
+					{
+						System.out.println("Attempting to pick up an " + ((LootItem) other.getEntity()).getName() + " item!");
+					}
 				}
 			}
 		});

@@ -2,12 +2,12 @@ package Surviv.Entities.Server;
 
 import Surviv.Behaviors.Health.ServerHealthBehavior;
 import Surviv.Entities.Environment.IEnvironment;
-import Surviv.Entities.Items.Ak47Item;
 import Util.Engine.Networking.Client.ClientGameEntity;
 import Util.Engine.Networking.Packet;
 import Util.Engine.Networking.Server.ServerGameEntity;
 import Util.Engine.Networking.Server.ServerNetTransform;
 import Util.Engine.Physics.Colliders.BoxCollider;
+import Util.Engine.Physics.Colliders.CircleCollider;
 import Util.Engine.Scene;
 import Util.Math.Vec2f;
 import com.esotericsoftware.kryonet.Connection;
@@ -15,25 +15,25 @@ import com.esotericsoftware.kryonet.Connection;
 import java.awt.*;
 
 
-public class LootCrate extends ServerGameEntity implements IEnvironment
+public class Tree extends ServerGameEntity implements IEnvironment
 {
-	private static final String SPRITE_PATH = "/Assets/Sprites/Environment/crate.png";
+	private static final String SPRITE_PATH = "/Assets/Sprites/Environment/tree.png";
 
 	private ServerHealthBehavior health;
 
 
-	public LootCrate(Scene scene)
+	public Tree(Scene scene)
 	{
 		super(scene, SPRITE_PATH);
 
 		// Transform
-		transform().scale = Vec2f.one().scale(0.15f);
+		transform().scale = Vec2f.one().scale(0.45f);
 
 		// Collider
-		addBehavior(new BoxCollider(true, this, Vec2f.one().scale(150f)));
+		addBehavior(new CircleCollider(true, this, 50f));
 
 		// Behaviors
-		addBehavior(health = new ServerHealthBehavior(this, 50));
+		addBehavior(health = new ServerHealthBehavior(this, 75));
 		addBehavior(new ServerNetTransform(this, 1));
 	}
 
@@ -41,7 +41,7 @@ public class LootCrate extends ServerGameEntity implements IEnvironment
 	@Override
 	public int getLayer()
 	{
-		return 0;
+		return 5;
 	}
 
 
@@ -57,21 +57,12 @@ public class LootCrate extends ServerGameEntity implements IEnvironment
 	@Override
 	public Class<? extends ClientGameEntity> getClientCounterpart()
 	{
-		return Surviv.Entities.Client.LootCrate.class;
+		return Surviv.Entities.Client.Tree.class;
 	}
 
 	@Override
 	public void onReceivePacket(Connection sender, Packet packet)
 	{
 
-	}
-
-
-	@Override
-	public void onDisable()
-	{
-		super.onDisable();
-
-		scene.addEntity(new Ak47Item(scene, transform.position));
 	}
 }

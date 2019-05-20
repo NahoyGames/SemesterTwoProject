@@ -32,18 +32,27 @@ public class Scene implements IEngineEventListener
 	}
 
 
-	public void addEntity(GameEntity entity)
+	public GameEntity addEntity(GameEntity entity)
 	{
-		entities.add(entity);
-		entities.sort(Comparator.comparing(IDrawable::getLayer)); // Sorts by layer
-
-		// Network
-		if (entity instanceof NetGameEntity)
+		try
 		{
-			Engine.netManager().addNetEntity(((NetGameEntity)entity).getNetworkId(), (NetGameEntity) entity);
-		}
+			entities.add(entity);
+			entities.sort(Comparator.comparing(IDrawable::getLayer)); // Sorts by layer
 
-		entity.start();
+			// Network
+			if (entity instanceof NetGameEntity)
+			{
+				Engine.netManager().addNetEntity(((NetGameEntity) entity).getNetworkId(), (NetGameEntity) entity);
+			}
+
+			entity.start();
+
+			return entity;
+		}
+		catch (Exception e)
+		{
+			return null;
+		}
 	}
 
 

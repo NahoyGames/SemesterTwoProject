@@ -3,10 +3,13 @@ package Surviv.Entities.Client;
 import Surviv.Behaviors.FadeBehavior;
 import Surviv.Entities.Environment.IBouncyEnvironment;
 import Surviv.Entities.Server.Player;
+import Surviv.ParticleUtil;
 import Surviv.SurvivEngineConfiguration;
 import Util.Engine.Engine;
 import Util.Engine.Networking.Client.ClientGameEntity;
 import Util.Engine.Networking.Packet;
+import Util.Engine.Particles.ParticleSystem;
+import Util.Engine.Particles.ParticleSystemConfig;
 import Util.Engine.Physics.Collider;
 import Util.Engine.Physics.Colliders.PointCollider;
 import Util.Engine.Physics.CollisionInfo;
@@ -15,6 +18,8 @@ import Util.Engine.Time;
 import Util.Math.Compressor;
 import Util.Math.Vec2f;
 import com.esotericsoftware.kryonet.Connection;
+
+import java.awt.*;
 
 public class Bullet extends ClientGameEntity
 {
@@ -69,8 +74,10 @@ public class Bullet extends ClientGameEntity
 				{
 					if (other.getEntity() instanceof Player)
 					{
-						System.out.println("Player was shot!!");
+						//System.out.println("Player was shot!!");
 					}
+
+					//ParticleUtil.spawnExplosionParticles(scene, this.getOrigin(), 0.1f);
 
 					fadeBehavior.scheduleFade(0.01f, 0f, true);
 				}
