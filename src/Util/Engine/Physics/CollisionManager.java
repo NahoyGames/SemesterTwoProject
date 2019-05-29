@@ -42,12 +42,15 @@ public class CollisionManager
 			// Dynamic to dynamic
 			for (int d2 = d + 1; d2 < dynamicColliders.size(); d2++)
 			{
-				CollisionInfo collision = dynamicColliders.get(d).hasCollisionWith(dynamicColliders.get(d2));
+				Collider one = dynamicColliders.get(d);
+				Collider two = dynamicColliders.get(d2);
+
+				CollisionInfo collision = one.hasCollisionWith(two);
 
 				if (collision != null)
 				{
-					dynamicColliders.get(d).onCollision(dynamicColliders.get(d2), collision);
-					dynamicColliders.get(d2).onCollision(dynamicColliders.get(d), collision);
+					one.onCollision(two, collision);
+					two.onCollision(one, collision);
 				}
 			}
 		}

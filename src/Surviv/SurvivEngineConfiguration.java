@@ -1,8 +1,6 @@
 package Surviv;
 
 import Surviv.Entities.Client.*;
-import Surviv.Entities.Items.Ak47Item;
-import Surviv.Entities.Items.LootItem;
 import Surviv.Networking.Packets.*;
 import Util.Engine.EngineConfiguration;
 
@@ -26,7 +24,7 @@ public class SurvivEngineConfiguration extends EngineConfiguration
 
 	public final float MAX_BULLET_DISTANCE = 5000f;
 
-	public final List<Class<? extends LootItem>> REGISTERED_ITEMS = new ArrayList<>();
+	public final List<Class<? extends AmmoItem>> REGISTERED_ITEMS = new ArrayList<>();
 
 	public SurvivEngineConfiguration()
 	{
@@ -38,16 +36,13 @@ public class SurvivEngineConfiguration extends EngineConfiguration
 		REGISTERED_PACKETS.add(SpawnBulletPacket.class);
 		REGISTERED_PACKETS.add(PlayerChangeInventoryPacket.class);
 		REGISTERED_PACKETS.add(HealthPacket.class);
-		REGISTERED_PACKETS.add(SpawnItemPacket.class);
+		REGISTERED_PACKETS.add(AmmoChangePacket.class);
 
 
 		/** REGISTER ENTITIES >>HERE<< FOR BOTH CLIENT & SERVER **/
 		REGISTERED_ENTITIES.add(Player.class);
 		REGISTERED_ENTITIES.add(LootCrate.class);
 		REGISTERED_ENTITIES.add(Tree.class);
-
-
-		/** REGISTER LOOT ITEMS >>HERE<< FOR BOTH CLIENT & SERVER **/
-		REGISTERED_ITEMS.add(Ak47Item.class);
+		REGISTERED_ENTITIES.add(AmmoItem.class);
 	}
 }

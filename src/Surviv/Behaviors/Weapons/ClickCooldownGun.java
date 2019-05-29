@@ -5,6 +5,7 @@ import Surviv.Entities.Server.Bullet;
 import Surviv.Entities.Server.Player;
 import Util.Engine.Engine;
 import Util.Engine.GameEntity;
+import Util.Math.NetInt32;
 
 public class ClickCooldownGun extends ServerWeaponBehavior
 {
@@ -13,9 +14,9 @@ public class ClickCooldownGun extends ServerWeaponBehavior
 	protected float dist;
 
 
-	public ClickCooldownGun(GameEntity player, String spritePath, float fireRate, float dist, int damage)
+	public ClickCooldownGun(GameEntity player, NetInt32 ammo, String spritePath, float fireRate, float dist, int damage)
 	{
-		super(player, spritePath, fireRate, damage);
+		super(player, ammo, spritePath, fireRate, damage);
 
 		this.dist = dist;
 	}
@@ -40,7 +41,11 @@ public class ClickCooldownGun extends ServerWeaponBehavior
 	@Override
 	public void use()
 	{
-		player.getScene().addEntity(new Bullet(player.getScene(), player.transform().position.add(player.transform().forward().scale(30)), player.transform().rotation, dist, damage));
+		if (ammo.value > 0)
+		{
+			ammo.value -= 1;
+			player.getScene().addEntity(new Bullet(player.getScene(), player.transform().position.add(player.transform().forward().scale(30)), player.transform().rotation, dist, damage));
+		}
 	}
 
 

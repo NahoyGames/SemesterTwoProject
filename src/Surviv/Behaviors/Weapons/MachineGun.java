@@ -4,6 +4,7 @@ import Surviv.Entities.Server.Player;
 import Util.Engine.Engine;
 import Util.Engine.GameEntity;
 import Util.Engine.Time;
+import Util.Math.NetInt32;
 
 public class MachineGun extends AutoFireGun
 {
@@ -12,9 +13,9 @@ public class MachineGun extends AutoFireGun
 	private float loadUpTimer;
 
 
-	public MachineGun(GameEntity player)
+	public MachineGun(GameEntity player, NetInt32 ammo)
 	{
-		super(player, SPRITE_PATH, 20, 700, 25, 3);
+		super(player, ammo, SPRITE_PATH, 20, 700, 25, 3);
 	}
 
 

@@ -4,6 +4,7 @@ package Surviv.Behaviors;
 import Surviv.Entities.Server.Player;
 import Util.Engine.GameEntity;
 import Util.Engine.Time;
+import Util.Math.NetInt32;
 
 
 public abstract class ServerWeaponBehavior extends WeaponBehavior
@@ -13,14 +14,16 @@ public abstract class ServerWeaponBehavior extends WeaponBehavior
 	protected float fireRate;
 	protected float fireRateTimer;
 
+	protected NetInt32 ammo;
 
-	protected ServerWeaponBehavior(GameEntity player, String spritePath, int damage)
+
+	protected ServerWeaponBehavior(GameEntity player, NetInt32 ammo, String spritePath, int damage)
 	{
-		this(player, spritePath, 5, damage);
+		this(player, ammo, spritePath, 5, damage);
 	}
 
 
-	protected ServerWeaponBehavior(GameEntity player, String spritePath, float fireRate, int damage)
+	protected ServerWeaponBehavior(GameEntity player, NetInt32 ammo, String spritePath, float fireRate, int damage)
 	{
 		super(spritePath, damage);
 
@@ -28,6 +31,8 @@ public abstract class ServerWeaponBehavior extends WeaponBehavior
 		this.fireRate = fireRate;
 
 		this.fireRateTimer = 0;
+
+		this.ammo = ammo;
 	}
 
 

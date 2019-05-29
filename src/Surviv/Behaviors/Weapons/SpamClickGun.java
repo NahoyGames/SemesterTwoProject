@@ -5,6 +5,7 @@ import Surviv.Entities.Server.Bullet;
 import Surviv.Entities.Server.Player;
 import Util.Engine.Engine;
 import Util.Engine.GameEntity;
+import Util.Math.NetInt32;
 
 
 public abstract class SpamClickGun extends ServerWeaponBehavior
@@ -14,9 +15,9 @@ public abstract class SpamClickGun extends ServerWeaponBehavior
 	private float dist;
 
 
-	public SpamClickGun(GameEntity player, String spritePath, float dist, int damage)
+	public SpamClickGun(GameEntity player, NetInt32 ammo, String spritePath, float dist, int damage)
 	{
-		super(player, spritePath, damage);
+		super(player, ammo, spritePath, damage);
 
 		this.dist = dist;
 	}
@@ -40,7 +41,11 @@ public abstract class SpamClickGun extends ServerWeaponBehavior
 	@Override
 	public void use()
 	{
-		player.getScene().addEntity(new Bullet(player.getScene(), player.transform().position.add(player.transform().forward().scale(30)), player.transform().rotation, dist, damage));
+		if (ammo.value > 0)
+		{
+			ammo.value -= 1;
+			player.getScene().addEntity(new Bullet(player.getScene(), player.transform().position.add(player.transform().forward().scale(30)), player.transform().rotation, dist, damage));
+		}
 	}
 
 	@Override

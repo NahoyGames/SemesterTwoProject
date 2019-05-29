@@ -3,7 +3,9 @@ package Util.Engine.Networking.Client;
 import Util.Engine.Engine;
 import Util.Engine.Networking.NetGameEntity;
 import Util.Engine.Networking.Packet;
+import Util.Engine.Networking.Packets.DestroyEntityPacket;
 import Util.Engine.Scene;
+import com.esotericsoftware.kryonet.Connection;
 
 
 public abstract class ClientGameEntity extends NetGameEntity
@@ -29,5 +31,15 @@ public abstract class ClientGameEntity extends NetGameEntity
 	protected final void sendUnreliable(Packet packet)
 	{
 		((ClientNetManager)Engine.netManager()).sendUnreliable(packet);
+	}
+
+
+	@Override
+	public void onReceivePacket(Connection sender, Packet packet)
+	{
+		if (packet instanceof DestroyEntityPacket && ((DestroyEntityPacket)packet).networkId == getNetworkId())
+		{
+			scene.removeEntity(this);
+		}
 	}
 }

@@ -2,7 +2,6 @@ package Surviv.Entities.Server;
 
 import Surviv.Behaviors.Health.ServerHealthBehavior;
 import Surviv.Entities.Environment.IEnvironment;
-import Surviv.Entities.Items.Ak47Item;
 import Util.Engine.Networking.Client.ClientGameEntity;
 import Util.Engine.Networking.Packet;
 import Util.Engine.Networking.Server.ServerGameEntity;
@@ -72,6 +71,7 @@ public class LootCrate extends ServerGameEntity implements IEnvironment
 	{
 		super.onDisable();
 
-		scene.addEntity(new Ak47Item(scene, transform.position));
+		//scene.addEntity(new AmmoItem(scene, transform.position));
+		scene.addEntity(new AmmoItem(scene, transform.position));
 	}
 }

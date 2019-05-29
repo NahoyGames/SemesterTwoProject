@@ -15,7 +15,7 @@ public class ServerNetTransform extends GameBehavior
 	public ServerNetTransform(ServerGameEntity target, int syncRate)
 	{
 		this.target = target;
-		this.syncRate = 1 / syncRate;
+		this.syncRate = this.timeElapsed = 1 / syncRate;
 
 		this.lastSentTransform = new Transform2D();
 	}

@@ -1,8 +1,8 @@
 package Surviv.Scenes.Client;
 
 import Surviv.Entities.Client.Bullet;
+import Surviv.Entities.Common.PlayersAliveDisplay;
 import Surviv.Networking.Packets.SpawnBulletPacket;
-import Surviv.Networking.Packets.SpawnItemPacket;
 import Surviv.Scenes.SurvivMap;
 import Surviv.SurvivEngineConfiguration;
 import Util.Engine.Engine;
@@ -31,6 +31,8 @@ public class SurvivGameScene extends Scene implements INetworkListener
 
 		Engine.netManager().addListener(this);
 		Engine.canvas().getFrame().setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));
+
+		addEntity(new PlayersAliveDisplay(this));
 	}
 
 
@@ -43,19 +45,5 @@ public class SurvivGameScene extends Scene implements INetworkListener
 
 			addEntity(new Bullet(this, bulletPacket.origin, bulletPacket.dir, bulletPacket.dist));
 		}
-		else if (packet instanceof SpawnItemPacket)
-		{
-			SpawnItemPacket itemPacket = (SpawnItemPacket)packet;
-
-			try
-			{
-				addEntity(((SurvivEngineConfiguration) Engine.config()).REGISTERED_ITEMS.get(itemPacket.itemIndex).getConstructor(Scene.class, Vec2f.class).newInstance(this, new Vec2f(itemPacket.x, itemPacket.y)));
-			}
-			catch (Exception e)
-			{
-				System.err.println("Unable to spawn entity " + ((SurvivEngineConfiguration) Engine.config()).REGISTERED_ITEMS.get(itemPacket.itemIndex).getName());
-			}
-		}
 	}
-
 }

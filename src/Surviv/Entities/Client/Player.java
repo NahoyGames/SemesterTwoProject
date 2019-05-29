@@ -8,6 +8,7 @@ import Surviv.Behaviors.Weapons.DesertEagle;
 import Surviv.Behaviors.Weapons.MachineGun;
 import Surviv.Behaviors.Weapons.Shotgun;
 import Surviv.Entities.Environment.IEnvironment;
+import Surviv.Networking.Packets.AmmoChangePacket;
 import Surviv.Networking.Packets.ClientLookAtPacket;
 import Surviv.Networking.Packets.PlayerChangeInventoryPacket;
 import Surviv.Networking.Packets.TestRequestPacket;
@@ -23,6 +24,7 @@ import Util.Engine.Physics.Collider;
 import Util.Engine.Physics.Colliders.CircleCollider;
 import Util.Engine.Physics.CollisionInfo;
 import Util.Engine.Scene;
+import Util.Math.NetInt32;
 import Util.Math.Vec2f;
 import com.esotericsoftware.kryonet.Connection;
 
@@ -34,6 +36,9 @@ import java.awt.event.MouseMotionAdapter;
 public class Player extends ClientGameEntity
 {
 	private static final String SPRITE_PATH = "/Assets/Sprites/character.png";
+
+	private static int playersAlive = 0;
+
 	private boolean hasLocalPlayerAuthority;
 
 	private int equippedWeaponIndex;
@@ -42,10 +47,15 @@ public class Player extends ClientGameEntity
 	private ClientHealthBehavior health;
 	private Collider collider;
 
+	private NetInt32 ammo;
+
 
 	public Player(Scene scene, short networkId)
 	{
 		super(scene, SPRITE_PATH, networkId);
+
+		// Increment alive players
+		playersAlive++;
 
 		// Initial transform
 		transform.scale = Vec2f.one().scale(0.15f);
@@ -67,13 +77,16 @@ public class Player extends ClientGameEntity
 				}));
 		addBehavior(health = new ClientHealthBehavior(this, 100));
 
+		// Ammo
+		ammo = new NetInt32(-1, scene, AmmoChangePacket.class);
+
 		// Inventory
 		inventory = new WeaponBehavior[]
 				{
-						(WeaponBehavior) addBehavior(new Ak47(this)),
-						(WeaponBehavior) addBehavior(new Shotgun(this)),
-						(WeaponBehavior) addBehavior(new DesertEagle(this)),
-						(WeaponBehavior) addBehavior(new MachineGun(this))
+						(WeaponBehavior) addBehavior(new Ak47(this, null)),
+						(WeaponBehavior) addBehavior(new Shotgun(this, null)),
+						(WeaponBehavior) addBehavior(new DesertEagle(this, null)),
+						(WeaponBehavior) addBehavior(new MachineGun(this, null))
 				};
 
 		// Hitbox
@@ -119,6 +132,10 @@ public class Player extends ClientGameEntity
 		super.drawGui(renderBuffer);
 
 		health.drawHealthBar(renderBuffer, -30);
+
+		// Ammo
+		renderBuffer.setColor(Color.GREEN);
+		renderBuffer.drawString(ammo.value + "", 10, 10);
 	}
 
 	@Override
@@ -131,6 +148,8 @@ public class Player extends ClientGameEntity
 	@Override
 	public void onReceivePacket(Connection sender, Packet packet)
 	{
+		super.onReceivePacket(sender, packet);
+
 		if (packet instanceof TestRequestPacket)
 		{
 			System.out.println(((TestRequestPacket)packet).message);
@@ -180,5 +199,20 @@ public class Player extends ClientGameEntity
 		{
 			Engine.scene().camera().transform().position = this.transform.position;
 		}
+	}
+
+
+	@Override
+	public void onDisable()
+	{
+		super.onDisable();
+
+		playersAlive--;
+	}
+
+
+	public static int getPlayersAlive()
+	{
+		return playersAlive;
 	}
 }
